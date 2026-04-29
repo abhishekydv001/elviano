@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>ELVIANO — Limited Edition Printed Apparel | Impressions in Ink</title>
+    <meta name="title" content="ELVIANO — Limited Edition Printed Apparel | Impressions in Ink">
+    <meta name="description" content="Premium limited edition printed shirts and tees. Hand-pulled screen prints. Curated personally. Never restocked. Designed in India.">
+    <meta name="keywords" content="printed tshirts, screen printed shirts, limited edition clothing, premium menswear, Indian fashion, hand printed tees, Elviano">
+    <meta name="author" content="ELVIANO">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elviano.in/">
+    <meta property="og:title" content="ELVIANO — Limited Edition Printed Apparel">
+    <meta property="og:description" content="Premium limited edition printed shirts and tees. Hand-pulled screen prints. Never restocked.">
+    <meta property="og:image" content="https://elviano.in/assets/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://elviano.in/">
+    <meta property="twitter:title" content="ELVIANO — Limited Edition Printed Apparel">
+    <meta property="twitter:description" content="Premium limited edition printed shirts and tees. Hand-pulled screen prints. Never restocked.">
+    <meta property="twitter:image" content="https://elviano.in/assets/og-image.jpg">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://elviano.in/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='70' font-family='Georgia' font-size='60' text-anchor='middle' fill='%230F0F0F'%3EE%3C/text%3E%3C/svg%3E">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <style>
+        /* ============================================ */
+        /* ELVIANO - COMPLETE HOMEPAGE STYLES + FEATURES */
+        /* ============================================ */
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --elviano-black: #0F0F0F;
+            --elviano-ivory: #F9F6F0;
+            --elviano-clay: #C4735A;
+            --elviano-olive: #5A6B4A;
+            --elviano-stone: #D4CFC7;
+            --elviano-text-light: #6B6B6B;
+            --elviano-border: #E8E2D9;
+            --elviano-success: #5A6B4A;
+            --elviano-error: #D9534F;
+        }
+
+        body { background: var(--elviano-ivory); font-family: 'Inter', sans-serif; font-weight: 300; color: var(--elviano-black); line-height: 1.6; }
+        h1, h2, h3, h4, .serif { font-family: 'Cormorant Garamond', serif; font-weight: 300; letter-spacing: -0.02em; }
+        .container { max-width: 1600px; margin: 0 auto; padding: 0 2rem; }
+        .eyebrow { text-transform: uppercase; letter-spacing: 0.25em; font-size: 0.7rem; font-weight: 400; color: var(--elviano-text-light); }
+
+        /* Page Loader */
+        .page-loader { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--elviano-ivory); z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
+        .page-loader.hide { opacity: 0; visibility: hidden; }
+        .loader-logo { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; letter-spacing: 0.3em; margin-bottom: 2rem; animation: pulse 1.5s ease-in-out infinite; }
+        .loader-line { width: 100px; height: 1px; background: var(--elviano-black); position: relative; overflow: hidden; }
+        .loader-line::after { content: ''; position: absolute; width: 50%; height: 100%; background: var(--elviano-clay); animation: loading 1s ease-in-out infinite; }
+        @keyframes loading { 0% { left: -50%; } 100% { left: 100%; } }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+        /* Navigation */
+        nav { position: fixed; top: 0; left: 0; right: 0; padding: 2rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; mix-blend-mode: difference; color: white; transition: background 0.3s ease, backdrop-filter 0.3s ease; }
+        .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; letter-spacing: 0.3em; text-transform: uppercase; color: white; text-decoration: none; }
+        .nav-links { display: flex; gap: 3rem; }
+        .nav-links a { color: white; text-decoration: none; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.2em; font-weight: 400; transition: opacity 0.3s ease; }
+        .nav-links a:hover { opacity: 0.7; }
+        .cart-link { color: white; text-decoration: none; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; }
+        .cart-count { background: white; color: var(--elviano-black); font-size: 0.6rem; padding: 0.15rem 0.4rem; border-radius: 50%; margin-left: 0.3rem; }
+
+        /* Hamburger */
+        .hamburger { display: none; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; cursor: pointer; z-index: 1000; }
+        .hamburger span { display: block; width: 100%; height: 1.5px; background: white; transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        .mobile-menu { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--elviano-ivory); z-index: 999; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.4s ease; }
+        .mobile-menu.active { opacity: 1; visibility: visible; }
+        .mobile-menu-links { display: flex; flex-direction: column; align-items: center; gap: 2.5rem; }
+        .mobile-menu-links a { color: var(--elviano-black); text-decoration: none; font-size: 2rem; font-family: 'Cormorant Garamond', serif; font-weight: 300; text-transform: uppercase; transform: translateY(20px); opacity: 0; transition: all 0.4s ease; }
+        .mobile-menu.active .mobile-menu-links a { transform: translateY(0); opacity: 1; }
+        .mobile-menu-links a:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-menu-links a:nth-child(2) { transition-delay: 0.2s; }
+        .mobile-menu-links a:nth-child(3) { transition-delay: 0.3s; }
+        .mobile-menu-links a:nth-child(4) { transition-delay: 0.4s; }
+        .mobile-menu-footer { position: absolute; bottom: 3rem; text-align: center; opacity: 0; transform: translateY(20px); transition: all 0.4s ease 0.5s; }
+        .mobile-menu.active .mobile-menu-footer { opacity: 1; transform: translateY(0); }
+        .mobile-menu-footer p { color: var(--elviano-text-light); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1rem; }
+        .mobile-social { display: flex; gap: 2rem; justify-content: center; }
+        .mobile-social a { color: var(--elviano-black); font-size: 1.2rem; opacity: 0.5; text-decoration: none; }
+        body.menu-open { overflow: hidden; }
+        nav.light-nav.scrolled { background: rgba(249, 246, 240, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--elviano-border); mix-blend-mode: normal; }
+        nav.light-nav.scrolled .hamburger span { background: var(--elviano-black); }
+        nav.light-nav.scrolled .logo, nav.light-nav.scrolled .cart-link, nav.light-nav.scrolled .nav-links a { color: var(--elviano-black); }
+
+        /* Hero */
+        .hero { height: 100vh; display: flex; align-items: flex-end; padding-bottom: 4rem; position: relative; background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.35) 100%), url('https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat; }
+        .hero-content { color: white; max-width: 800px; }
+        .hero .eyebrow { color: rgba(255,255,255,0.8); margin-bottom: 1rem; }
+        h1 { font-size: clamp(3.5rem, 12vw, 7rem); line-height: 0.95; font-weight: 300; }
+        .hero-cta { display: inline-block; margin-top: 2rem; color: white; text-decoration: none; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.5); padding-bottom: 0.5rem; transition: border-color 0.3s ease; }
+        .hero-cta:hover { border-bottom-color: white; }
+
+        /* Editorial Grid */
+        .editorial-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 3rem; margin: 8rem 0; }
+        .editorial-grid.reverse { grid-template-columns: 1fr 1.5fr; }
+        .editorial-image { position: relative; overflow: hidden; aspect-ratio: 4/5; }
+        .editorial-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .editorial-image:hover img { transform: scale(1.02); }
+        .editorial-text { display: flex; flex-direction: column; justify-content: center; padding: 2rem; }
+        h2 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 300; }
+        .editorial-text p { font-size: 1.125rem; margin-top: 1.5rem; color: var(--elviano-text-light); }
+        .editorial-cta { display: inline-block; margin-top: 2rem; color: var(--elviano-black); text-decoration: none; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.7rem; border-bottom: 1px solid var(--elviano-black); padding-bottom: 0.25rem; align-self: flex-start; }
+        .signature { margin-top: 1.5rem; font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; }
+
+        /* Product Strip */
+        .feature-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin: 5rem 0 8rem; }
+        .feature-item { text-align: left; }
+        .feature-item img { width: 100%; aspect-ratio: 3/4; object-fit: cover; margin-bottom: 1.5rem; transition: opacity 0.3s ease; }
+        .feature-item:hover img { opacity: 0.85; }
+        .feature-item h4 { font-size: 1.25rem; font-weight: 400; margin-bottom: 0.25rem; }
+        .feature-item .price { color: var(--elviano-text-light); font-size: 0.85rem; }
+        .quick-view-trigger { display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0; background: transparent; border: none; border-bottom: 1px solid var(--elviano-border); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--elviano-text-light); cursor: pointer; transition: all 0.3s ease; }
+        .quick-view-trigger:hover { color: var(--elviano-black); border-bottom-color: var(--elviano-black); }
+
+        /* Journal */
+        .journal-section { border-top: 1px solid var(--elviano-stone); padding: 5rem 0; margin-top: 4rem; }
+        .journal-header { text-align: center; margin-bottom: 3rem; }
+        .journal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+        .journal-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; margin-bottom: 1.5rem; }
+        .journal-eyebrow { text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.65rem; color: var(--elviano-clay); margin-bottom: 0.5rem; }
+        .journal-card h3 { font-size: 1.5rem; margin-bottom: 0.75rem; font-weight: 400; }
+        .journal-card p { color: var(--elviano-text-light); font-size: 0.9rem; margin-bottom: 1rem; }
+        .read-more { text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.65rem; text-decoration: none; color: var(--elviano-black); border-bottom: 1px solid var(--elviano-black); padding-bottom: 0.25rem; }
+
+        /* Quick View Modal */
+        .quickview-modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 1001; display: none; align-items: center; justify-content: center; }
+        .quickview-modal.active { display: flex; }
+        .quickview-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(3px); }
+        .quickview-content { position: relative; background: white; max-width: 900px; width: 90%; max-height: 85vh; overflow-y: auto; z-index: 1002; }
+        .quickview-close { position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; z-index: 10; }
+        .quickview-grid { display: grid; grid-template-columns: 1fr 1fr; }
+        .quickview-image img { width: 100%; height: 100%; object-fit: cover; }
+        .quickview-info { padding: 2rem; }
+        .quickview-info .product-eyebrow { text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.65rem; color: var(--elviano-clay); margin-bottom: 0.5rem; }
+        .quickview-info h2 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .quickview-info .product-price { font-size: 1.5rem; margin-bottom: 1rem; }
+        .quickview-size { margin-bottom: 2rem; }
+        .quickview-size .size-label { text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.7rem; margin-bottom: 0.75rem; }
+        .quickview-size .size-options { display: flex; gap: 0.5rem; }
+        .quickview-size .size-option { width: 50px; height: 40px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--elviano-border); font-size: 0.8rem; cursor: pointer; }
+        .quickview-size .size-option.selected { background: var(--elviano-black); color: white; }
+        .view-full-link { display: inline-block; color: var(--elviano-text-light); text-decoration: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+        .quick-add-btn { width: 100%; padding: 1rem; background: var(--elviano-black); color: white; border: none; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.75rem; cursor: pointer; }
+
+        /* Toast */
+        .toast-container { position: fixed; bottom: 2rem; right: 2rem; z-index: 9999; display: flex; flex-direction: column; gap: 0.75rem; }
+        .toast-message { background: var(--elviano-black); color: white; padding: 1rem 2rem; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem; animation: toastSlideIn 0.3s ease; border-left: 3px solid var(--elviano-success); }
+        @keyframes toastSlideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+        /* WhatsApp */
+        .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; text-decoration: none; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); z-index: 997; transition: transform 0.3s ease; }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        .whatsapp-tooltip { position: absolute; right: 70px; background: var(--elviano-black); color: white; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.7rem; text-transform: uppercase; white-space: nowrap; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        .whatsapp-float:hover .whatsapp-tooltip { opacity: 1; visibility: visible; right: 75px; }
+
+        /* AI Assistant */
+        .ai-assistant-widget { position: fixed; bottom: 90px; left: 2rem; z-index: 995; }
+        .ai-toggle-btn { display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.5rem; background: linear-gradient(135deg, var(--elviano-black) 0%, #2A2A2A 100%); color: white; border: none; border-radius: 50px; font-size: 0.9rem; font-weight: 500; cursor: pointer; box-shadow: 0 8px 25px rgba(0,0,0,0.2); transition: transform 0.3s ease; }
+        .ai-toggle-btn:hover { transform: translateY(-3px); }
+        .ai-toggle-btn i { font-size: 1.25rem; color: var(--elviano-clay); }
+        .ai-pulse { width: 10px; height: 10px; background: #4CAF50; border-radius: 50%; animation: aiPulse 1.5s infinite; }
+        @keyframes aiPulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.2); } }
+        .ai-chat-window { position: absolute; bottom: 80px; left: 0; width: 380px; max-width: 90vw; background: white; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); overflow: hidden; border: 1px solid var(--elviano-border); }
+        .ai-chat-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: linear-gradient(135deg, var(--elviano-black) 0%, #2A2A2A 100%); color: white; }
+        .ai-avatar { display: flex; align-items: center; gap: 0.5rem; }
+        .ai-avatar i { font-size: 1.5rem; color: var(--elviano-clay); }
+        .ai-close-btn { background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; opacity: 0.7; }
+        .ai-chat-messages { height: 350px; overflow-y: auto; padding: 1rem; background: var(--elviano-ivory); }
+        .ai-message { display: flex; gap: 0.75rem; margin-bottom: 1rem; }
+        .ai-message.bot i { color: var(--elviano-clay); font-size: 1.25rem; }
+        .ai-message.user { flex-direction: row-reverse; }
+        .ai-message.user .message-content { background: var(--elviano-black); color: white; border-radius: 16px 4px 16px 16px; }
+        .message-content { background: white; padding: 0.75rem 1rem; border-radius: 4px 16px 16px 16px; max-width: 80%; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .message-content p { margin-bottom: 0.5rem; font-size: 0.9rem; }
+        .ai-quick-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 1rem; background: white; border-top: 1px solid var(--elviano-border); }
+        .ai-quick-actions button { padding: 0.5rem 1rem; background: var(--elviano-ivory); border: 1px solid var(--elviano-border); border-radius: 20px; font-size: 0.75rem; cursor: pointer; transition: all 0.2s ease; }
+        .ai-quick-actions button:hover { background: var(--elviano-black); color: white; border-color: var(--elviano-black); }
+        .ai-chat-input { display: flex; padding: 1rem; background: white; border-top: 1px solid var(--elviano-border); }
+        .ai-chat-input input { flex: 1; padding: 0.75rem 1rem; border: 1px solid var(--elviano-border); border-radius: 25px; font-size: 0.85rem; }
+        .ai-chat-input button { width: 45px; height: 45px; margin-left: 0.5rem; background: var(--elviano-black); color: white; border: none; border-radius: 50%; cursor: pointer; }
+
+        /* Live Notification */
+        .live-notification { position: fixed; bottom: 90px; left: 2rem; background: white; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); padding: 1rem; z-index: 994; max-width: 320px; border-left: 4px solid var(--elviano-success); display: none; animation: slideInLeft 0.4s ease; }
+        @keyframes slideInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+        .notification-content { display: flex; align-items: center; gap: 0.75rem; }
+        .notification-content i { font-size: 2rem; color: var(--elviano-clay); }
+        .notification-text { display: flex; flex-direction: column; }
+        .notification-text span { font-size: 0.85rem; font-weight: 500; }
+        .notification-text small { font-size: 0.7rem; color: var(--elviano-text-light); text-transform: uppercase; }
+        .notification-close { background: none; border: none; font-size: 1.25rem; cursor: pointer; color: var(--elviano-text-light); margin-left: auto; }
+
+        /* Footer */
+        footer { background: var(--elviano-black); color: var(--elviano-ivory); padding: 5rem 2rem 2rem; margin-top: 4rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; max-width: 1600px; margin: 0 auto; }
+        .footer-grid h5 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 400; }
+        .footer-grid ul { list-style: none; }
+        .footer-grid li { margin-bottom: 0.75rem; opacity: 0.7; font-size: 0.85rem; cursor: pointer; }
+        .footer-tagline { opacity: 0.7; font-size: 0.9rem; }
+        .newsletter-input { display: flex; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 0.5rem; margin-top: 1rem; }
+        .newsletter-input input { background: transparent; border: none; color: white; padding: 0.5rem 0; flex: 1; outline: none; }
+        .newsletter-input button { background: transparent; border: none; color: white; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.7rem; cursor: pointer; }
+        .footer-bottom { max-width: 1600px; margin: 4rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; opacity: 0.5; font-size: 0.75rem; text-transform: uppercase; }
+
+        /* Responsive */
+        @media (max-width: 1024px) { .feature-strip { grid-template-columns: repeat(2, 1fr); } .journal-grid { grid-template-columns: repeat(2, 1fr); } .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) {
+            .hamburger { display: flex; } .nav-links { display: none; } nav { padding: 1.5rem; } .logo { font-size: 1.5rem; letter-spacing: 0.2em; }
+            .editorial-grid, .editorial-grid.reverse { grid-template-columns: 1fr; margin: 4rem 0; } .feature-strip { grid-template-columns: 1fr; } .journal-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; } .quickview-grid { grid-template-columns: 1fr; } .whatsapp-float { width: 50px; height: 50px; font-size: 1.5rem; } .whatsapp-tooltip { display: none; }
+            .ai-assistant-widget { bottom: 80px; left: 1rem; } .ai-toggle-btn span { display: none; } .ai-toggle-btn { padding: 0.9rem; border-radius: 50%; } .ai-chat-window { width: 300px; }
+            .live-notification { bottom: 140px; left: 1rem; right: 1rem; max-width: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader"><div class="loader-logo">ELVIANO</div><div class="loader-line"></div></div>
+
+    <!-- Navigation -->
+    <nav class="light-nav">
+        <a href="index.html" class="logo">ELVIANO</a>
+        <div class="nav-links"><a href="#">Editions</a><a href="lookbook.html">Lookbook</a><a href="journal.html">Journal</a><a href="about.html">About</a></div>
+        <a href="cart.html" class="cart-link">Cart <span class="cart-count">0</span></a>
+        <div class="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="eyebrow">Elviano Editions — 01</div>
+                <h1>Impressions<br>In Ink</h1>
+                <p style="margin-top: 1.5rem; max-width: 480px; opacity: 0.9;">Limited-run printed shirts and tees. Designed with intention. Never restocked.</p>
+                <a href="product.html" class="hero-cta">Explore Edition 01 →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy -->
+    <div class="container">
+        <div class="editorial-grid">
+            <div class="editorial-image"><img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=2000&auto=format&fit=crop" alt="Screen Printing"></div>
+            <div class="editorial-text"><div class="eyebrow">The Philosophy</div><h2>Each piece<br>carries a mark</h2><p>Elviano was founded on a simple belief—clothing should be intentional. Every edition is limited. Every print is considered.</p><div class="signature">— Abhishek</div><a href="about.html" class="editorial-cta">Our Story →</a></div>
+        </div>
+    </div>
+
+    <!-- Second Editorial -->
+    <div class="container">
+        <div class="editorial-grid reverse">
+            <div class="editorial-text"><div class="eyebrow">The Process</div><h2>Pressed by hand<br>not machine</h2><p>Each print is pulled by hand. Subtle variations make every piece unique.</p><a href="lookbook.html" class="editorial-cta">Watch the Process →</a></div>
+            <div class="editorial-image"><img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=2000&auto=format&fit=crop" alt="Process"></div>
+        </div>
+    </div>
+
+    <!-- Products -->
+    <div class="container">
+        <div style="text-align: center; margin: 4rem 0 2rem;"><div class="eyebrow">Edition 01 — Available Now</div><h2 style="margin-top: 0.5rem;">Limited Impressions</h2></div>
+        <div class="feature-strip">
+            <div class="feature-item"><img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=2000&auto=format&fit=crop" alt="Edition Tee 01"><h4>Edition Tee 01</h4><div class="price">₹1,499</div><button class="quick-view-trigger" onclick="openQuickView({image:'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=2000',title:'Edition Tee 01',price:'₹1,499',desc:'The foundational Elviano silhouette. 220 GSM combed cotton.'})">Quick View</button></div>
+            <div class="feature-item"><img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=2000&auto=format&fit=crop" alt="Camp Shirt"><h4>Camp Shirt</h4><div class="price">₹2,799</div><button class="quick-view-trigger" onclick="openQuickView({image:'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=2000',title:'Camp Shirt',price:'₹2,799',desc:'Relaxed camp collar. Monsoon print.'})">Quick View</button></div>
+            <div class="feature-item"><img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=2000&auto=format&fit=crop" alt="Oversized Tee"><h4>Oversized Tee</h4><div class="price">₹1,899</div><button class="quick-view-trigger" onclick="openQuickView({image:'https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=2000',title:'Oversized Tee',price:'₹1,899',desc:'Generous silhouette. Dropped shoulders.'})">Quick View</button></div>
+            <div class="feature-item"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=2000&auto=format&fit=crop" alt="Signature Print"><h4>Signature Print</h4><div class="price">₹1,699</div><button class="quick-view-trigger" onclick="openQuickView({image:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=2000',title:'Signature Print',price:'₹1,699',desc:'Elviano wordmark. Bold and minimal.'})">Quick View</button></div>
+        </div>
+    </div>
+
+    <!-- Journal -->
+    <div class="container">
+        <div class="journal-section">
+            <div class="journal-header"><div class="eyebrow">Stories from Elviano</div><h2>The Journal</h2></div>
+            <div class="journal-grid">
+                <div class="journal-card"><img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=2000&auto=format&fit=crop" alt="Screen Printing"><div class="journal-eyebrow">Process</div><h3>On Screen Printing</h3><p>The handmade impression—why each piece carries variation.</p><a href="journal.html" class="read-more">Read Story →</a></div>
+                <div class="journal-card"><img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=2000&auto=format&fit=crop" alt="Edition 01"><div class="journal-eyebrow">Behind the Design</div><h3>Edition 01 / Monsoon</h3><p>The palette of Mumbai rains—our first collection.</p><a href="journal.html" class="read-more">Read Story →</a></div>
+                <div class="journal-card"><img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=2000&auto=format&fit=crop" alt="Fabric"><div class="journal-eyebrow">Materials</div><h3>The 220 GSM Standard</h3><p>Why weight matters—our commitment to substantial fabric.</p><a href="journal.html" class="read-more">Read Story →</a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div><h5>ELVIANO</h5><p class="footer-tagline">Limited edition printed apparel. Designed with intention. Never restocked.</p></div>
+            <div><h5>Shop</h5><ul><li>Edition 01</li><li>All Tees</li><li>All Shirts</li><li>Lookbook</li></ul></div>
+            <div><h5>Information</h5><ul><li>About</li><li>Size Guide</li><li>Shipping</li><li>Returns</li><li>Contact</li></ul></div>
+            <div><h5>Receive Editions</h5><p class="footer-tagline">Early access to new drops.</p><div class="newsletter-input"><input type="email" placeholder="Your email"><button>Subscribe →</button></div></div>
+        </div>
+        <div class="footer-bottom">© 2026 Elviano. All rights reserved. — Impressions in Ink.<br>Jagdalpur, Bastar, Chhattisgarh - 494001</div>
+    </footer>
+
+    <!-- Quick View Modal -->
+    <div class="quickview-modal" id="quickviewModal"><div class="quickview-overlay" onclick="closeQuickView()"></div><div class="quickview-content"><button class="quickview-close" onclick="closeQuickView()">&times;</button><div class="quickview-grid"><div class="quickview-image"><img src="" alt="Product" id="quickviewImage"></div><div class="quickview-info"><div class="product-eyebrow">Edition 01 — Monsoon</div><h2 id="quickviewTitle"></h2><div class="product-price" id="quickviewPrice"></div><p id="quickviewDesc"></p><div class="quickview-size"><div class="size-label">Select Size</div><div class="size-options"><div class="size-option">S</div><div class="size-option selected">M</div><div class="size-option">L</div><div class="size-option">XL</div></div></div><div class="quickview-actions"><a href="product.html" class="view-full-link">View Full Details →</a><button class="quick-add-btn" onclick="quickAddToCart()">Add to Cart — <span id="quickviewPriceBtn"></span></button></div></div></div></div></div>
+
+    <!-- Toast -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/916260323405?text=Hi%20ELVIANO%2C%20I'm%20interested%20in%20your%20products!" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i><span class="whatsapp-tooltip">Chat with us!</span></a>
+
+    <!-- AI Assistant -->
+    <div class="ai-assistant-widget" id="aiAssistant"><button class="ai-toggle-btn" onclick="toggleAIAssistant()"><i class="fas fa-robot"></i><span>Ask ELVIANO AI</span><span class="ai-pulse"></span></button><div class="ai-chat-window" id="aiChatWindow" style="display: none;"><div class="ai-chat-header"><div class="ai-avatar"><i class="fas fa-robot"></i><span>ELVIANO AI Assistant</span></div><button class="ai-close-btn" onclick="toggleAIAssistant()">&times;</button></div><div class="ai-chat-messages" id="aiChatMessages"><div class="ai-message bot"><i class="fas fa-robot"></i><div class="message-content"><p>Hi! I'm the ELVIANO AI assistant. 👋</p><p>I can help you with: 📏 Size, 🎨 Fabric, 📦 Shipping, 🛍️ Recommendations.</p><p>What would you like to know?</p></div></div></div><div class="ai-quick-actions"><button onclick="sendQuickReply('What sizes are available?')">Size Guide</button><button onclick="sendQuickReply('Tell me about the fabric quality')">Fabric Info</button><button onclick="sendQuickReply('What\'s your return policy?')">Returns</button></div><div class="ai-chat-input"><input type="text" id="aiMessageInput" placeholder="Type your question..." onkeypress="handleAIKeyPress(event)"><button onclick="sendAIMessage()"><i class="fas fa-paper-plane"></i></button></div></div></div>
+
+    <!-- Live Notification -->
+    <div class="live-notification" id="liveNotification"><div class="notification-content"><i class="fas fa-user-circle"></i><div class="notification-text"><span id="notificationMessage">Someone just bought Edition Tee 01</span><small>Just now</small></div><button class="notification-close" onclick="closeNotification()">&times;</button></div></div>
+
+    <script>
+        window.addEventListener('load', () => setTimeout(() => document.getElementById('pageLoader').classList.add('hide'), 800));
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray('.editorial-text').forEach(el => { gsap.from(el, { scrollTrigger: { trigger: el, start: "top 80%" }, opacity: 0, y: 40, duration: 1 }); });
+        gsap.from('.feature-item', { scrollTrigger: { trigger: '.feature-strip', start: "top 85%" }, opacity: 0, y: 30, stagger: 0.12, duration: 0.8 });
+
+        function showToast(msg, type='success') { const c = document.getElementById('toastContainer'); const t = document.createElement('div'); t.className = 'toast-message ' + type; t.textContent = msg; c.appendChild(t); setTimeout(() => { t.style.animation = 'toastSlideIn 0.3s ease reverse'; setTimeout(() => t.remove(), 300); }, 3000); }
+        function openQuickView(p) { document.getElementById('quickviewImage').src = p.image; document.getElementById('quickviewTitle').textContent = p.title; document.getElementById('quickviewPrice').textContent = p.price; document.getElementById('quickviewPriceBtn').textContent = p.price; document.getElementById('quickviewDesc').textContent = p.desc; document.getElementById('quickviewModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeQuickView() { document.getElementById('quickviewModal').classList.remove('active'); document.body.style.overflow = ''; }
+        function quickAddToCart() { closeQuickView(); showToast('Added to Cart!', 'success'); }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeQuickView(); });
+        document.querySelectorAll('.quickview-size .size-option').forEach(o => o.addEventListener('click', function() { document.querySelectorAll('.quickview-size .size-option').forEach(s => s.classList.remove('selected')); this.classList.add('selected'); }));
+
+        const aiResponses = { size: { keywords: ['size','fit'], response: '• S: 38" Chest, 27" Length\n• M: 40" Chest, 28" Length\n• L: 42" Chest, 29" Length\n• XL: 44" Chest, 30" Length' }, fabric: { keywords: ['fabric','cotton'], response: '220 GSM combed cotton. Bio-washed for softness.' }, shipping: { keywords: ['shipping','delivery'], response: 'FREE on orders above ₹2,499. 3-7 business days.' }, returns: { keywords: ['return','refund'], response: '7-day easy returns. Items must be unworn.' } };
+        function toggleAIAssistant() { const w = document.getElementById('aiChatWindow'); w.style.display = w.style.display === 'none' ? 'block' : 'none'; }
+        function sendAIMessage() { const input = document.getElementById('aiMessageInput'), msg = input.value.trim(); if(!msg) return; addAIMessage(msg, 'user'); input.value = ''; setTimeout(() => { let response = ''; const lower = msg.toLowerCase(); for(let k in aiResponses) if(aiResponses[k].keywords.some(kw => lower.includes(kw))) { response = aiResponses[k].response; break; } if(!response) response = 'Thanks! I can help with size, fabric, shipping, or returns.'; addAIMessage(response, 'bot'); }, 800); }
+        function sendQuickReply(msg) { addAIMessage(msg, 'user'); setTimeout(() => { let response = ''; const lower = msg.toLowerCase(); for(let k in aiResponses) if(aiResponses[k].keywords.some(kw => lower.includes(kw))) { response = aiResponses[k].response; break; } if(!response) response = 'Thanks! I can help with size, fabric, shipping, or returns.'; addAIMessage(response, 'bot'); }, 800); }
+        function addAIMessage(content, sender) { const msgs = document.getElementById('aiChatMessages'); const div = document.createElement('div'); div.className = `ai-message ${sender}`; div.innerHTML = sender === 'bot' ? `<i class="fas fa-robot"></i><div class="message-content">${content.split('\n').map(l => `<p>${l}</p>`).join('')}</div>` : `<div class="message-content">${content}</div>`; msgs.appendChild(div); msgs.scrollTop = msgs.scrollHeight; }
+        function handleAIKeyPress(e) { if (e.key === 'Enter') sendAIMessage(); }
+
+        const messages = ['Someone just bought Edition Tee 01','Rahul from Delhi added Camp Shirt','Edition Tee 01 trending! 3 sold today'];
+        function showRandomNotification() { const n = document.getElementById('liveNotification'); n.querySelector('#notificationMessage').textContent = messages[Math.floor(Math.random()*messages.length)]; n.style.display = 'block'; setTimeout(() => n.style.display = 'none', 5000); }
+        function closeNotification() { document.getElementById('liveNotification').style.display = 'none'; }
+        setTimeout(showRandomNotification, 5000); setInterval(() => showRandomNotification(), Math.random()*30000+30000);
+
+        (function() { const h = document.querySelector('.hamburger'), b = document.body, m = document.createElement('div'); m.className = 'mobile-menu'; m.innerHTML = `<div class="mobile-menu-links"><a href="#">Editions</a><a href="lookbook.html">Lookbook</a><a href="journal.html">Journal</a><a href="about.html">About</a></div><div class="mobile-menu-footer"><p>Follow @elviano.official</p><div class="mobile-social"><a href="https://instagram.com/elviano.official"><i class="fab fa-instagram"></i></a></div></div>`; b.appendChild(m); function t() { h.classList.toggle('active'); m.classList.toggle('active'); b.classList.toggle('menu-open'); } h.addEventListener('click', t); m.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { h.classList.remove('active'); m.classList.remove('active'); b.classList.remove('menu-open'); })); window.addEventListener('scroll', () => { document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 50); }); })();
+    </script>
+</body>
+</html>

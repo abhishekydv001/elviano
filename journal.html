@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Journal — ELVIANO | Stories on Craft & Process</title>
+    <meta name="title" content="Journal — ELVIANO | Stories on Craft & Process">
+    <meta name="description" content="Essays on craft, conversations with makers, and the thinking behind each limited edition. Explore the Elviano Journal by Abhishek Yadav.">
+    <meta name="keywords" content="journal, blog, craft, screen printing, process, interviews, style, Elviano, fashion blog, Abhishek Yadav">
+    <meta name="author" content="ELVIANO">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elviano.in/journal.html">
+    <meta property="og:title" content="Journal — ELVIANO">
+    <meta property="og:description" content="Stories on craft, process, and the thinking behind each edition.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=1200">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Journal — ELVIANO">
+    <meta property="twitter:description" content="Stories on craft and process.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=1200">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://elviano.in/journal.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='70' font-family='Georgia' font-size='60' text-anchor='middle' fill='%230F0F0F'%3EE%3C/text%3E%3C/svg%3E">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <style>
+        /* ============================================ */
+        /* ELVIANO - COMPLETE JOURNAL STYLES + FEATURES */
+        /* ============================================ */
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --elviano-black: #0F0F0F;
+            --elviano-ivory: #F9F6F0;
+            --elviano-clay: #C4735A;
+            --elviano-olive: #5A6B4A;
+            --elviano-stone: #D4CFC7;
+            --elviano-text-light: #6B6B6B;
+            --elviano-border: #E8E2D9;
+            --elviano-success: #5A6B4A;
+            --elviano-error: #D9534F;
+        }
+
+        body { background: var(--elviano-ivory); font-family: 'Inter', sans-serif; font-weight: 300; color: var(--elviano-black); line-height: 1.6; }
+        h1, h2, h3, h4, .serif { font-family: 'Cormorant Garamond', serif; font-weight: 300; letter-spacing: -0.02em; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+        .container-sm { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+        .eyebrow { text-transform: uppercase; letter-spacing: 0.25em; font-size: 0.7rem; font-weight: 400; color: var(--elviano-text-light); }
+
+        /* Page Loader */
+        .page-loader { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--elviano-ivory); z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
+        .page-loader.hide { opacity: 0; visibility: hidden; }
+        .loader-logo { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; letter-spacing: 0.3em; margin-bottom: 2rem; animation: pulse 1.5s ease-in-out infinite; }
+        .loader-line { width: 100px; height: 1px; background: var(--elviano-black); position: relative; overflow: hidden; }
+        .loader-line::after { content: ''; position: absolute; width: 50%; height: 100%; background: var(--elviano-clay); animation: loading 1s ease-in-out infinite; }
+        @keyframes loading { 0% { left: -50%; } 100% { left: 100%; } }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+        /* Navigation */
+        nav { position: fixed; top: 0; left: 0; right: 0; padding: 2rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: rgba(249, 246, 240, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--elviano-border); }
+        .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; letter-spacing: 0.3em; text-transform: uppercase; color: var(--elviano-black); text-decoration: none; }
+        .nav-links { display: flex; gap: 3rem; }
+        .nav-links a { color: var(--elviano-black); text-decoration: none; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.2em; font-weight: 400; transition: opacity 0.3s ease; }
+        .nav-links a:hover { opacity: 0.6; }
+        .nav-links a.active { opacity: 0.6; border-bottom: 1px solid var(--elviano-black); padding-bottom: 0.25rem; }
+        .cart-link { color: var(--elviano-black); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; }
+        .cart-count { background: var(--elviano-black); color: white; font-size: 0.6rem; padding: 0.15rem 0.4rem; border-radius: 50%; margin-left: 0.3rem; }
+
+        /* Hamburger */
+        .hamburger { display: none; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; cursor: pointer; z-index: 1000; }
+        .hamburger span { display: block; width: 100%; height: 1.5px; background: var(--elviano-black); transition: all 0.3s; }
+        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        .mobile-menu { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--elviano-ivory); z-index: 999; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.4s; }
+        .mobile-menu.active { opacity: 1; visibility: visible; }
+        .mobile-menu-links { display: flex; flex-direction: column; align-items: center; gap: 2.5rem; }
+        .mobile-menu-links a { color: var(--elviano-black); text-decoration: none; font-size: 2rem; font-family: 'Cormorant Garamond', serif; text-transform: uppercase; }
+        .mobile-menu-footer { position: absolute; bottom: 3rem; text-align: center; }
+        body.menu-open { overflow: hidden; }
+
+        /* Page Header */
+        .page-header { margin-top: 140px; margin-bottom: 3rem; text-align: center; }
+        .page-header h1 { font-size: clamp(3rem, 8vw, 5rem); margin: 1rem 0; }
+        .page-header p { max-width: 600px; margin: 0 auto; color: var(--elviano-text-light); }
+
+        /* Category Filter */
+        .journal-filter { display: flex; justify-content: center; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap; }
+        .filter-btn { background: transparent; border: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--elviano-text-light); cursor: pointer; padding: 0.5rem 0; border-bottom: 1px solid transparent; }
+        .filter-btn:hover, .filter-btn.active { color: var(--elviano-black); border-bottom-color: var(--elviano-black); }
+
+        /* Featured Article */
+        .featured-article { display: grid; grid-template-columns: 1.5fr 1fr; gap: 3rem; margin-bottom: 5rem; background: white; border: 1px solid var(--elviano-border); }
+        .featured-image { width: 100%; height: 100%; min-height: 400px; object-fit: cover; }
+        .featured-content { padding: 3rem; }
+        .article-category { text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.65rem; color: var(--elviano-clay); margin-bottom: 1rem; }
+        .featured-content h2 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; }
+        .featured-content p { color: var(--elviano-text-light); margin-bottom: 2rem; }
+        .article-meta { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; font-size: 0.75rem; text-transform: uppercase; color: var(--elviano-text-light); }
+        .read-more-btn { display: inline-block; color: var(--elviano-black); text-decoration: none; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.7rem; border-bottom: 1px solid var(--elviano-black); padding-bottom: 0.5rem; }
+
+        /* Journal Grid */
+        .journal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 5rem; }
+        .journal-card { background: white; border: 1px solid var(--elviano-border); transition: transform 0.3s; }
+        .journal-card:hover { transform: translateY(-5px); }
+        .card-image { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+        .card-content { padding: 1.5rem; }
+        .card-category { text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.6rem; color: var(--elviano-clay); margin-bottom: 0.5rem; }
+        .card-content h3 { font-size: 1.5rem; line-height: 1.3; margin-bottom: 0.75rem; }
+        .card-content p { color: var(--elviano-text-light); font-size: 0.9rem; margin-bottom: 1rem; }
+        .card-meta { display: flex; justify-content: space-between; font-size: 0.65rem; text-transform: uppercase; color: var(--elviano-text-light); padding-top: 1rem; border-top: 1px solid var(--elviano-border); }
+
+        /* Newsletter */
+        .newsletter-section { background: var(--elviano-black); color: white; padding: 5rem 0; margin: 5rem 0; text-align: center; }
+        .newsletter-section .eyebrow { color: rgba(255,255,255,0.6); }
+        .newsletter-section h2 { color: white; font-size: 2.5rem; margin: 1rem 0; }
+        .newsletter-section p { color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto 2rem; }
+        .newsletter-form { display: flex; max-width: 500px; margin: 0 auto; gap: 1rem; }
+        .newsletter-form input { flex: 1; padding: 1rem; background: transparent; border: 1px solid rgba(255,255,255,0.3); color: white; }
+        .newsletter-form button { padding: 1rem 2rem; background: white; color: var(--elviano-black); border: none; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem; cursor: pointer; }
+
+        /* Instagram Feed */
+        .instagram-section { margin: 5rem 0; }
+        .instagram-header { text-align: center; margin-bottom: 2rem; }
+        .instagram-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.5rem; }
+        .instagram-item { aspect-ratio: 1/1; overflow: hidden; }
+        .instagram-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .instagram-item:hover img { transform: scale(1.05); }
+        .instagram-follow { text-align: center; margin-top: 2rem; }
+        .instagram-follow a { color: var(--elviano-black); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em; border-bottom: 1px solid var(--elviano-black); padding-bottom: 0.25rem; }
+
+        /* Pagination */
+        .pagination { display: flex; justify-content: center; gap: 0.5rem; margin: 3rem 0 5rem; }
+        .page-link { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--elviano-border); color: var(--elviano-black); text-decoration: none; }
+        .page-link.active { background: var(--elviano-black); color: white; border-color: var(--elviano-black); }
+
+        /* Toast */
+        .toast-container { position: fixed; bottom: 2rem; right: 2rem; z-index: 9999; display: flex; flex-direction: column; gap: 0.75rem; }
+        .toast-message { background: var(--elviano-black); color: white; padding: 1rem 2rem; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem; animation: toastSlideIn 0.3s ease; border-left: 3px solid var(--elviano-success); }
+        @keyframes toastSlideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+        /* WhatsApp */
+        .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; text-decoration: none; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); z-index: 997; transition: transform 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        .whatsapp-tooltip { position: absolute; right: 70px; background: var(--elviano-black); color: white; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.7rem; white-space: nowrap; opacity: 0; visibility: hidden; transition: all 0.3s; }
+        .whatsapp-float:hover .whatsapp-tooltip { opacity: 1; visibility: visible; right: 75px; }
+
+        /* Footer */
+        footer { background: var(--elviano-black); color: var(--elviano-ivory); padding: 5rem 2rem 2rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; max-width: 1600px; margin: 0 auto; }
+        .footer-grid h5 { font-size: 1.25rem; margin-bottom: 1.5rem; }
+        .footer-grid ul { list-style: none; }
+        .footer-grid li { margin-bottom: 0.75rem; opacity: 0.7; font-size: 0.85rem; cursor: pointer; }
+        .footer-newsletter { display: flex; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 0.5rem; margin-top: 1rem; }
+        .footer-newsletter input { background: transparent; border: none; color: white; padding: 0.5rem 0; flex: 1; outline: none; }
+        .footer-newsletter button { background: transparent; border: none; color: white; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.7rem; cursor: pointer; }
+        .footer-bottom { max-width: 1600px; margin: 4rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; opacity: 0.5; font-size: 0.75rem; text-transform: uppercase; }
+
+        /* Responsive */
+        @media (max-width: 1024px) { .journal-grid { grid-template-columns: repeat(2, 1fr); } .instagram-grid { grid-template-columns: repeat(3, 1fr); } .featured-article { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) {
+            .hamburger { display: flex; } .nav-links { display: none; } nav { padding: 1.5rem; } .logo { font-size: 1.5rem; letter-spacing: 0.2em; } .page-header { margin-top: 120px; }
+            .journal-filter { gap: 1rem; } .filter-btn { font-size: 0.65rem; } .journal-grid { grid-template-columns: 1fr; } .featured-content { padding: 2rem; } .featured-content h2 { font-size: 2rem; }
+            .newsletter-form { flex-direction: column; padding: 0 1rem; } .instagram-grid { grid-template-columns: repeat(2, 1fr); } .footer-grid { grid-template-columns: 1fr; }
+            .whatsapp-float { width: 50px; height: 50px; font-size: 1.5rem; } .whatsapp-tooltip { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader"><div class="loader-logo">ELVIANO</div><div class="loader-line"></div></div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">ELVIANO</a>
+        <div class="nav-links"><a href="#">Editions</a><a href="lookbook.html">Lookbook</a><a href="journal.html" class="active">Journal</a><a href="about.html">About</a></div>
+        <a href="cart.html" class="cart-link">Cart <span class="cart-count">0</span></a>
+        <div class="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="container-sm"><div class="page-header"><div class="eyebrow">Stories from the Studio</div><h1>The Journal</h1><p>Essays on craft, conversations with makers, and the thinking behind each edition. Written by Abhishek Yadav.</p></div></section>
+
+    <!-- Category Filter -->
+    <section class="container"><div class="journal-filter"><button class="filter-btn active" onclick="filterArticles('all')">All Stories</button><button class="filter-btn" onclick="filterArticles('process')">Process</button><button class="filter-btn" onclick="filterArticles('interviews')">Interviews</button><button class="filter-btn" onclick="filterArticles('style')">Style</button><button class="filter-btn" onclick="filterArticles('behind-the-scenes')">Behind the Scenes</button></div></section>
+
+    <!-- Featured Article -->
+    <section class="container"><div class="featured-article"><img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=1200&auto=format&fit=crop" alt="Screen Printing" class="featured-image"><div class="featured-content"><span class="article-category">Process</span><h2>On Screen Printing: The Handmade Impression</h2><div class="article-meta"><span><i class="far fa-calendar"></i> March 15, 2026</span><span><i class="far fa-clock"></i> 6 min read</span></div><p>Why each Elviano piece carries subtle, intentional variation. A deep dive into the art of hand-pulled screen printing and why we'll never switch to digital.</p><a href="#" class="read-more-btn" onclick="openArticle(event, 'screen-printing')">Read Full Story →</a></div></div></section>
+
+    <!-- Journal Grid -->
+    <section class="container"><div class="journal-grid" id="journalGrid"></div></section>
+
+    <!-- Pagination -->
+    <section class="container"><div class="pagination"><a href="#" class="page-link disabled"><i class="fas fa-chevron-left"></i></a><a href="#" class="page-link active">1</a><a href="#" class="page-link">2</a><a href="#" class="page-link">3</a><a href="#" class="page-link"><i class="fas fa-chevron-right"></i></a></div></section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section"><div class="container-sm"><div class="eyebrow">Stay Inspired</div><h2>Join the Journal</h2><p>Essays on craft, early access to editions, and stories from the studio.</p><div class="newsletter-form"><input type="email" placeholder="Your email address" id="newsletterEmail"><button onclick="subscribeNewsletter()">Subscribe</button></div></div></section>
+
+    <!-- Instagram Feed -->
+    <section class="container"><div class="instagram-section"><div class="instagram-header"><div class="eyebrow">Follow Along</div><h2>@elviano.official</h2></div><div class="instagram-grid">
+        <div class="instagram-item"><img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=400" alt="IG 1"></div><div class="instagram-item"><img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=400" alt="IG 2"></div>
+        <div class="instagram-item"><img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=400" alt="IG 3"></div><div class="instagram-item"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=400" alt="IG 4"></div>
+        <div class="instagram-item"><img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=400" alt="IG 5"></div><div class="instagram-item"><img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=400" alt="IG 6"></div>
+    </div><div class="instagram-follow"><a href="https://instagram.com/elviano.official">Follow on Instagram →</a></div></div></section>
+
+    <!-- Footer -->
+    <footer><div class="footer-grid"><div><h5>ELVIANO</h5><p>Limited edition printed apparel. Designed with intention. Never restocked.</p></div><div><h5>Shop</h5><ul><li>Edition 01</li><li>All Tees</li><li>All Shirts</li><li>Lookbook</li></ul></div><div><h5>Information</h5><ul><li>About</li><li>Size Guide</li><li>Shipping</li><li>Returns</li><li>Contact</li></ul></div><div><h5>Receive Editions</h5><div class="footer-newsletter"><input type="email" placeholder="Your email"><button>Subscribe →</button></div></div></div><div class="footer-bottom">© 2026 Elviano. All rights reserved. — Impressions in Ink.<br>Jagdalpur, Bastar, Chhattisgarh - 494001</div></footer>
+
+    <!-- Toast -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/916260323405?text=Hi%20ELVIANO%2C%20I%20loved%20your%20Journal!" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i><span class="whatsapp-tooltip">Chat with us!</span></a>
+
+    <script>
+        window.addEventListener('load', () => setTimeout(() => document.getElementById('pageLoader').classList.add('hide'), 600));
+        function showToast(msg, type='success') { const c = document.getElementById('toastContainer'); const t = document.createElement('div'); t.className = 'toast-message ' + type; t.textContent = msg; c.appendChild(t); setTimeout(() => { t.style.animation = 'toastSlideIn 0.3s ease reverse'; setTimeout(() => t.remove(), 300); }, 3000); }
+
+        const articles = [
+            { category: 'process', image: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=800', title: 'The Alchemy of Color Mixing', desc: 'Custom pigments, seasonal palettes, and the pursuit of the perfect ink.', date: 'March 10, 2026', read: '5 min read' },
+            { category: 'interviews', image: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800', title: 'In Conversation: Our Tirupur Mills', desc: 'Visiting the fourth-generation weavers behind our signature cotton.', date: 'March 5, 2026', read: '8 min read' },
+            { category: 'style', image: 'https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=800', title: 'The Overshirt: A Study in Versatility', desc: 'How one garment bridges seasons, occasions, and dress codes.', date: 'February 28, 2026', read: '4 min read' },
+            { category: 'behind-the-scenes', image: 'https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?q=80&w=800', title: 'Edition 01: The Monsoon Shoot', desc: 'Three days. Unpredictable rain. How weather became our collaborator.', date: 'February 20, 2026', read: '7 min read' },
+            { category: 'process', image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800', title: 'Why 220 GSM Matters', desc: 'The weight, the drape, the longevity—our commitment to substantial fabric.', date: 'February 15, 2026', read: '5 min read' },
+            { category: 'interviews', image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=800', title: 'Abhishek on Building a Slow Brand', desc: 'The founder discusses limited editions and intentional design.', date: 'February 8, 2026', read: '10 min read' }
+        ];
+
+        function renderArticles(filter = 'all') { const grid = document.getElementById('journalGrid'); const filtered = filter === 'all' ? articles : articles.filter(a => a.category === filter); grid.innerHTML = filtered.map(a => `<div class="journal-card"><img src="${a.image}" class="card-image"><div class="card-content"><span class="card-category">${a.category.replace('-', ' ')}</span><h3>${a.title}</h3><p>${a.desc}</p><div class="card-meta"><span>${a.date}</span><span>${a.read}</span></div></div></div>`).join(''); }
+        function filterArticles(category) { document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); event.target.classList.add('active'); renderArticles(category); gsap.from('.journal-card', { opacity: 0, y: 20, stagger: 0.05, duration: 0.4 }); }
+        function openArticle(e, id) { e.preventDefault(); showToast(`Opening article: ${id}`, 'success'); }
+        function subscribeNewsletter() { const e = document.getElementById('newsletterEmail'); if(e.value) { showToast('Subscribed!', 'success'); e.value = ''; } else showToast('Enter your email', 'error'); }
+
+        gsap.registerPlugin(ScrollTrigger); gsap.from('.page-header', { opacity: 0, y: 30, duration: 1 }); gsap.from('.featured-article', { scrollTrigger: { trigger: '.featured-article', start: 'top 80%' }, opacity: 0, y: 30, duration: 1 });
+        document.addEventListener('DOMContentLoaded', () => { renderArticles(); gsap.from('.journal-card', { scrollTrigger: { trigger: '.journal-grid', start: 'top 85%' }, opacity: 0, y: 30, stagger: 0.1, duration: 0.6 }); });
+
+        (function() { const h = document.querySelector('.hamburger'), b = document.body, m = document.createElement('div'); m.className = 'mobile-menu'; m.innerHTML = `<div class="mobile-menu-links"><a href="#">Editions</a><a href="lookbook.html">Lookbook</a><a href="journal.html">Journal</a><a href="about.html">About</a></div><div class="mobile-menu-footer"><p>Follow @elviano.official</p><div class="mobile-social"><a href="https://instagram.com/elviano.official"><i class="fab fa-instagram"></i></a></div></div>`; b.appendChild(m); function t() { h.classList.toggle('active'); m.classList.toggle('active'); b.classList.toggle('menu-open'); } h.addEventListener('click', t); m.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { h.classList.remove('active'); m.classList.remove('active'); b.classList.remove('menu-open'); })); })();
+    </script>
+</body>
+</html>

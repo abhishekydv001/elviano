@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Your Cart — ELVIANO | Review Your Selections</title>
+    <meta name="title" content="Your Cart — ELVIANO | Review Your Selections">
+    <meta name="description" content="Review your selected limited edition pieces before checkout. Free shipping on orders above ₹2,499.">
+    <meta name="keywords" content="shopping cart, Elviano cart, limited edition apparel, checkout">
+    <meta name="author" content="ELVIANO">
+    <meta name="robots" content="noindex, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elviano.in/cart.html">
+    <meta property="og:title" content="Your Cart — ELVIANO">
+    <meta property="og:description" content="Review your selected limited edition pieces.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1200">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Your Cart — ELVIANO">
+    <meta property="twitter:description" content="Review your selected limited edition pieces.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1200">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://elviano.in/cart.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='70' font-family='Georgia' font-size='60' text-anchor='middle' fill='%230F0F0F'%3EE%3C/text%3E%3C/svg%3E">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <style>
+        /* ============================================ */
+        /* ELVIANO - COMPLETE CART PAGE STYLES + FEATURES */
+        /* ============================================ */
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --elviano-black: #0F0F0F;
+            --elviano-ivory: #F9F6F0;
+            --elviano-clay: #C4735A;
+            --elviano-olive: #5A6B4A;
+            --elviano-stone: #D4CFC7;
+            --elviano-text-light: #6B6B6B;
+            --elviano-border: #E8E2D9;
+            --elviano-success: #5A6B4A;
+            --elviano-error: #D9534F;
+        }
+
+        body { background: var(--elviano-ivory); font-family: 'Inter', sans-serif; font-weight: 300; color: var(--elviano-black); line-height: 1.6; }
+        h1, h2, h3, h4, .serif { font-family: 'Cormorant Garamond', serif; font-weight: 300; letter-spacing: -0.02em; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+        .container-sm { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+        .eyebrow { text-transform: uppercase; letter-spacing: 0.25em; font-size: 0.7rem; font-weight: 400; color: var(--elviano-text-light); }
+
+        /* Page Loader */
+        .page-loader { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--elviano-ivory); z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
+        .page-loader.hide { opacity: 0; visibility: hidden; }
+        .loader-logo { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; letter-spacing: 0.3em; margin-bottom: 2rem; animation: pulse 1.5s ease-in-out infinite; }
+        .loader-line { width: 100px; height: 1px; background: var(--elviano-black); position: relative; overflow: hidden; }
+        .loader-line::after { content: ''; position: absolute; width: 50%; height: 100%; background: var(--elviano-clay); animation: loading 1s ease-in-out infinite; }
+        @keyframes loading { 0% { left: -50%; } 100% { left: 100%; } }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+        /* Navigation */
+        nav { position: fixed; top: 0; left: 0; right: 0; padding: 2rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: rgba(249, 246, 240, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--elviano-border); }
+        .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; letter-spacing: 0.3em; text-transform: uppercase; color: var(--elviano-black); text-decoration: none; }
+        .nav-links { display: flex; gap: 3rem; }
+        .nav-links a { color: var(--elviano-black); text-decoration: none; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.2em; font-weight: 400; transition: opacity 0.3s ease; }
+        .nav-links a:hover { opacity: 0.6; }
+        .cart-link { color: var(--elviano-black); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; }
+        .cart-count { background: var(--elviano-black); color: white; font-size: 0.6rem; padding: 0.15rem 0.4rem; border-radius: 50%; margin-left: 0.3rem; }
+
+        /* Hamburger */
+        .hamburger { display: none; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; cursor: pointer; z-index: 1000; }
+        .hamburger span { display: block; width: 100%; height: 1.5px; background: var(--elviano-black); transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        .mobile-menu { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--elviano-ivory); z-index: 999; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.4s ease; }
+        .mobile-menu.active { opacity: 1; visibility: visible; }
+        .mobile-menu-links { display: flex; flex-direction: column; align-items: center; gap: 2.5rem; }
+        .mobile-menu-links a { color: var(--elviano-black); text-decoration: none; font-size: 2rem; font-family: 'Cormorant Garamond', serif; font-weight: 300; text-transform: uppercase; transform: translateY(20px); opacity: 0; transition: all 0.4s ease; }
+        .mobile-menu.active .mobile-menu-links a { transform: translateY(0); opacity: 1; }
+        .mobile-menu-links a:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-menu-links a:nth-child(2) { transition-delay: 0.2s; }
+        .mobile-menu-links a:nth-child(3) { transition-delay: 0.3s; }
+        .mobile-menu-links a:nth-child(4) { transition-delay: 0.4s; }
+        .mobile-menu-footer { position: absolute; bottom: 3rem; text-align: center; opacity: 0; transform: translateY(20px); transition: all 0.4s ease 0.5s; }
+        .mobile-menu.active .mobile-menu-footer { opacity: 1; transform: translateY(0); }
+        body.menu-open { overflow: hidden; }
+
+        /* Page Header */
+        .page-header { margin-top: 140px; margin-bottom: 3rem; text-align: center; }
+        .page-header h1 { font-size: clamp(2.5rem, 6vw, 4rem); margin: 1rem 0 0.5rem; }
+
+        /* Cart Layout */
+        .cart-layout { display: grid; grid-template-columns: 1fr 380px; gap: 3rem; margin-bottom: 6rem; }
+        .cart-header { display: grid; grid-template-columns: 3fr 1fr 1.5fr 1fr 0.5fr; padding: 1rem 0; border-bottom: 1px solid var(--elviano-border); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.7rem; color: var(--elviano-text-light); }
+        .cart-item { display: grid; grid-template-columns: 3fr 1fr 1.5fr 1fr 0.5fr; align-items: center; padding: 2rem 0; border-bottom: 1px solid var(--elviano-border); }
+        .cart-item-product { display: flex; gap: 1.5rem; align-items: center; }
+        .cart-item-image { width: 100px; aspect-ratio: 3/4; object-fit: cover; }
+        .cart-item-details h4 { font-size: 1.25rem; margin-bottom: 0.25rem; }
+        .item-edition, .item-size { font-size: 0.7rem; text-transform: uppercase; color: var(--elviano-text-light); }
+        .cart-item-price { font-family: 'Cormorant Garamond', serif; }
+        .cart-item-quantity { display: flex; align-items: center; border: 1px solid var(--elviano-border); width: 100px; }
+        .cart-qty-btn { width: 30px; height: 36px; background: transparent; border: none; cursor: pointer; font-size: 1rem; }
+        .cart-qty-btn:hover { background: var(--elviano-stone); }
+        .cart-qty-input { width: 40px; height: 36px; border: none; text-align: center; background: transparent; }
+        .cart-item-total { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
+        .cart-item-remove { background: transparent; border: none; cursor: pointer; color: var(--elviano-text-light); font-size: 1.1rem; width: 30px; height: 30px; }
+        .cart-item-remove:hover { color: var(--elviano-error); }
+
+        /* Empty Cart */
+        .empty-cart { text-align: center; padding: 5rem 0; }
+        .empty-cart-icon { font-size: 4rem; color: var(--elviano-stone); margin-bottom: 1.5rem; }
+        .continue-shopping-btn { display: inline-block; background: var(--elviano-black); color: white; text-decoration: none; padding: 1rem 2.5rem; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.75rem; }
+
+        /* Order Summary */
+        .order-summary { background: white; padding: 2rem; position: sticky; top: 120px; border: 1px solid var(--elviano-border); }
+        .order-summary h3 { font-size: 1.5rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--elviano-border); }
+        .summary-row { display: flex; justify-content: space-between; margin-bottom: 1rem; font-size: 0.9rem; }
+        .summary-row.total { font-size: 1.25rem; font-family: 'Cormorant Garamond', serif; font-weight: 500; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--elviano-black); }
+        .shipping-note { font-size: 0.75rem; color: var(--elviano-text-light); margin: 1rem 0; }
+        .promo-section { margin: 1.5rem 0; }
+        .promo-input { display: flex; gap: 0.5rem; }
+        .promo-input input { flex: 1; padding: 0.8rem; border: 1px solid var(--elviano-border); text-transform: uppercase; }
+        .promo-input button { padding: 0 1.5rem; background: transparent; border: 1px solid var(--elviano-border); text-transform: uppercase; cursor: pointer; }
+        .promo-input button:hover { background: var(--elviano-black); color: white; }
+        .checkout-btn { display: block; width: 100%; background: var(--elviano-black); color: white; border: none; padding: 1.2rem; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem; cursor: pointer; text-align: center; text-decoration: none; margin-top: 1.5rem; }
+        .continue-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--elviano-text-light); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; margin-top: 2rem; }
+
+        /* Recommended */
+        .recommended-section { margin: 6rem 0; }
+        .recommended-header { text-align: center; margin-bottom: 3rem; }
+        .recommended-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .recommended-item img { width: 100%; aspect-ratio: 3/4; object-fit: cover; margin-bottom: 1rem; }
+        .recommended-item h4 { font-size: 1.25rem; font-weight: 400; }
+        .recommended-item .price { color: var(--elviano-text-light); font-size: 0.85rem; }
+
+        /* Toast */
+        .toast-container { position: fixed; bottom: 2rem; right: 2rem; z-index: 9999; display: flex; flex-direction: column; gap: 0.75rem; }
+        .toast-message { background: var(--elviano-black); color: white; padding: 1rem 2rem; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem; animation: toastSlideIn 0.3s ease; border-left: 3px solid var(--elviano-success); }
+        @keyframes toastSlideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+        /* WhatsApp */
+        .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; text-decoration: none; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); z-index: 997; transition: transform 0.3s ease; }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        .whatsapp-tooltip { position: absolute; right: 70px; background: var(--elviano-black); color: white; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.7rem; text-transform: uppercase; white-space: nowrap; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        .whatsapp-float:hover .whatsapp-tooltip { opacity: 1; visibility: visible; right: 75px; }
+
+        /* Footer */
+        footer { background: var(--elviano-black); color: var(--elviano-ivory); padding: 5rem 2rem 2rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; max-width: 1600px; margin: 0 auto; }
+        .footer-grid h5 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 400; }
+        .footer-grid ul { list-style: none; }
+        .footer-grid li { margin-bottom: 0.75rem; opacity: 0.7; font-size: 0.85rem; cursor: pointer; }
+        .footer-tagline { opacity: 0.7; font-size: 0.9rem; }
+        .footer-newsletter { display: flex; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 0.5rem; margin-top: 1rem; }
+        .footer-newsletter input { background: transparent; border: none; color: white; padding: 0.5rem 0; flex: 1; outline: none; }
+        .footer-newsletter button { background: transparent; border: none; color: white; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.7rem; cursor: pointer; }
+        .footer-bottom { max-width: 1600px; margin: 4rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; opacity: 0.5; font-size: 0.75rem; text-transform: uppercase; }
+
+        /* Responsive */
+        @media (max-width: 1024px) { .cart-layout { grid-template-columns: 1fr; } .order-summary { position: static; } .recommended-grid { grid-template-columns: repeat(2, 1fr); } .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) {
+            .hamburger { display: flex; } .nav-links { display: none; } nav { padding: 1.5rem; } .logo { font-size: 1.5rem; letter-spacing: 0.2em; } .page-header { margin-top: 120px; }
+            .cart-header { display: none; } .cart-item { grid-template-columns: 1fr; gap: 1rem; position: relative; } .cart-item-remove { position: absolute; top: 2rem; right: 0; }
+            .recommended-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; } .whatsapp-float { width: 50px; height: 50px; font-size: 1.5rem; } .whatsapp-tooltip { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader"><div class="loader-logo">ELVIANO</div><div class="loader-line"></div></div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">ELVIANO</a>
+        <div class="nav-links"><a href="#">Editions</a><a href="lookbook.html">Lookbook</a><a href="journal.html">Journal</a><a href="about.html">About</a></div>
+        <a href="cart.html" class="cart-link">Cart <span class="cart-count" id="cartCount">2</span></a>
+        <div class="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="container-sm"><div class="page-header"><div class="eyebrow">Your Selections</div><h1>Shopping Cart</h1><p>Review your items before proceeding to checkout</p></div></section>
+
+    <!-- Cart Layout -->
+    <section class="container"><div class="cart-layout" id="cartContainer"></div></section>
+
+    <!-- Recommended -->
+    <section class="container"><div class="recommended-section"><div class="recommended-header"><div class="eyebrow">You May Also Like</div><h2>Complete Your Edit</h2></div><div class="recommended-grid">
+        <div class="recommended-item"><img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=800" alt="Oversized Tee"><h4>Oversized Tee</h4><div class="price">₹1,899</div></div>
+        <div class="recommended-item"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800" alt="Signature Print"><h4>Signature Print</h4><div class="price">₹1,699</div></div>
+        <div class="recommended-item"><img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=800" alt="Edition Tee 02"><h4>Edition Tee 02</h4><div class="price">₹1,499</div></div>
+        <div class="recommended-item"><img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=800" alt="Relaxed Trouser"><h4>Relaxed Trouser</h4><div class="price">₹3,299</div></div>
+    </div></div></section>
+
+    <!-- Footer -->
+    <footer><div class="footer-grid"><div><h5>ELVIANO</h5><p class="footer-tagline">Limited edition printed apparel. Designed with intention. Never restocked.</p></div><div><h5>Shop</h5><ul><li>Edition 01</li><li>All Tees</li><li>All Shirts</li><li>Lookbook</li></ul></div><div><h5>Information</h5><ul><li>About</li><li>Size Guide</li><li>Shipping</li><li>Returns</li><li>Contact</li></ul></div><div><h5>Receive Editions</h5><div class="footer-newsletter"><input type="email" placeholder="Your email"><button>Subscribe →</button></div></div></div><div class="footer-bottom">© 2026 Elviano. All rights reserved. — Impressions in Ink.<br>Jagdalpur, Bastar, Chhattisgarh - 494001</div></footer>
+
+    <!-- Toast -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/916260323405?text=Hi%20ELVIANO%2C%20I%20have%20a%20question%20about%20my%20cart!" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i><span class="whatsapp-tooltip">Chat with us!</span></a>
+
+    <script>
+        window.addEventListener('load', () => setTimeout(() => document.getElementById('pageLoader').classList.add('hide'), 600));
+
+        function showToast(msg, type='success') { const c = document.getElementById('toastContainer'); const t = document.createElement('div'); t.className = 'toast-message ' + type; t.textContent = msg; c.appendChild(t); setTimeout(() => { t.style.animation = 'toastSlideIn 0.3s ease reverse'; setTimeout(() => t.remove(), 300); }, 3000); }
+
+        let cart = { items: [ { id: 1, name: 'Edition Tee 01', edition: 'Edition 01 — Monsoon', price: 1499, quantity: 1, size: 'M', max: 4, image: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=200' }, { id: 2, name: 'Camp Shirt', edition: 'Edition 01 — Monsoon', price: 2799, quantity: 1, size: 'L', max: 3, image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=200' } ], shipping: 99, freeShippingThreshold: 2499 };
+
+        function renderCart() {
+            const container = document.getElementById('cartContainer'), subtotal = cart.items.reduce((sum, item) => sum + (item.price * item.quantity), 0), shipping = subtotal >= cart.freeShippingThreshold ? 0 : cart.shipping, total = subtotal + shipping, itemCount = cart.items.reduce((sum, item) => sum + item.quantity, 0);
+            let itemsHtml = ''; cart.items.forEach(item => { itemsHtml += `<div class="cart-item" data-id="${item.id}"><div class="cart-item-product"><img src="${item.image}" class="cart-item-image"><div class="cart-item-details"><div class="item-edition">${item.edition}</div><h4>${item.name}</h4><div class="item-size">Size: ${item.size}</div></div></div><div class="cart-item-price">₹${item.price.toLocaleString()}</div><div class="cart-item-quantity"><button class="cart-qty-btn" onclick="updateQuantity(${item.id}, -1)">−</button><input type="number" class="cart-qty-input" value="${item.quantity}" min="1" max="${item.max}" readonly><button class="cart-qty-btn" onclick="updateQuantity(${item.id}, 1)">+</button></div><div class="cart-item-total">₹${(item.price * item.quantity).toLocaleString()}</div><button class="cart-item-remove" onclick="removeItem(${item.id})"><i class="fas fa-trash-alt"></i></button></div>`; });
+            const shippingNote = subtotal >= cart.freeShippingThreshold ? '🎉 Congratulations! You qualify for free shipping!' : `Add ₹${(cart.freeShippingThreshold - subtotal).toLocaleString()} more for free shipping`;
+            container.innerHTML = `<div class="cart-items">${cart.items.length > 0 ? `<div class="cart-header"><div>Product</div><div>Price</div><div>Quantity</div><div>Total</div><div></div></div>${itemsHtml}<a href="index.html" class="continue-link"><i class="fas fa-arrow-left"></i> Continue Shopping</a>` : `<div class="empty-cart"><div class="empty-cart-icon"><i class="fas fa-shopping-bag"></i></div><h3>Your cart is empty</h3><p>Explore our limited editions.</p><a href="index.html" class="continue-shopping-btn">Explore Editions</a></div>`}</div><div class="order-summary"><h3>Order Summary</h3><div class="summary-row"><span>Subtotal (${itemCount} items)</span><span id="subtotal">₹${subtotal.toLocaleString()}</span></div><div class="summary-row"><span>Shipping</span><span id="shipping">${shipping === 0 ? 'FREE' : '₹' + shipping}</span></div><div class="shipping-note">${shippingNote}</div><div class="promo-section"><div class="promo-input"><input type="text" placeholder="Promo Code" id="promoCode"><button onclick="applyPromo()">Apply</button></div></div><div class="summary-row total"><span>Total</span><span id="grandTotal">₹${total.toLocaleString()}</span></div>${cart.items.length > 0 ? `<a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>` : `<button class="checkout-btn" style="opacity:0.5;cursor:not-allowed;" disabled>Proceed to Checkout</button>`}</div>`;
+            document.getElementById('cartCount').textContent = itemCount;
+        }
+
+        function updateQuantity(id, change) { const item = cart.items.find(i => i.id === id); if(item) { const n = item.quantity + change; if(n >= 1 && n <= item.max) { item.quantity = n; renderCart(); showToast('Quantity Updated'); } } }
+        function removeItem(id) { cart.items = cart.items.filter(i => i.id !== id); renderCart(); showToast('Item Removed'); }
+        function applyPromo() { const code = document.getElementById('promoCode').value.toUpperCase(); if(code === 'ELVIANO10') showToast('Promo Code Applied! 10% Off', 'success'); else if(code === 'FREESHIP') showToast('Free Shipping Applied!', 'success'); else if(code) showToast('Invalid Promo Code', 'error'); document.getElementById('promoCode').value = ''; }
+
+        gsap.registerPlugin(ScrollTrigger); gsap.from('.page-header', { opacity: 0, y: 30, duration: 1 });
+        document.addEventListener('DOMContentLoaded', renderCart);
+
+        (function() { const h = document.querySelector('.hamburger'), b = document.body, m = document.createElement('div'); m.className = 'mobile-menu'; m.innerHTML = `<div class="mobile-menu-links"><a href="#">Editions</a><a href="lookbook.html">Lookbook</a><a href="journal.html">Journal</a><a href="about.html">About</a></div><div class="mobile-menu-footer"><p>Follow @elviano.official</p><div class="mobile-social"><a href="https://instagram.com/elviano.official"><i class="fab fa-instagram"></i></a></div></div>`; b.appendChild(m); function t() { h.classList.toggle('active'); m.classList.toggle('active'); b.classList.toggle('menu-open'); } h.addEventListener('click', t); m.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { h.classList.remove('active'); m.classList.remove('active'); b.classList.remove('menu-open'); })); })();
+    </script>
+</body>
+</html>
