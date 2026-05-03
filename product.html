@@ -4,369 +4,361 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Primary Meta Tags -->
     <title>Edition Tee 01 — ELVIANO | Hand-Pulled Screen Print</title>
-    <meta name="title" content="Edition Tee 01 — ELVIANO | Hand-Pulled Screen Print">
     <meta name="description" content="The foundational Elviano silhouette. 220 GSM combed cotton. Hand-pulled Monsoon print. Limited edition. Never restocked.">
-    <meta name="keywords" content="printed tshirt, screen printed tee, limited edition, Elviano, Monsoon print, 220 GSM">
-    <meta name="author" content="ELVIANO">
-    <meta name="robots" content="index, follow">
     
-    <!-- Open Graph -->
-    <meta property="og:type" content="product">
-    <meta property="og:url" content="https://elviano.in/product.html">
-    <meta property="og:title" content="Edition Tee 01 — ELVIANO">
-    <meta property="og:description" content="Hand-pulled screen print. 220 GSM combed cotton. Limited edition.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1200">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Edition Tee 01 — ELVIANO">
-    <meta property="twitter:description" content="Hand-pulled screen print. 220 GSM combed cotton.">
-    <meta property="twitter:image" content="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1200">
-    
-    <!-- Canonical -->
-    <link rel="canonical" href="https://elviano.in/product.html">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='70' font-family='Georgia' font-size='60' text-anchor='middle' fill='%230F0F0F'%3EE%3C/text%3E%3C/svg%3E">
-    
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    
     <style>
-        /* ============================================ */
-        /* ELVIANO - COMPLETE PRODUCT PAGE STYLES */
-        /* ============================================ */
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-            --elviano-black: #0F0F0F;
-            --elviano-ivory: #F9F6F0;
-            --elviano-clay: #C4735A;
-            --elviano-olive: #5A6B4A;
-            --elviano-stone: #D4CFC7;
-            --elviano-text-light: #6B6B6B;
-            --elviano-border: #E8E2D9;
-            --elviano-success: #5A6B4A;
-            --elviano-error: #D9534F;
-        }
-
-        body { background: var(--elviano-ivory); font-family: 'Inter', sans-serif; font-weight: 300; color: var(--elviano-black); line-height: 1.6; }
-        h1, h2, h3, h4, .serif { font-family: 'Cormorant Garamond', serif; font-weight: 300; letter-spacing: -0.02em; }
+        :root { --elviano-black: #0F0F0F; --elviano-ivory: #F9F6F0; --elviano-clay: #C4735A; --elviano-border: #E8E2D9; --elviano-text-light: #6B6B6B; --elviano-success: #5A6B4A; --elviano-error: #D9534F; }
+        body { background: var(--elviano-ivory); font-family: 'Inter', sans-serif; color: var(--elviano-black); line-height: 1.6; }
+        h1, h2, h3, h4, .serif { font-family: 'Cormorant Garamond', serif; font-weight: 300; }
         .container { max-width: 1600px; margin: 0 auto; padding: 0 2rem; }
-        .eyebrow { text-transform: uppercase; letter-spacing: 0.25em; font-size: 0.7rem; font-weight: 400; color: var(--elviano-text-light); }
-
-        /* Page Loader */
-        .page-loader { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--elviano-ivory); z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
-        .page-loader.hide { opacity: 0; visibility: hidden; }
-        .loader-logo { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; letter-spacing: 0.3em; margin-bottom: 2rem; animation: pulse 1.5s ease-in-out infinite; }
-        .loader-line { width: 100px; height: 1px; background: var(--elviano-black); position: relative; overflow: hidden; }
-        .loader-line::after { content: ''; position: absolute; width: 50%; height: 100%; background: var(--elviano-clay); animation: loading 1s ease-in-out infinite; }
-        @keyframes loading { 0% { left: -50%; } 100% { left: 100%; } }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .eyebrow { text-transform: uppercase; letter-spacing: 0.25em; font-size: 0.7rem; color: var(--elviano-text-light); }
 
         /* Navigation */
-        nav { position: fixed; top: 0; left: 0; right: 0; padding: 2rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: rgba(249, 246, 240, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--elviano-border); }
-        .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; letter-spacing: 0.3em; text-transform: uppercase; color: var(--elviano-black); text-decoration: none; }
-        .nav-links { display: flex; gap: 3rem; }
-        .nav-links a { color: var(--elviano-black); text-decoration: none; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.2em; font-weight: 400; transition: opacity 0.3s ease; }
-        .nav-links a:hover { opacity: 0.6; }
-        .cart-link { color: var(--elviano-black); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; }
-        .cart-count { background: var(--elviano-black); color: white; font-size: 0.6rem; padding: 0.15rem 0.4rem; border-radius: 50%; margin-left: 0.3rem; }
+        nav { position: fixed; top: 0; left: 0; right: 0; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: rgba(249, 246, 240, 0.98); backdrop-filter: blur(10px); border-bottom: 1px solid var(--elviano-border); }
+        .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; letter-spacing: 0.3em; color: var(--elviano-black); text-decoration: none; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { color: var(--elviano-black); text-decoration: none; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.15em; }
+        .cart-link { color: var(--elviano-black); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.2em; }
+        .cart-count { background: var(--elviano-black); color: white; padding: 0.15rem 0.4rem; border-radius: 50%; font-size: 0.6rem; margin-left: 0.3rem; }
+        .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; z-index: 101; }
+        .hamburger span { width: 22px; height: 2px; background: var(--elviano-black); transition: all 0.3s; }
+        .mobile-menu { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--elviano-ivory); z-index: 99; display: none; flex-direction: column; justify-content: center; align-items: center; gap: 2rem; }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a { color: var(--elviano-black); text-decoration: none; font-size: 1.5rem; font-family: 'Cormorant Garamond', serif; text-transform: uppercase; }
 
-        /* Hamburger */
-        .hamburger { display: none; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; cursor: pointer; z-index: 1000; }
-        .hamburger span { display: block; width: 100%; height: 1.5px; background: var(--elviano-black); transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-        .mobile-menu { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--elviano-ivory); z-index: 999; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.4s ease; }
-        .mobile-menu.active { opacity: 1; visibility: visible; }
-        .mobile-menu-links { display: flex; flex-direction: column; align-items: center; gap: 2.5rem; }
-        .mobile-menu-links a { color: var(--elviano-black); text-decoration: none; font-size: 2rem; font-family: 'Cormorant Garamond', serif; font-weight: 300; text-transform: uppercase; transform: translateY(20px); opacity: 0; transition: all 0.4s ease; }
-        .mobile-menu.active .mobile-menu-links a { transform: translateY(0); opacity: 1; }
-        .mobile-menu-links a:nth-child(1) { transition-delay: 0.1s; }
-        .mobile-menu-links a:nth-child(2) { transition-delay: 0.2s; }
-        .mobile-menu-links a:nth-child(3) { transition-delay: 0.3s; }
-        .mobile-menu-links a:nth-child(4) { transition-delay: 0.4s; }
-        .mobile-menu-footer { position: absolute; bottom: 3rem; text-align: center; opacity: 0; transform: translateY(20px); transition: all 0.4s ease 0.5s; }
-        .mobile-menu.active .mobile-menu-footer { opacity: 1; transform: translateY(0); }
-        .mobile-menu-footer p { color: var(--elviano-text-light); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1rem; }
-        .mobile-social { display: flex; gap: 2rem; justify-content: center; }
-        .mobile-social a { color: var(--elviano-black); font-size: 1.2rem; opacity: 0.5; text-decoration: none; }
-        body.menu-open { overflow: hidden; }
-
-        /* Breadcrumb */
-        .breadcrumb { margin-top: 120px; margin-bottom: 2rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--elviano-text-light); }
+        .breadcrumb { margin-top: 110px; margin-bottom: 1.5rem; font-size: 0.7rem; text-transform: uppercase; color: var(--elviano-text-light); }
         .breadcrumb a { color: var(--elviano-text-light); text-decoration: none; }
-        .breadcrumb a:hover { color: var(--elviano-black); }
-        .breadcrumb span { margin: 0 0.5rem; }
 
-        /* Product Grid */
+        /* Product Grid - RESPONSIVE */
         .product-grid { display: grid; grid-template-columns: 1fr 0.9fr; gap: 4rem; margin-bottom: 4rem; }
-        .product-gallery { position: sticky; top: 120px; height: fit-content; }
-        .main-image { width: 100%; aspect-ratio: 3/4; object-fit: cover; margin-bottom: 1rem; }
-        .thumbnail-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
-        .thumbnail { aspect-ratio: 3/4; object-fit: cover; cursor: pointer; opacity: 0.6; transition: opacity 0.3s ease; border: 1px solid transparent; }
-        .thumbnail:hover, .thumbnail.active { opacity: 1; border-color: var(--elviano-black); }
+        .product-gallery { position: sticky; top: 110px; }
+        
+        /* Main Image */
+        .main-image-container { position: relative; overflow: hidden; margin-bottom: 1rem; border-radius: 4px; }
+        .main-image { width: 100%; aspect-ratio: 3/4; object-fit: cover; transition: transform 0.3s; cursor: zoom-in; display: block; }
+        .main-image-container:hover .main-image { transform: scale(1.5); }
+        .image-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.9); border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1rem; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; }
+        .image-nav.prev { left: 8px; }
+        .image-nav.next { right: 8px; }
+        .image-counter { position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); color: white; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.7rem; }
+        
+        /* Thumbnails */
+        .thumbnail-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+        .thumbnail { aspect-ratio: 3/4; object-fit: cover; cursor: pointer; opacity: 0.5; transition: all 0.3s; border: 2px solid transparent; border-radius: 2px; }
+        .thumbnail:hover { opacity: 0.8; }
+        .thumbnail.active { opacity: 1; border-color: var(--elviano-black); }
 
         /* Product Info */
-        .product-info { padding-top: 1rem; }
-        .product-eyebrow { text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.65rem; color: var(--elviano-clay); margin-bottom: 0.5rem; }
-        .product-title { font-size: 3.5rem; font-weight: 300; line-height: 1.1; margin-bottom: 0.5rem; }
-        .product-price { font-size: 1.5rem; font-weight: 300; font-family: 'Cormorant Garamond', serif; margin-bottom: 1.5rem; }
-        .product-price .original { text-decoration: line-through; color: var(--elviano-text-light); font-size: 1.1rem; margin-left: 0.75rem; }
-        .product-description { color: var(--elviano-text-light); font-size: 1rem; line-height: 1.7; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--elviano-border); }
+        .product-title { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; line-height: 1.1; }
+        .product-price { font-size: 1.5rem; font-weight: 500; font-family: 'Cormorant Garamond', serif; margin: 0.5rem 0; }
+        .product-price .original { text-decoration: line-through; color: var(--elviano-text-light); font-size: 1rem; margin-left: 0.5rem; }
+        .product-desc { color: var(--elviano-text-light); margin: 1rem 0; padding-bottom: 1rem; border-bottom: 1px solid var(--elviano-border); font-size: 0.95rem; }
 
         /* Size Selector */
-        .size-section { margin-bottom: 2rem; }
-        .size-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-        .size-label { text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem; font-weight: 400; }
-        .size-guide-link { color: var(--elviano-text-light); text-decoration: none; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid var(--elviano-border); padding-bottom: 0.15rem; }
-        .size-options { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-        .size-option { width: 60px; height: 48px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--elviano-border); font-size: 0.85rem; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease; }
-        .size-option:hover { border-color: var(--elviano-black); }
-        .size-option.selected { background: var(--elviano-black); color: white; border-color: var(--elviano-black); }
+        .size-section { margin: 1rem 0; }
+        .size-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+        .size-header span { text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; }
+        .size-header a { color: var(--elviano-text-light); font-size: 0.7rem; text-decoration: none; border-bottom: 1px solid var(--elviano-border); }
+        .size-options { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .size-option { min-width: 50px; height: 42px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--elviano-border); cursor: pointer; background: white; transition: all 0.2s; font-size: 0.85rem; border-radius: 2px; }
+        .size-option.selected { background: var(--elviano-black); color: white; }
         .size-option.unavailable { opacity: 0.3; cursor: not-allowed; text-decoration: line-through; }
-        .low-stock-warning { color: var(--elviano-clay); font-size: 0.75rem; margin-top: 0.5rem; text-transform: uppercase; }
+        .stock-warning { color: var(--elviano-clay); font-size: 0.7rem; margin-top: 0.5rem; }
 
-        /* Purchase */
-        .purchase-section { display: flex; gap: 1rem; margin-bottom: 1rem; }
-        .quantity-selector { display: flex; align-items: center; border: 1px solid var(--elviano-border); width: 120px; }
-        .quantity-btn { width: 40px; height: 52px; display: flex; align-items: center; justify-content: center; background: transparent; border: none; cursor: pointer; font-size: 1.2rem; }
-        .quantity-btn:hover { background: var(--elviano-stone); }
-        .quantity-input { width: 40px; height: 52px; border: none; text-align: center; font-size: 0.9rem; background: transparent; }
-        .add-to-cart-btn { flex: 1; height: 54px; background: var(--elviano-black); color: white; border: none; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem; cursor: pointer; transition: background 0.3s ease; }
-        .add-to-cart-btn:hover { background: #2A2A2A; }
-
-        /* Wishlist */
-        .wishlist-btn { display: flex; align-items: center; justify-content: center; gap: 0.75rem; width: 100%; padding: 0.9rem; margin-top: 1rem; background: transparent; border: 1px solid var(--elviano-border); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.7rem; cursor: pointer; transition: all 0.3s ease; }
-        .wishlist-btn:hover { border-color: var(--elviano-clay); color: var(--elviano-clay); }
-        .wishlist-btn.active { background: var(--elviano-clay); border-color: var(--elviano-clay); color: white; }
+        /* Quantity & Add to Cart */
+        .purchase-actions { display: flex; flex-direction: column; gap: 0.75rem; margin: 1.5rem 0; }
+        .quantity-row { display: flex; gap: 0.75rem; align-items: stretch; }
+        .quantity-selector { display: flex; border: 1px solid var(--elviano-border); border-radius: 2px; overflow: hidden; }
+        .qty-btn { width: 40px; height: 48px; background: transparent; border: none; cursor: pointer; font-size: 1.1rem; transition: background 0.2s; display: flex; align-items: center; justify-content: center; }
+        .qty-btn:hover { background: var(--elviano-border); }
+        .qty-input { width: 45px; border: none; text-align: center; font-size: 0.95rem; background: transparent; -moz-appearance: textfield; }
+        .qty-input::-webkit-outer-spin-button, .qty-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+        .add-to-cart-main { flex: 1; height: 48px; background: var(--elviano-black); color: white; border: none; text-transform: uppercase; letter-spacing: 0.15em; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.8rem; transition: all 0.3s; border-radius: 2px; }
+        .add-to-cart-main:hover { background: var(--elviano-clay); }
+        .add-to-cart-main.added { background: var(--elviano-success); }
+        .buy-now-btn { width: 100%; padding: 0.85rem; background: var(--elviano-clay); color: white; border: none; text-transform: uppercase; letter-spacing: 0.15em; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.85rem; border-radius: 2px; transition: all 0.3s; }
+        .buy-now-btn:hover { background: #a85f48; }
 
         /* Product Meta */
-        .product-meta { display: flex; flex-direction: column; gap: 0.5rem; margin: 1.5rem 0; font-size: 0.8rem; color: var(--elviano-text-light); }
-        .product-meta i { width: 20px; margin-right: 0.5rem; color: var(--elviano-black); }
-
-        /* Accordion */
-        .accordion { border-top: 1px solid var(--elviano-border); }
-        .accordion-item { border-bottom: 1px solid var(--elviano-border); }
-        .accordion-header { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; cursor: pointer; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.8rem; }
-        .accordion-header i { font-size: 0.8rem; transition: transform 0.3s ease; }
-        .accordion-item.active .accordion-header i { transform: rotate(180deg); }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-        .accordion-item.active .accordion-content { max-height: 300px; padding-bottom: 1.5rem; }
-        .accordion-content p, .accordion-content ul { color: var(--elviano-text-light); font-size: 0.9rem; line-height: 1.7; }
-
-        /* Reviews */
-        .reviews-section { margin: 3rem 0; padding-top: 2rem; border-top: 1px solid var(--elviano-border); }
-        .reviews-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
-        .reviews-header h3 { font-size: 1.5rem; }
-        .reviews-summary { display: flex; align-items: center; gap: 1rem; }
-        .rating-stars { color: #FFB800; }
-        .review-item { padding: 1.5rem 0; border-bottom: 1px solid var(--elviano-border); }
-        .review-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
-        .reviewer-name { font-weight: 500; }
-        .review-date { color: var(--elviano-text-light); font-size: 0.8rem; }
-        .review-rating { color: #FFB800; font-size: 0.8rem; }
-        .review-title { font-size: 1.1rem; margin-bottom: 0.5rem; }
-        .review-text { color: var(--elviano-text-light); margin-bottom: 0.5rem; }
-        .review-verified { font-size: 0.7rem; color: var(--elviano-success); text-transform: uppercase; }
-
-        /* Recently Viewed */
-        .recently-viewed-section { margin: 5rem 0 3rem; }
-        .recently-header { text-align: center; margin-bottom: 2.5rem; }
-        .recently-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-        .recently-item { text-align: left; cursor: pointer; }
-        .recently-item img { width: 100%; aspect-ratio: 3/4; object-fit: cover; margin-bottom: 1rem; }
-        .recently-item h4 { font-size: 1.1rem; font-weight: 400; margin-bottom: 0.25rem; }
-        .recently-item .price { color: var(--elviano-text-light); font-size: 0.85rem; }
-
-        /* Related */
-        .related-section { margin: 4rem 0; }
-        .related-header { text-align: center; margin-bottom: 3rem; }
-        .related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-        .related-item img { width: 100%; aspect-ratio: 3/4; object-fit: cover; margin-bottom: 1rem; }
-        .related-item h4 { font-size: 1.25rem; font-weight: 400; }
-        .related-item .price { color: var(--elviano-text-light); font-size: 0.85rem; }
-
-        /* Size Guide Modal */
-        .size-guide-modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 1001; display: none; align-items: center; justify-content: center; }
-        .size-guide-modal.active { display: flex; }
-        .modal-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(3px); }
-        .modal-content { position: relative; background: white; max-width: 650px; width: 90%; max-height: 85vh; overflow-y: auto; z-index: 1002; }
-        .modal-header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem; border-bottom: 1px solid var(--elviano-border); position: sticky; top: 0; background: white; }
-        .modal-header h3 { font-size: 1.5rem; font-weight: 400; }
-        .modal-close { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--elviano-text-light); }
-        .modal-body { padding: 1.5rem; }
-        .size-table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; }
-        .size-table th, .size-table td { padding: 0.9rem 0.5rem; text-align: center; border-bottom: 1px solid var(--elviano-border); font-size: 0.85rem; }
-        .size-table th { text-transform: uppercase; letter-spacing: 0.15em; font-weight: 400; color: var(--elviano-text-light); background: var(--elviano-ivory); }
+        .product-meta { display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.8rem; color: var(--elviano-text-light); padding: 1rem 0; border-top: 1px solid var(--elviano-border); }
+        .product-meta i { margin-right: 0.5rem; color: var(--elviano-black); width: 16px; text-align: center; }
 
         /* Toast */
-        .toast-container { position: fixed; bottom: 2rem; right: 2rem; z-index: 9999; display: flex; flex-direction: column; gap: 0.75rem; }
-        .toast-message { background: var(--elviano-black); color: white; padding: 1rem 2rem; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem; animation: toastSlideIn 0.3s ease; border-left: 3px solid var(--elviano-success); }
-        @keyframes toastSlideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        .cart-toast { position: fixed; bottom: 1.5rem; right: 1.5rem; background: var(--elviano-black); color: white; padding: 0.8rem 1.5rem; border-radius: 4px; z-index: 9999; display: none; animation: slideUp 0.3s; border-left: 3px solid var(--elviano-success); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem; }
+        .cart-toast.show { display: block; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* WhatsApp */
-        .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; text-decoration: none; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); z-index: 997; transition: transform 0.3s ease; }
-        .whatsapp-float:hover { transform: scale(1.1); }
-        .whatsapp-tooltip { position: absolute; right: 70px; background: var(--elviano-black); color: white; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.7rem; text-transform: uppercase; white-space: nowrap; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
-        .whatsapp-float:hover .whatsapp-tooltip { opacity: 1; visibility: visible; right: 75px; }
+        .whatsapp-float { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 55px; height: 55px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; text-decoration: none; z-index: 997; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
+        footer { background: var(--elviano-black); color: var(--elviano-ivory); padding: 2rem; text-align: center; margin-top: 3rem; font-size: 0.85rem; }
 
-        /* Footer */
-        footer { background: var(--elviano-black); color: var(--elviano-ivory); padding: 5rem 2rem 2rem; margin-top: 4rem; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; max-width: 1600px; margin: 0 auto; }
-        .footer-grid h5 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 400; }
-        .footer-grid ul { list-style: none; }
-        .footer-grid li { margin-bottom: 0.75rem; opacity: 0.7; font-size: 0.85rem; cursor: pointer; }
-        .footer-tagline { opacity: 0.7; font-size: 0.9rem; }
-        .newsletter-input { display: flex; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 0.5rem; margin-top: 1rem; }
-        .newsletter-input input { background: transparent; border: none; color: white; padding: 0.5rem 0; flex: 1; outline: none; }
-        .newsletter-input button { background: transparent; border: none; color: white; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.7rem; cursor: pointer; }
-        .footer-bottom { max-width: 1600px; margin: 4rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; opacity: 0.5; font-size: 0.75rem; text-transform: uppercase; }
+        /* Payment Modal */
+        .payment-modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 1000; display: none; align-items: center; justify-content: center; }
+        .payment-modal.active { display: flex; }
+        .payment-content { background: white; max-width: 480px; width: 90%; padding: 2rem; border-radius: 4px; text-align: center; position: relative; max-height: 90vh; overflow-y: auto; }
+        .payment-content h3 { font-size: 1.3rem; margin-bottom: 0.75rem; }
+        .upi-qr-large { width: 150px; height: 150px; margin: 0.75rem auto; background: #f5f5f5; display: flex; align-items: center; justify-content: center; border-radius: 8px; }
+        .upi-qr-large i { font-size: 4rem; color: var(--elviano-clay); }
+        .payment-input { width: 100%; padding: 0.7rem; border: 1px solid var(--elviano-border); margin: 0.75rem 0; text-align: center; font-size: 0.85rem; border-radius: 2px; text-transform: uppercase; }
+        .verify-btn { padding: 0.7rem 1.5rem; background: var(--elviano-black); color: white; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; border-radius: 2px; width: 100%; }
+        .verify-btn:hover { background: var(--elviano-success); }
+        .payment-close { position: absolute; top: 8px; right: 12px; background: none; border: none; font-size: 1.3rem; cursor: pointer; color: var(--elviano-text-light); }
 
-        /* Responsive */
-        @media (max-width: 1024px) { .product-grid { grid-template-columns: 1fr; gap: 2rem; } .product-gallery { position: static; } .related-grid, .recently-grid { grid-template-columns: repeat(2, 1fr); } .footer-grid { grid-template-columns: 1fr 1fr; } }
+        /* ============================================ */
+        /* 📱 MOBILE RESPONSIVE STYLES */
+        /* ============================================ */
+        @media (max-width: 1024px) {
+            .product-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .product-gallery { position: static; }
+            .main-image-container:hover .main-image { transform: none; }
+            .product-title { font-size: 2.2rem; }
+        }
+
         @media (max-width: 768px) {
-            .hamburger { display: flex; } .nav-links { display: none; } nav { padding: 1.5rem; } .logo { font-size: 1.5rem; letter-spacing: 0.2em; } .breadcrumb { margin-top: 100px; }
-            .product-title { font-size: 2.5rem; } .purchase-section { flex-direction: column; } .quantity-selector { width: 100%; } .related-grid, .recently-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; } .whatsapp-float { width: 50px; height: 50px; font-size: 1.5rem; } .whatsapp-tooltip { display: none; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            nav { padding: 1rem 1.25rem; }
+            .logo { font-size: 1.5rem; letter-spacing: 0.2em; }
+            .container { padding: 0 1rem; }
+            .breadcrumb { margin-top: 80px; font-size: 0.65rem; }
+            
+            .product-grid { gap: 1.5rem; }
+            .thumbnail-strip { grid-template-columns: repeat(6, 1fr); gap: 0.4rem; }
+            .thumbnail { aspect-ratio: 1/1; }
+            
+            .product-title { font-size: 1.8rem; }
+            .product-price { font-size: 1.3rem; }
+            .product-desc { font-size: 0.85rem; }
+            
+            .quantity-row { flex-direction: column; }
+            .quantity-selector { width: 100%; justify-content: center; }
+            .qty-input { flex: 1; }
+            .add-to-cart-main { height: 50px; font-size: 0.85rem; }
+            .buy-now-btn { font-size: 0.85rem; padding: 0.9rem; }
+            
+            .size-options { gap: 0.4rem; }
+            .size-option { min-width: 45px; height: 40px; font-size: 0.8rem; }
+            
+            .image-nav { width: 30px; height: 30px; font-size: 0.8rem; }
+            .image-counter { font-size: 0.65rem; padding: 0.15rem 0.5rem; }
+            
+            .whatsapp-float { width: 48px; height: 48px; font-size: 1.5rem; bottom: 1rem; right: 1rem; }
+            .cart-toast { bottom: 1rem; right: 1rem; font-size: 0.7rem; padding: 0.6rem 1rem; }
+        }
+
+        @media (max-width: 400px) {
+            .size-options { gap: 0.3rem; }
+            .size-option { min-width: 40px; height: 36px; font-size: 0.75rem; }
+            .product-title { font-size: 1.6rem; }
+            .payment-content { padding: 1.5rem; }
+            .upi-qr-large { width: 120px; height: 120px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Page Loader -->
-    <div class="page-loader" id="pageLoader"><div class="loader-logo">ELVIANO</div><div class="loader-line"></div></div>
-
     <!-- Navigation -->
     <nav>
         <a href="index.html" class="logo">ELVIANO</a>
-        <div class="nav-links"><a href="#">Editions</a><a href="lookbook.html">Lookbook</a><a href="journal.html">Journal</a><a href="about.html">About</a></div>
+        <div class="nav-links"><a href="index.html#products">Shop</a><a href="lookbook.html">Lookbook</a><a href="journal.html">Journal</a><a href="about.html">About</a></div>
         <a href="cart.html" class="cart-link">Cart <span class="cart-count" id="cartCount">0</span></a>
-        <div class="hamburger"><span></span><span></span><span></span></div>
+        <div class="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
     </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html#products">Shop</a><a href="lookbook.html">Lookbook</a><a href="journal.html">Journal</a><a href="about.html">About</a>
+    </div>
 
-    <!-- Breadcrumb -->
-    <div class="container"><div class="breadcrumb"><a href="index.html">Home</a><span>/</span><a href="#">Edition 01</a><span>/</span>Edition Tee 01</div></div>
-
-    <!-- Product Main -->
     <div class="container">
+        <div class="breadcrumb"><a href="index.html">Home</a> / <a href="index.html#products">Edition 01</a> / Edition Tee 01</div>
+        
         <div class="product-grid">
+            <!-- GALLERY -->
             <div class="product-gallery">
-                <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=2000&auto=format&fit=crop" alt="Edition Tee 01" class="main-image" id="mainImage">
-                <div class="thumbnail-strip">
-                    <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=400" class="thumbnail active" onclick="changeImage(this.src, this)">
-                    <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=400" class="thumbnail" onclick="changeImage(this.src, this)">
-                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=400" class="thumbnail" onclick="changeImage(this.src, this)">
-                    <img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=400" class="thumbnail" onclick="changeImage(this.src, this)">
+                <div class="main-image-container">
+                    <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=2000" alt="Edition Tee 01" class="main-image" id="mainImage" loading="eager">
+                    <button class="image-nav prev" onclick="navigateImage(-1)" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                    <button class="image-nav next" onclick="navigateImage(1)" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+                    <div class="image-counter" id="imageCounter">1 / 6</div>
                 </div>
+                <div class="thumbnail-strip" id="thumbnailStrip"></div>
             </div>
-
+            
+            <!-- PRODUCT INFO -->
             <div class="product-info">
-                <div class="product-eyebrow">Edition 01 — Monsoon</div>
+                <div class="product-eyebrow" style="color:var(--elviano-clay);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.2em;">Edition 01 — Monsoon</div>
                 <h1 class="product-title">Edition Tee 01</h1>
                 <div class="product-price">₹1,499 <span class="original">₹1,999</span></div>
-                <p class="product-description">The foundational Elviano silhouette. Cut from 220 GSM combed cotton with a relaxed fit. Features our signature Monsoon print—inspired by Mumbai rains. Each piece is screen printed by hand.</p>
-
+                <p class="product-desc">The foundational Elviano silhouette. Cut from 220 GSM combed cotton with a relaxed fit. Features our signature Monsoon print. Each piece is screen printed by hand in India.</p>
+                
                 <div class="size-section">
-                    <div class="size-header"><span class="size-label">Select Size</span><a href="#" class="size-guide-link" onclick="openSizeGuide(event)">Size Guide →</a></div>
-                    <div class="size-options"><div class="size-option selected" onclick="selectSize(this)">S</div><div class="size-option" onclick="selectSize(this)">M</div><div class="size-option" onclick="selectSize(this)">L</div><div class="size-option" onclick="selectSize(this)">XL</div><div class="size-option unavailable">XXL</div></div>
-                    <div class="low-stock-warning"><i class="fas fa-circle" style="font-size:0.4rem; margin-right:0.5rem; color:var(--elviano-clay);"></i>Only 4 pieces left</div>
+                    <div class="size-header"><span>Select Size</span><a href="#" onclick="alert('S:38&quot; M:40&quot; L:42&quot; XL:44&quot;');return false;">Size Guide →</a></div>
+                    <div class="size-options">
+                        <span class="size-option" onclick="selectSize(this)">S</span>
+                        <span class="size-option selected" onclick="selectSize(this)">M</span>
+                        <span class="size-option" onclick="selectSize(this)">L</span>
+                        <span class="size-option" onclick="selectSize(this)">XL</span>
+                        <span class="size-option unavailable">XXL</span>
+                    </div>
+                    <div class="stock-warning"><i class="fas fa-circle" style="font-size:0.3rem;margin-right:0.3rem;"></i>Only 4 pieces left</div>
                 </div>
-
-                <div class="purchase-section">
-                    <div class="quantity-selector"><button class="quantity-btn" onclick="decrementQuantity()">−</button><input type="number" id="quantity" class="quantity-input" value="1" min="1" max="4" readonly><button class="quantity-btn" onclick="incrementQuantity()">+</button></div>
-                    <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
+                
+                <div class="purchase-actions">
+                    <div class="quantity-row">
+                        <div class="quantity-selector">
+                            <button class="qty-btn" onclick="changeQty(-1)">−</button>
+                            <input type="number" id="quantity" class="qty-input" value="1" min="1" max="4" readonly>
+                            <button class="qty-btn" onclick="changeQty(1)">+</button>
+                        </div>
+                        <button class="add-to-cart-main" id="addToCartBtn" onclick="addToCartProduct()">Add to Cart — ₹1,499</button>
+                    </div>
+                    <button class="buy-now-btn" onclick="buyNow()">⚡ Buy Now — Pay via UPI</button>
                 </div>
-
-                <button class="wishlist-btn" id="wishlistBtn" onclick="toggleWishlist()"><i class="far fa-heart"></i><span id="wishlistText">Add to Wishlist</span></button>
-
+                
                 <div class="product-meta">
                     <div><i class="fas fa-check-circle"></i> Limited Edition — Never restocked</div>
                     <div><i class="fas fa-truck"></i> Free shipping on orders above ₹2,499</div>
                     <div><i class="fas fa-undo-alt"></i> 7-day easy returns</div>
                 </div>
-
-                <div class="accordion">
-                    <div class="accordion-item active"><div class="accordion-header" onclick="toggleAccordion(this)">Description <i class="fas fa-chevron-down"></i></div><div class="accordion-content"><p>The Edition Tee 01 is the foundation of Elviano. Relaxed silhouette. Monsoon print hand-pulled using water-based inks.</p></div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)">Fabric & Construction <i class="fas fa-chevron-down"></i></div><div class="accordion-content"><ul><li><strong>Fabric:</strong> 100% Combed Cotton, 220 GSM</li><li><strong>Origin:</strong> Tirupur, India</li><li><strong>Print:</strong> Hand-pulled screen print</li></ul></div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)">Care Instructions <i class="fas fa-chevron-down"></i></div><div class="accordion-content"><ul><li>Machine wash cold, inside out</li><li>Do not bleach</li><li>Line dry in shade</li></ul></div></div>
-                    <div class="accordion-item"><div class="accordion-header" onclick="toggleAccordion(this)">Shipping & Returns <i class="fas fa-chevron-down"></i></div><div class="accordion-content"><p>Ships in 2-3 days. Returns accepted within 7 days.</p></div></div>
-                </div>
             </div>
         </div>
     </div>
 
-    <!-- Reviews -->
-    <div class="container"><div class="reviews-section"><div class="reviews-header"><h3>Customer Reviews</h3><div class="reviews-summary"><div class="rating-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><span>4.8 out of 5</span><span class="review-count">(24 reviews)</span></div></div><div class="reviews-list"><div class="review-item"><div class="review-header"><span class="reviewer-name">Rahul M.</span><span class="review-date">March 12, 2026</span><div class="review-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><h4 class="review-title">Exceptional quality</h4><p class="review-text">The 220 GSM fabric feels substantial. Print has beautiful handmade quality.</p><div class="review-verified"><i class="fas fa-check-circle"></i> Verified Purchase</div></div></div></div></div>
-
-    <!-- Recently Viewed -->
-    <div class="container"><div class="recently-viewed-section"><div class="recently-header"><div class="eyebrow">Your Journey</div><h2>Recently Viewed</h2></div><div class="recently-grid" id="recentlyViewed"><p style="grid-column:1/-1; text-align:center;">Loading...</p></div></div></div>
-
-    <!-- Related Products -->
-    <div class="container"><div class="related-section"><div class="related-header"><div class="eyebrow">Complete the Look</div><h2>You May Also Like</h2></div><div class="related-grid"><div class="related-item"><img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=800"><h4>Camp Shirt</h4><div class="price">₹2,799</div></div><div class="related-item"><img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=800"><h4>Oversized Tee</h4><div class="price">₹1,899</div></div><div class="related-item"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800"><h4>Signature Print</h4><div class="price">₹1,699</div></div><div class="related-item"><img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=800"><h4>Edition Tee 02</h4><div class="price">₹1,499</div></div></div></div></div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-grid">
-            <div><h5>ELVIANO</h5><p class="footer-tagline">Limited edition printed apparel. Designed with intention. Never restocked.</p></div>
-            <div><h5>Shop</h5><ul><li>Edition 01</li><li>All Tees</li><li>All Shirts</li><li>Lookbook</li></ul></div>
-            <div><h5>Information</h5><ul><li>About</li><li>Size Guide</li><li>Shipping</li><li>Returns</li><li>Contact</li></ul></div>
-            <div><h5>Receive Editions</h5><div class="newsletter-input"><input type="email" placeholder="Your email"><button>Subscribe →</button></div></div>
+    <!-- Payment Modal -->
+    <div class="payment-modal" id="paymentModal">
+        <div class="payment-content">
+            <button class="payment-close" onclick="closePayment()">&times;</button>
+            <h3>Complete Payment</h3>
+            <p style="color:var(--elviano-text-light);margin-bottom:0.75rem;font-size:0.9rem;">Scan QR or pay via UPI ID</p>
+            <div class="upi-qr-large"><i class="fas fa-qrcode"></i></div>
+            <p style="font-weight:500;margin:0.5rem 0;">elviano@okhdfcbank</p>
+            <p style="font-size:0.8rem;color:var(--elviano-text-light);">UPI ID: elviano@okhdfcbank</p>
+            <p style="margin:0.75rem 0;font-weight:500;">Amount: <span id="paymentAmount">₹1,499</span></p>
+            <input type="text" class="payment-input" id="upiRefId" placeholder="Enter UPI Reference ID" autocomplete="off">
+            <button class="verify-btn" onclick="verifyPayment()">✅ Verify Payment & Confirm Order</button>
+            <p id="paymentStatus" style="margin-top:0.75rem;font-weight:500;font-size:0.85rem;"></p>
         </div>
-        <div class="footer-bottom">© 2026 Elviano. All rights reserved. — Impressions in Ink.<br>Jagdalpur, Bastar, Chhattisgarh - 494001</div>
+    </div>
+
+    <footer>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;">ELVIANO</p>
+        <p style="opacity:0.7;">Limited edition printed apparel.</p>
+        <p style="opacity:0.5;font-size:0.7rem;margin-top:0.5rem;">© 2026 Elviano. All rights reserved.<br>Jagdalpur, Bastar, Chhattisgarh - 494001</p>
     </footer>
 
-    <!-- Size Guide Modal -->
-    <div class="size-guide-modal" id="sizeGuideModal"><div class="modal-overlay" onclick="closeSizeGuide()"></div><div class="modal-content"><div class="modal-header"><h3>Size Guide</h3><button class="modal-close" onclick="closeSizeGuide()">&times;</button></div><div class="modal-body"><p class="size-note">All measurements in inches. Relaxed fit.</p><table class="size-table"><thead><tr><th>Size</th><th>Chest</th><th>Length</th><th>Shoulder</th></tr></thead><tbody><tr><td>S</td><td>38"</td><td>27"</td><td>17.5"</td></tr><tr><td>M</td><td>40"</td><td>28"</td><td>18.5"</td></tr><tr><td>L</td><td>42"</td><td>29"</td><td>19.5"</td></tr><tr><td>XL</td><td>44"</td><td>30"</td><td>20.5"</td></tr></tbody></table></div></div></div>
-
-    <!-- Toast -->
-    <div class="toast-container" id="toastContainer"></div>
-
-    <!-- WhatsApp -->
-    <a href="https://wa.me/916260323405?text=Hi%20ELVIANO%2C%20I'm%20interested%20in%20Edition%20Tee%2001!" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i><span class="whatsapp-tooltip">Chat with us!</span></a>
+    <a href="https://wa.me/916260323405" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <div class="cart-toast" id="cartToast"></div>
 
     <script>
-        window.addEventListener('load', () => setTimeout(() => document.getElementById('pageLoader').classList.add('hide'), 600));
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.from('.product-gallery', { opacity: 0, x: -30, duration: 0.8 });
-        gsap.from('.product-info', { opacity: 0, x: 30, duration: 0.8 });
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
 
-        function showToast(msg, type='success') { const c = document.getElementById('toastContainer'); const t = document.createElement('div'); t.className = 'toast-message ' + type; t.textContent = msg; c.appendChild(t); setTimeout(() => { t.style.animation = 'toastSlideIn 0.3s ease reverse'; setTimeout(() => t.remove(), 300); }, 3000); }
-        function changeImage(src, el) { document.getElementById('mainImage').src = src.replace('w=400', 'w=2000'); document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active')); el.classList.add('active'); }
-        function selectSize(el) { if(el.classList.contains('unavailable')) return; document.querySelectorAll('.size-option').forEach(o => o.classList.remove('selected')); el.classList.add('selected'); }
-        function incrementQuantity() { const i = document.getElementById('quantity'); if(parseInt(i.value) < parseInt(i.max)) i.value = parseInt(i.value) + 1; }
-        function decrementQuantity() { const i = document.getElementById('quantity'); if(parseInt(i.value) > parseInt(i.min)) i.value = parseInt(i.value) - 1; }
-        function addToCart() { showToast('Added to Cart!', 'success'); document.getElementById('cartCount').textContent = '1'; }
-        function toggleAccordion(h) { h.parentElement.classList.toggle('active'); }
-        function openSizeGuide(e) { e.preventDefault(); document.getElementById('sizeGuideModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
-        function closeSizeGuide() { document.getElementById('sizeGuideModal').classList.remove('active'); document.body.style.overflow = ''; }
-        document.addEventListener('keydown', e => { if(e.key === 'Escape') closeSizeGuide(); });
+        // Product Images
+        const productImages = [
+            { src: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=2000', thumb: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=400', label: 'Front View' },
+            { src: 'https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=2000', thumb: 'https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=400', label: 'Back View' },
+            { src: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=2000', thumb: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=400', label: 'Detail Shot' },
+            { src: 'https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=2000', thumb: 'https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=400', label: 'Texture' },
+            { src: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=2000', thumb: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=400', label: 'Lifestyle' },
+            { src: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=2000', thumb: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=400', label: 'Print Detail' }
+        ];
+        let currentImageIndex = 0;
 
-        let wishlist = JSON.parse(localStorage.getItem('elviano_wishlist')) || [];
-        const currentProduct = { id: 'edition-tee-01', name: 'Edition Tee 01', price: '₹1,499', image: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=400' };
-        function toggleWishlist() { const btn = document.getElementById('wishlistBtn'), icon = btn.querySelector('i'), text = document.getElementById('wishlistText'); if(wishlist.find(i => i.id === currentProduct.id)) { wishlist = wishlist.filter(i => i.id !== currentProduct.id); btn.classList.remove('active'); icon.className = 'far fa-heart'; text.textContent = 'Add to Wishlist'; showToast('Removed from Wishlist'); } else { wishlist.push(currentProduct); btn.classList.add('active'); icon.className = 'fas fa-heart'; text.textContent = 'Saved to Wishlist'; showToast('Added to Wishlist!'); } localStorage.setItem('elviano_wishlist', JSON.stringify(wishlist)); }
-        if(wishlist.find(i => i.id === currentProduct.id)) { document.addEventListener('DOMContentLoaded', () => { const btn = document.getElementById('wishlistBtn'); btn.classList.add('active'); btn.querySelector('i').className = 'fas fa-heart'; document.getElementById('wishlistText').textContent = 'Saved to Wishlist'; }); }
+        function renderThumbnails() {
+            document.getElementById('thumbnailStrip').innerHTML = productImages.map((img, i) => `
+                <img src="${img.thumb}" alt="${img.label}" class="thumbnail${i === 0 ? ' active' : ''}" onclick="switchImage(${i})" title="${img.label}" loading="lazy">
+            `).join('');
+        }
 
-        const SAMPLE = [{ id: 'camp-shirt', name: 'Camp Shirt', price: '₹2,799', image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=400', link: 'product.html' }];
-        function addToRecentlyViewed(p) { let r = JSON.parse(localStorage.getItem('elviano_recently_viewed')) || []; r = r.filter(i => i.id !== p.id); r.unshift(p); r = r.slice(0, 4); localStorage.setItem('elviano_recently_viewed', JSON.stringify(r)); displayRecentlyViewed(); }
-        function displayRecentlyViewed() { let r = JSON.parse(localStorage.getItem('elviano_recently_viewed')) || []; if(r.length === 0) r = SAMPLE.slice(0, 3); document.getElementById('recentlyViewed').innerHTML = r.map(p => `<div class="recently-item" onclick="location.href='${p.link}'"><img src="${p.image}"><h4>${p.name}</h4><div class="price">${p.price}</div></div>`).join(''); }
-        document.addEventListener('DOMContentLoaded', () => { addToRecentlyViewed(currentProduct); });
+        function switchImage(index) {
+            currentImageIndex = index;
+            document.getElementById('mainImage').src = productImages[index].src;
+            document.querySelectorAll('.thumbnail').forEach((t, i) => t.classList.toggle('active', i === index));
+            document.getElementById('imageCounter').textContent = `${index + 1} / ${productImages.length}`;
+        }
 
-        (function() { const h = document.querySelector('.hamburger'), b = document.body, m = document.createElement('div'); m.className = 'mobile-menu'; m.innerHTML = `<div class="mobile-menu-links"><a href="#">Editions</a><a href="lookbook.html">Lookbook</a><a href="journal.html">Journal</a><a href="about.html">About</a></div><div class="mobile-menu-footer"><p>Follow @elviano.official</p><div class="mobile-social"><a href="https://instagram.com/elviano.official"><i class="fab fa-instagram"></i></a></div></div>`; b.appendChild(m); function t() { h.classList.toggle('active'); m.classList.toggle('active'); b.classList.toggle('menu-open'); } h.addEventListener('click', t); m.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { h.classList.remove('active'); m.classList.remove('active'); b.classList.remove('menu-open'); })); })();
+        function navigateImage(direction) {
+            let newIndex = currentImageIndex + direction;
+            if (newIndex < 0) newIndex = productImages.length - 1;
+            if (newIndex >= productImages.length) newIndex = 0;
+            switchImage(newIndex);
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowLeft') navigateImage(-1);
+            if (e.key === 'ArrowRight') navigateImage(1);
+        });
+
+        // Touch swipe support
+        let touchStartX = 0;
+        document.getElementById('mainImageContainer').addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+        document.getElementById('mainImageContainer').addEventListener('touchend', e => {
+            const diff = touchStartX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) navigateImage(diff > 0 ? 1 : -1);
+        });
+
+        // Size & Quantity
+        function selectSize(el) { if (el.classList.contains('unavailable')) return; document.querySelectorAll('.size-option:not(.unavailable)').forEach(s => s.classList.remove('selected')); el.classList.add('selected'); }
+        function changeQty(d) { const i = document.getElementById('quantity'); let v = parseInt(i.value) + d; if (v >= 1 && v <= 4) i.value = v; updatePriceBtn(); }
+        function updatePriceBtn() { document.getElementById('addToCartBtn').textContent = `Add to Cart — ₹${(1499 * parseInt(document.getElementById('quantity').value)).toLocaleString()}`; }
+
+        // Add to Cart
+        function addToCartProduct() {
+            const size = document.querySelector('.size-option.selected')?.textContent || 'M';
+            const qty = parseInt(document.getElementById('quantity').value);
+            let cart = JSON.parse(localStorage.getItem('elviano_cart')) || [];
+            const existing = cart.find(i => i.id === 'edition-tee-01' && i.size === size);
+            if (existing) { existing.quantity += qty; } else { cart.push({ id: 'edition-tee-01', name: 'Edition Tee 01', price: 1499, image: productImages[0].thumb, size, quantity: qty }); }
+            localStorage.setItem('elviano_cart', JSON.stringify(cart)); localStorage.setItem('cartHasItems', 'true');
+            updateCartCount();
+            const btn = document.getElementById('addToCartBtn'); btn.textContent = '✓ Added!'; btn.classList.add('added');
+            setTimeout(() => { btn.textContent = 'Add to Cart — ₹1,499'; btn.classList.remove('added'); }, 2000);
+            showToast(`Added! (${size}) × ${qty}`);
+        }
+
+        // Buy Now
+        function buyNow() {
+            const size = document.querySelector('.size-option.selected')?.textContent || 'M';
+            const qty = parseInt(document.getElementById('quantity').value);
+            const total = 1499 * qty;
+            document.getElementById('paymentAmount').textContent = '₹' + total.toLocaleString();
+            document.getElementById('paymentStatus').textContent = '';
+            document.getElementById('upiRefId').value = '';
+            document.getElementById('paymentModal').classList.add('active');
+            const modal = document.getElementById('paymentModal');
+            modal.dataset.size = size; modal.dataset.qty = qty; modal.dataset.total = total;
+        }
+
+        function closePayment() { document.getElementById('paymentModal').classList.remove('active'); }
+
+        function verifyPayment() {
+            const refId = document.getElementById('upiRefId').value.trim();
+            const statusEl = document.getElementById('paymentStatus');
+            if (!refId) { statusEl.textContent = '❌ Please enter UPI Reference ID'; statusEl.style.color = 'var(--elviano-error)'; return; }
+            if (refId.length < 6) { statusEl.textContent = '❌ Invalid Reference ID'; statusEl.style.color = 'var(--elviano-error)'; return; }
+            
+            const modal = document.getElementById('paymentModal');
+            statusEl.textContent = '✅ Payment Verified! Order Confirmed!'; statusEl.style.color = 'var(--elviano-success)';
+            
+            const orders = JSON.parse(localStorage.getItem('elviano_orders')) || [];
+            orders.push({ orderId: 'ELV-' + Date.now().toString(36).toUpperCase(), date: new Date().toLocaleDateString('en-IN'), product: 'Edition Tee 01', size: modal.dataset.size, quantity: parseInt(modal.dataset.qty), total: parseInt(modal.dataset.total), upiRef: refId, status: 'Confirmed' });
+            localStorage.setItem('elviano_orders', JSON.stringify(orders));
+            localStorage.removeItem('elviano_cart'); updateCartCount();
+            
+            setTimeout(() => { closePayment(); alert('🎉 Order Confirmed!\n\nThank you for your purchase!\nWe will ship within 2-3 business days.\n\nRef: ' + refId); }, 1500);
+        }
+
+        function showToast(m) { const t = document.getElementById('cartToast'); t.textContent = m; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2500); }
+        function updateCartCount() { const c = JSON.parse(localStorage.getItem('elviano_cart')) || []; document.getElementById('cartCount').textContent = c.reduce((s, i) => s + i.quantity, 0); }
+
+        document.addEventListener('DOMContentLoaded', () => { renderThumbnails(); updateCartCount(); });
     </script>
 </body>
 </html>
