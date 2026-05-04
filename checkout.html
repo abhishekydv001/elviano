@@ -4,304 +4,248 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Primary Meta Tags -->
     <title>Checkout — ELVIANO | Secure Checkout</title>
-    <meta name="title" content="Checkout — ELVIANO | Secure Checkout">
     <meta name="description" content="Complete your purchase securely. Multiple payment options available including UPI, cards, and net banking.">
-    <meta name="keywords" content="checkout, secure payment, Elviano, UPI, credit card, net banking">
-    <meta name="author" content="ELVIANO">
-    <meta name="robots" content="noindex, follow">
     
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://elviano.in/checkout.html">
-    <meta property="og:title" content="Checkout — ELVIANO">
-    <meta property="og:description" content="Complete your purchase securely.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1200">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Checkout — ELVIANO">
-    <meta property="twitter:description" content="Complete your purchase securely.">
-    <meta property="twitter:image" content="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1200">
-    
-    <!-- Canonical -->
-    <link rel="canonical" href="https://elviano.in/checkout.html">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='70' font-family='Georgia' font-size='60' text-anchor='middle' fill='%230F0F0F'%3EE%3C/text%3E%3C/svg%3E">
-    
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    
     <style>
-        /* ============================================ */
-        /* ELVIANO - COMPLETE CHECKOUT STYLES + FEATURES */
-        /* ============================================ */
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --elviano-black: #0F0F0F;
             --elviano-ivory: #F9F6F0;
             --elviano-clay: #C4735A;
-            --elviano-olive: #5A6B4A;
-            --elviano-stone: #D4CFC7;
-            --elviano-text-light: #6B6B6B;
             --elviano-border: #E8E2D9;
+            --elviano-text-light: #6B6B6B;
             --elviano-success: #5A6B4A;
             --elviano-error: #D9534F;
         }
 
-        body { background: var(--elviano-ivory); font-family: 'Inter', sans-serif; font-weight: 300; color: var(--elviano-black); line-height: 1.6; }
-        h1, h2, h3, h4, .serif { font-family: 'Cormorant Garamond', serif; font-weight: 300; letter-spacing: -0.02em; }
-        .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
-        .container-sm { max-width: 600px; margin: 0 auto; padding: 0 2rem; }
-        .eyebrow { text-transform: uppercase; letter-spacing: 0.25em; font-size: 0.7rem; font-weight: 400; color: var(--elviano-text-light); }
-
-        /* Page Loader */
-        .page-loader { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--elviano-ivory); z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
-        .page-loader.hide { opacity: 0; visibility: hidden; }
-        .loader-logo { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; letter-spacing: 0.3em; margin-bottom: 2rem; animation: pulse 1.5s ease-in-out infinite; }
-        .loader-line { width: 100px; height: 1px; background: var(--elviano-black); position: relative; overflow: hidden; }
-        .loader-line::after { content: ''; position: absolute; width: 50%; height: 100%; background: var(--elviano-clay); animation: loading 1s ease-in-out infinite; }
-        @keyframes loading { 0% { left: -50%; } 100% { left: 100%; } }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        body { background: var(--elviano-ivory); font-family: 'Inter', sans-serif; color: var(--elviano-black); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; font-weight: 300; }
 
         /* Navigation */
         nav { position: fixed; top: 0; left: 0; right: 0; padding: 2rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: rgba(249, 246, 240, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--elviano-border); }
-        .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; letter-spacing: 0.3em; text-transform: uppercase; color: var(--elviano-black); text-decoration: none; }
+        .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; letter-spacing: 0.3em; color: var(--elviano-black); text-decoration: none; }
         .nav-links { display: flex; gap: 3rem; }
-        .nav-links a { color: var(--elviano-black); text-decoration: none; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.2em; font-weight: 400; transition: opacity 0.3s ease; }
-        .nav-links a:hover { opacity: 0.6; }
-        .cart-link { color: var(--elviano-black); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; }
-        .cart-count { background: var(--elviano-black); color: white; font-size: 0.6rem; padding: 0.15rem 0.4rem; border-radius: 50%; margin-left: 0.3rem; }
-
-        /* Hamburger */
-        .hamburger { display: none; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; cursor: pointer; z-index: 1000; }
-        .hamburger span { display: block; width: 100%; height: 1.5px; background: var(--elviano-black); transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-        .mobile-menu { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--elviano-ivory); z-index: 999; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.4s ease; }
-        .mobile-menu.active { opacity: 1; visibility: visible; }
-        .mobile-menu-links { display: flex; flex-direction: column; align-items: center; gap: 2.5rem; }
-        .mobile-menu-links a { color: var(--elviano-black); text-decoration: none; font-size: 2rem; font-family: 'Cormorant Garamond', serif; font-weight: 300; text-transform: uppercase; transform: translateY(20px); opacity: 0; transition: all 0.4s ease; }
-        .mobile-menu.active .mobile-menu-links a { transform: translateY(0); opacity: 1; }
-        .mobile-menu-links a:nth-child(1) { transition-delay: 0.1s; }
-        .mobile-menu-links a:nth-child(2) { transition-delay: 0.2s; }
-        .mobile-menu-links a:nth-child(3) { transition-delay: 0.3s; }
-        .mobile-menu-links a:nth-child(4) { transition-delay: 0.4s; }
-        .mobile-menu-footer { position: absolute; bottom: 3rem; text-align: center; opacity: 0; transform: translateY(20px); transition: all 0.4s ease 0.5s; }
-        .mobile-menu.active .mobile-menu-footer { opacity: 1; transform: translateY(0); }
-        body.menu-open { overflow: hidden; }
+        .nav-links a { color: var(--elviano-black); text-decoration: none; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.2em; }
+        .cart-link { color: var(--elviano-black); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.2em; }
 
         /* Page Header */
-        .page-header { margin-top: 140px; margin-bottom: 2rem; text-align: center; }
-        .page-header h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); margin: 1rem 0 0.5rem; }
+        .page-header { margin-top: 140px; text-align: center; margin-bottom: 2rem; }
+        .page-header h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); }
 
-        /* Checkout Progress */
-        .checkout-progress { display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 3rem; }
-        .progress-step { display: flex; align-items: center; gap: 0.5rem; color: var(--elviano-text-light); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; }
-        .progress-step.active { color: var(--elviano-black); }
-        .progress-step.completed { color: var(--elviano-success); }
-        .step-number { width: 28px; height: 28px; border-radius: 50%; border: 1px solid currentColor; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; }
-        .progress-step.completed .step-number { background: var(--elviano-success); border-color: var(--elviano-success); color: white; }
-        .progress-step.active .step-number { background: var(--elviano-black); border-color: var(--elviano-black); color: white; }
-        .progress-line { width: 80px; height: 1px; background: var(--elviano-border); }
+        /* Progress */
+        .checkout-progress { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; }
+        .progress-step { color: var(--elviano-text-light); display: flex; align-items: center; gap: 0.5rem; }
+        .progress-step.active { color: var(--elviano-black); font-weight: 500; }
+        .progress-step .num { width: 28px; height: 28px; border-radius: 50%; border: 1px solid currentColor; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; }
+        .progress-step.completed .num { background: var(--elviano-success); border-color: var(--elviano-success); color: white; }
+        .progress-line { width: 60px; height: 1px; background: var(--elviano-border); align-self: center; }
 
         /* Checkout Layout */
-        .checkout-layout { display: grid; grid-template-columns: 1fr 380px; gap: 3rem; margin-bottom: 6rem; }
-        .form-section { margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--elviano-border); }
-        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
-        .section-header h3 { font-size: 1.5rem; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+        .checkout-layout { display: grid; grid-template-columns: 1fr 380px; gap: 3rem; margin-bottom: 4rem; }
+        .form-section { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--elviano-border); }
+        .form-section h3 { font-size: 1.3rem; margin-bottom: 1.5rem; }
         .form-group { margin-bottom: 1.25rem; }
         .form-group label { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; color: var(--elviano-text-light); }
-        .form-group input, .form-group select { width: 100%; padding: 0.9rem 1rem; border: 1px solid var(--elviano-border); background: white; font-size: 0.9rem; }
-        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--elviano-black); }
-
-        /* Saved Address */
-        .saved-address { background: white; border: 1px solid var(--elviano-border); padding: 1.5rem; margin-bottom: 1rem; cursor: pointer; }
-        .saved-address.selected { border-color: var(--elviano-black); border-width: 2px; }
-        .address-radio { display: flex; align-items: flex-start; gap: 1rem; }
-        .address-name { font-weight: 500; margin-bottom: 0.25rem; }
-        .address-text { color: var(--elviano-text-light); font-size: 0.85rem; }
-        .address-badge { display: inline-block; background: var(--elviano-stone); padding: 0.15rem 0.6rem; font-size: 0.6rem; text-transform: uppercase; margin-left: 0.75rem; }
-
-        /* Shipping Method */
-        .shipping-method { background: white; border: 1px solid var(--elviano-border); padding: 1.25rem 1.5rem; margin-bottom: 0.75rem; cursor: pointer; }
-        .shipping-method.selected { border-color: var(--elviano-black); border-width: 2px; }
-        .method-radio { display: flex; align-items: center; gap: 1rem; }
-        .method-details { flex: 1; display: flex; justify-content: space-between; align-items: center; }
-        .method-price { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; }
-        .method-desc { font-size: 0.75rem; color: var(--elviano-text-light); }
+        .form-group input, .form-group select { width: 100%; padding: 0.9rem; border: 1px solid var(--elviano-border); background: white; font-size: 0.9rem; font-family: 'Inter', sans-serif; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
         /* Payment Methods */
-        .payment-methods { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
-        .payment-method { flex: 1; background: white; border: 1px solid var(--elviano-border); padding: 1rem; text-align: center; cursor: pointer; }
-        .payment-method.selected { border-color: var(--elviano-black); border-width: 2px; }
-        .payment-method i { font-size: 2rem; margin-bottom: 0.5rem; }
-        .payment-method span { display: block; font-size: 0.7rem; text-transform: uppercase; }
+        .payment-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-bottom: 1rem; }
+        .payment-option { padding: 1rem; border: 1px solid var(--elviano-border); text-align: center; cursor: pointer; background: white; transition: all 0.2s; }
+        .payment-option:hover { border-color: var(--elviano-black); }
+        .payment-option.selected { border-color: var(--elviano-black); border-width: 2px; background: var(--elviano-ivory); }
+        .payment-option i { font-size: 1.5rem; margin-bottom: 0.25rem; display: block; }
+        .payment-option span { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; }
 
         /* UPI Section */
-        .upi-section { background: white; border: 1px solid var(--elviano-border); padding: 1.5rem; margin-top: 1rem; }
-        .upi-input { display: flex; gap: 0.5rem; }
-        .upi-input input { flex: 1; }
-        .upi-input button { padding: 0 1.5rem; background: var(--elviano-black); color: white; border: none; text-transform: uppercase; cursor: pointer; }
-        .upi-apps { display: flex; gap: 1rem; margin-top: 1rem; }
-        .upi-app { padding: 0.5rem 1rem; background: var(--elviano-ivory); border: 1px solid var(--elviano-border); border-radius: 20px; font-size: 0.75rem; cursor: pointer; }
-
-        /* Card Form */
-        .card-form { background: white; border: 1px solid var(--elviano-border); padding: 1.5rem; margin-top: 1rem; }
-        .card-row { display: grid; grid-template-columns: 1fr 100px; gap: 1rem; }
+        .upi-section { background: white; border: 1px solid var(--elviano-border); padding: 1.5rem; text-align: center; margin-top: 1rem; }
+        .upi-qr { width: 150px; height: 150px; margin: 1rem auto; background: #f5f5f5; display: flex; align-items: center; justify-content: center; border-radius: 8px; }
+        .upi-qr i { font-size: 4rem; color: var(--elviano-clay); }
+        .upi-id { font-weight: 500; margin: 0.5rem 0; }
+        .upi-apps { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
+        .upi-app { padding: 0.4rem 1rem; background: var(--elviano-ivory); border: 1px solid var(--elviano-border); border-radius: 20px; font-size: 0.75rem; cursor: pointer; }
 
         /* Order Summary */
-        .order-summary { background: white; padding: 2rem; position: sticky; top: 120px; border: 1px solid var(--elviano-border); }
-        .order-summary h3 { font-size: 1.5rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--elviano-border); }
-        .order-items { max-height: 300px; overflow-y: auto; }
-        .order-item { display: flex; gap: 1rem; margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--elviano-border); }
-        .order-item-image { width: 60px; aspect-ratio: 3/4; object-fit: cover; }
-        .order-item-details h4 { font-size: 1rem; margin-bottom: 0.25rem; }
-        .order-item-meta { font-size: 0.7rem; color: var(--elviano-text-light); }
-        .order-item-price { font-family: 'Cormorant Garamond', serif; }
-        .summary-row { display: flex; justify-content: space-between; margin-bottom: 0.75rem; font-size: 0.85rem; }
-        .summary-row.total { font-size: 1.25rem; font-family: 'Cormorant Garamond', serif; font-weight: 500; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--elviano-black); }
-        .place-order-btn { display: block; width: 100%; background: var(--elviano-black); color: white; border: none; padding: 1.2rem; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem; cursor: pointer; margin-top: 1.5rem; }
-        .secure-note { text-align: center; margin-top: 1rem; font-size: 0.7rem; color: var(--elviano-text-light); }
-        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--elviano-text-light); text-decoration: none; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 2rem; }
+        .order-summary { background: white; border: 1px solid var(--elviano-border); border-radius: 4px; padding: 2rem; position: sticky; top: 120px; }
+        .order-summary h3 { font-size: 1.3rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--elviano-border); }
+        .summary-item { display: flex; gap: 0.75rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--elviano-border); }
+        .summary-item img { width: 50px; aspect-ratio: 3/4; object-fit: cover; }
+        .summary-item-details h4 { font-size: 0.9rem; font-weight: 500; }
+        .summary-item-details p { font-size: 0.75rem; color: var(--elviano-text-light); }
+        .summary-item-price { margin-left: auto; font-weight: 500; }
+
+        .summary-row { display: flex; justify-content: space-between; margin-bottom: 0.75rem; font-size: 0.9rem; }
+        .summary-row.total { font-size: 1.2rem; font-weight: 600; margin-top: 1rem; padding-top: 1rem; border-top: 2px solid var(--elviano-black); }
+
+        .place-order-btn { width: 100%; padding: 1.2rem; background: var(--elviano-black); color: white; border: none; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.85rem; cursor: pointer; margin-top: 1.5rem; transition: background 0.3s; }
+        .place-order-btn:hover { background: var(--elviano-clay); }
+        .secure-note { text-align: center; font-size: 0.7rem; color: var(--elviano-text-light); margin-top: 1rem; }
 
         /* Success Modal */
-        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1001; display: none; align-items: center; justify-content: center; }
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); z-index: 1000; display: none; align-items: center; justify-content: center; }
         .modal-overlay.active { display: flex; }
-        .success-modal { background: white; max-width: 450px; width: 90%; padding: 3rem 2rem; text-align: center; }
+        .success-modal { background: white; max-width: 450px; width: 90%; padding: 3rem 2rem; text-align: center; border-radius: 4px; }
         .success-icon { width: 70px; height: 70px; background: var(--elviano-success); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1.5rem; }
-        .success-modal h2 { font-size: 2rem; margin-bottom: 1rem; }
-        .order-number { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin-bottom: 2rem; }
-        .modal-btn { display: inline-block; background: var(--elviano-black); color: white; text-decoration: none; padding: 1rem 2.5rem; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.75rem; }
-
-        /* Toast */
-        .toast-container { position: fixed; bottom: 2rem; right: 2rem; z-index: 9999; display: flex; flex-direction: column; gap: 0.75rem; }
-        .toast-message { background: var(--elviano-black); color: white; padding: 1rem 2rem; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem; animation: toastSlideIn 0.3s ease; border-left: 3px solid var(--elviano-success); }
-        @keyframes toastSlideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        .success-modal h2 { margin-bottom: 1rem; }
+        .order-number { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin: 1rem 0; }
+        .modal-btn { display: inline-block; padding: 0.75rem 2rem; background: var(--elviano-black); color: white; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; }
 
         /* WhatsApp */
-        .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; text-decoration: none; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); z-index: 997; transition: transform 0.3s ease; }
-        .whatsapp-float:hover { transform: scale(1.1); }
-        .whatsapp-tooltip { position: absolute; right: 70px; background: var(--elviano-black); color: white; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.7rem; text-transform: uppercase; white-space: nowrap; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
-        .whatsapp-float:hover .whatsapp-tooltip { opacity: 1; visibility: visible; right: 75px; }
+        .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; text-decoration: none; z-index: 997; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); }
 
-        /* Footer */
-        footer { background: var(--elviano-black); color: var(--elviano-ivory); padding: 5rem 2rem 2rem; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; max-width: 1600px; margin: 0 auto; }
-        .footer-grid h5 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 400; }
-        .footer-grid ul { list-style: none; }
-        .footer-grid li { margin-bottom: 0.75rem; opacity: 0.7; font-size: 0.85rem; cursor: pointer; }
-        .footer-tagline { opacity: 0.7; font-size: 0.9rem; }
-        .footer-newsletter { display: flex; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 0.5rem; margin-top: 1rem; }
-        .footer-newsletter input { background: transparent; border: none; color: white; padding: 0.5rem 0; flex: 1; outline: none; }
-        .footer-newsletter button { background: transparent; border: none; color: white; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.7rem; cursor: pointer; }
-        .footer-bottom { max-width: 1600px; margin: 4rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; opacity: 0.5; font-size: 0.75rem; text-transform: uppercase; }
+        footer { background: var(--elviano-black); color: var(--elviano-ivory); padding: 3rem 2rem; text-align: center; margin-top: 2rem; }
 
-        /* Responsive */
-        @media (max-width: 1024px) { .checkout-layout { grid-template-columns: 1fr; } .order-summary { position: static; } .footer-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 768px) {
-            .hamburger { display: flex; } .nav-links { display: none; } nav { padding: 1.5rem; } .logo { font-size: 1.5rem; letter-spacing: 0.2em; } .page-header { margin-top: 120px; }
-            .checkout-progress { flex-wrap: wrap; } .progress-line { width: 40px; } .form-row { grid-template-columns: 1fr; } .payment-methods { flex-direction: column; }
-            .footer-grid { grid-template-columns: 1fr; } .whatsapp-float { width: 50px; height: 50px; font-size: 1.5rem; } .whatsapp-tooltip { display: none; }
-        }
+        @media (max-width: 1024px) { .checkout-layout { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .nav-links { display: none; } nav { padding: 1.5rem; } }
     </style>
 </head>
 <body>
 
-    <!-- Page Loader -->
-    <div class="page-loader" id="pageLoader"><div class="loader-logo">ELVIANO</div><div class="loader-line"></div></div>
-
     <!-- Navigation -->
     <nav>
         <a href="index.html" class="logo">ELVIANO</a>
-        <div class="nav-links"><a href="#">Editions</a><a href="lookbook.html">Lookbook</a><a href="journal.html">Journal</a><a href="about.html">About</a></div>
-        <a href="cart.html" class="cart-link">Cart <span class="cart-count" id="cartCount">2</span></a>
-        <div class="hamburger"><span></span><span></span><span></span></div>
+        <div class="nav-links"><a href="index.html#products">Shop</a><a href="lookbook.html">Lookbook</a><a href="journal.html">Journal</a><a href="about.html">About</a></div>
+        <a href="cart.html" class="cart-link">Cart <span class="cart-count">0</span></a>
     </nav>
 
     <!-- Page Header -->
-    <section class="container-sm"><div class="page-header"><div class="eyebrow">Complete Your Purchase</div><h1>Checkout</h1><p>Secure checkout — your details are protected</p></div></section>
+    <section class="container"><div class="page-header"><h1>Checkout</h1><p>Secure checkout — your details are protected</p></div></section>
 
     <!-- Progress -->
-    <section class="container-sm"><div class="checkout-progress"><div class="progress-step completed"><span class="step-number"><i class="fas fa-check"></i></span><span>Cart</span></div><div class="progress-line"></div><div class="progress-step active"><span class="step-number">2</span><span>Checkout</span></div><div class="progress-line"></div><div class="progress-step"><span class="step-number">3</span><span>Confirmation</span></div></div></section>
-
-    <!-- Back Link -->
-    <section class="container"><a href="cart.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Cart</a></section>
+    <section class="container"><div class="checkout-progress">
+        <div class="progress-step completed"><span class="num">✓</span> Cart</div>
+        <div class="progress-line"></div>
+        <div class="progress-step active"><span class="num">2</span> Checkout</div>
+        <div class="progress-line"></div>
+        <div class="progress-step"><span class="num">3</span> Confirmation</div>
+    </div></section>
 
     <!-- Checkout Layout -->
-    <section class="container"><div class="checkout-layout"><div class="checkout-form">
-        <!-- Contact -->
-        <div class="form-section"><div class="section-header"><h3>Contact Information</h3></div><div class="form-group"><label>Email Address</label><input type="email" value="abhishek@example.com"></div><div class="form-group"><label>Phone Number</label><input type="tel" value="+91 98765 43210"></div></div>
-        <!-- Shipping Address -->
-        <div class="form-section"><div class="section-header"><h3>Shipping Address</h3></div>
-            <div class="saved-address selected" onclick="selectAddress(this)"><div class="address-radio"><input type="radio" name="address" checked><div class="address-details"><div class="address-name">Abhishek Yadav <span class="address-badge">Default</span></div><div class="address-text">Jagdalpur, Bastar<br>Chhattisgarh - 494001</div></div></div></div>
-        </div>
-        <!-- Shipping Method -->
-        <div class="form-section"><div class="section-header"><h3>Shipping Method</h3></div>
-            <div class="shipping-method selected" onclick="selectShipping(this, 0)"><div class="method-radio"><input type="radio" name="shipping" checked><div class="method-details"><div><div class="method-name">Standard Shipping</div><div class="method-desc">3-7 business days</div></div><div class="method-price">FREE</div></div></div></div>
-            <div class="shipping-method" onclick="selectShipping(this, 199)"><div class="method-radio"><input type="radio" name="shipping"><div class="method-details"><div><div class="method-name">Express Shipping</div><div class="method-desc">1-2 business days</div></div><div class="method-price">₹199</div></div></div></div>
-        </div>
-        <!-- Payment Method -->
-        <div class="form-section"><div class="section-header"><h3>Payment Method</h3></div>
-            <div class="payment-methods">
-                <div class="payment-method" onclick="selectPayment(this, 'card')"><i class="far fa-credit-card"></i><span>Card</span></div>
-                <div class="payment-method selected" onclick="selectPayment(this, 'upi')"><i class="fas fa-mobile-alt"></i><span>UPI</span></div>
-                <div class="payment-method" onclick="selectPayment(this, 'netbanking')"><i class="fas fa-university"></i><span>Net Banking</span></div>
-                <div class="payment-method" onclick="selectPayment(this, 'cod')"><i class="fas fa-money-bill-wave"></i><span>Cash on Delivery</span></div>
+    <section class="container"><div class="checkout-layout">
+        <div>
+            <!-- Contact -->
+            <div class="form-section">
+                <h3>Contact Information</h3>
+                <div class="form-row"><div class="form-group"><label>Full Name</label><input type="text" value="Abhishek Yadav"></div><div class="form-group"><label>Phone</label><input type="tel" value="+91 6260323405"></div></div>
+                <div class="form-group"><label>Email</label><input type="email" value="elviano.in@gmail.com"></div>
             </div>
-            <div id="cardPayment" class="card-form" style="display:none;"><div class="form-group"><label>Card Number</label><input placeholder="1234 5678 9012 3456"></div><div class="card-row"><div class="form-group"><label>Expiry</label><input placeholder="MM/YY"></div><div class="form-group"><label>CVV</label><input placeholder="123"></div></div><div class="form-group"><label>Name on Card</label><input placeholder="ABHISHEK YADAV"></div></div>
-            <div id="upiPayment" class="upi-section"><div class="form-group"><label>UPI ID</label><div class="upi-input"><input value="abhishek@okhdfcbank"><button onclick="verifyUpi()">Verify</button></div></div><div class="upi-apps"><span class="upi-app" onclick="selectUpiApp('Google Pay')">Google Pay</span><span class="upi-app" onclick="selectUpiApp('PhonePe')">PhonePe</span><span class="upi-app" onclick="selectUpiApp('Paytm')">Paytm</span></div></div>
-            <div id="netbankingPayment" class="card-form" style="display:none;"><div class="form-group"><label>Select Bank</label><select><option>HDFC Bank</option><option>ICICI Bank</option><option>SBI</option><option>Axis Bank</option></select></div></div>
+            
+            <!-- Shipping -->
+            <div class="form-section">
+                <h3>Shipping Address</h3>
+                <div class="form-group"><label>Address</label><input type="text" value="Jagdalpur, Bastar, Chhattisgarh - 494001"></div>
+                <div class="form-row"><div class="form-group"><label>City</label><input type="text" value="Jagdalpur"></div><div class="form-group"><label>State</label><input type="text" value="Chhattisgarh"></div></div>
+                <div class="form-group"><label>PIN Code</label><input type="text" value="494001"></div>
+            </div>
+            
+            <!-- Payment -->
+            <div class="form-section">
+                <h3>Payment Method</h3>
+                <div class="payment-options">
+                    <div class="payment-option selected" onclick="selectPayment(this, 'upi')"><i class="fas fa-mobile-alt"></i><span>UPI</span></div>
+                    <div class="payment-option" onclick="selectPayment(this, 'card')"><i class="far fa-credit-card"></i><span>Card</span></div>
+                    <div class="payment-option" onclick="selectPayment(this, 'netbanking')"><i class="fas fa-university"></i><span>Net Banking</span></div>
+                    <div class="payment-option" onclick="selectPayment(this, 'cod')"><i class="fas fa-money-bill-wave"></i><span>Cash on Delivery</span></div>
+                </div>
+                
+                <!-- UPI Section -->
+                <div class="upi-section" id="upiPayment">
+                    <div class="upi-qr"><i class="fas fa-qrcode"></i></div>
+                    <p class="upi-id">elviano@okhdfcbank</p>
+                    <p style="font-size:0.8rem;color:var(--elviano-text-light);">Scan with any UPI app</p>
+                    <div class="upi-apps">
+                        <span class="upi-app">Google Pay</span><span class="upi-app">PhonePe</span><span class="upi-app">Paytm</span><span class="upi-app">BHIM</span>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <!-- Order Summary -->
-    <div class="order-summary"><h3>Order Summary</h3><div class="order-items">
-        <div class="order-item"><img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=200" class="order-item-image"><div class="order-item-details"><h4>Edition Tee 01</h4><div class="order-item-meta">Size: M · Qty: 1</div></div><div class="order-item-price">₹1,499</div></div>
-        <div class="order-item"><img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=200" class="order-item-image"><div class="order-item-details"><h4>Camp Shirt</h4><div class="order-item-meta">Size: L · Qty: 1</div></div><div class="order-item-price">₹2,799</div></div>
-    </div>
-    <div class="summary-row"><span>Subtotal (2 items)</span><span>₹4,298</span></div><div class="summary-row"><span>Shipping</span><span id="shippingCost">FREE</span></div><div class="summary-row discount" style="color:var(--elviano-success);"><span>Discount (ELVIANO10)</span><span>-₹430</span></div><div class="summary-row total"><span>Total</span><span id="finalTotal">₹3,868</span></div>
-    <button class="place-order-btn" onclick="placeOrder()">Place Order</button><div class="secure-note"><i class="fas fa-lock"></i> Secure SSL Encrypted Checkout</div></div></div></section>
+        
+        <!-- Order Summary -->
+        <div class="order-summary">
+            <h3>Order Summary</h3>
+            <div id="orderItems"></div>
+            <div class="summary-row"><span>Subtotal</span><span id="checkoutSubtotal">₹0</span></div>
+            <div class="summary-row"><span>Shipping</span><span id="checkoutShipping">FREE</span></div>
+            <div class="summary-row total"><span>Total</span><span id="checkoutTotal">₹0</span></div>
+            <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
+            <div class="secure-note"><i class="fas fa-lock"></i> Secure SSL Encrypted Checkout</div>
+        </div>
+    </div></section>
 
     <!-- Footer -->
-    <footer><div class="footer-grid"><div><h5>ELVIANO</h5><p class="footer-tagline">Limited edition printed apparel. Designed with intention. Never restocked.</p></div><div><h5>Shop</h5><ul><li>Edition 01</li><li>All Tees</li><li>All Shirts</li><li>Lookbook</li></ul></div><div><h5>Information</h5><ul><li>About</li><li>Size Guide</li><li>Shipping</li><li>Returns</li><li>Contact</li></ul></div><div><h5>Receive Editions</h5><div class="footer-newsletter"><input type="email" placeholder="Your email"><button>Subscribe →</button></div></div></div><div class="footer-bottom">© 2026 Elviano. All rights reserved. — Impressions in Ink.<br>Jagdalpur, Bastar, Chhattisgarh - 494001</div></footer>
-
-    <!-- Success Modal -->
-    <div class="modal-overlay" id="successModal"><div class="success-modal"><div class="success-icon"><i class="fas fa-check"></i></div><h2>Order Confirmed!</h2><p>Thank you for your purchase, Abhishek!</p><div class="order-number">Order #ELV-2026-0142</div><a href="index.html" class="modal-btn">Continue Shopping</a></div></div>
-
-    <!-- Toast -->
-    <div class="toast-container" id="toastContainer"></div>
+    <footer><p style="font-family:'Cormorant Garamond', serif; font-size:1.5rem;">ELVIANO</p><p style="opacity:0.7;">Limited edition printed apparel.</p><p style="opacity:0.5;font-size:0.75rem;margin-top:1rem;">© 2026 Elviano. All rights reserved.</p></footer>
 
     <!-- WhatsApp -->
-    <a href="https://wa.me/916260323405?text=Hi%20ELVIANO%2C%20I%20need%20help%20with%20my%20order!" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i><span class="whatsapp-tooltip">Need help?</span></a>
+    <a href="https://wa.me/916260323405" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="success-modal">
+            <div class="success-icon"><i class="fas fa-check"></i></div>
+            <h2>Order Confirmed!</h2>
+            <p>Thank you for your purchase, Abhishek!</p>
+            <div class="order-number">Order #ELV-2026-0142</div>
+            <a href="index.html" class="modal-btn">Continue Shopping</a>
+        </div>
+    </div>
 
     <script>
-        window.addEventListener('load', () => setTimeout(() => document.getElementById('pageLoader').classList.add('hide'), 600));
-        function showToast(msg, type='success') { const c = document.getElementById('toastContainer'); const t = document.createElement('div'); t.className = 'toast-message ' + type; t.textContent = msg; c.appendChild(t); setTimeout(() => { t.style.animation = 'toastSlideIn 0.3s ease reverse'; setTimeout(() => t.remove(), 300); }, 3000); }
-        function selectAddress(el) { document.querySelectorAll('.saved-address').forEach(a => { a.classList.remove('selected'); a.querySelector('input').checked = false; }); el.classList.add('selected'); el.querySelector('input').checked = true; }
-        function selectShipping(el, cost) { document.querySelectorAll('.shipping-method').forEach(m => { m.classList.remove('selected'); m.querySelector('input').checked = false; }); el.classList.add('selected'); el.querySelector('input').checked = true; const s = document.getElementById('shippingCost'), t = document.getElementById('finalTotal'); if(cost === 0) { s.textContent = 'FREE'; t.textContent = '₹3,868'; } else { s.textContent = '₹199'; t.textContent = '₹4,067'; } }
-        function selectPayment(el, method) { document.querySelectorAll('.payment-method').forEach(p => p.classList.remove('selected')); el.classList.add('selected'); document.getElementById('cardPayment').style.display = 'none'; document.getElementById('upiPayment').style.display = 'none'; document.getElementById('netbankingPayment').style.display = 'none'; if(method === 'card') document.getElementById('cardPayment').style.display = 'block'; else if(method === 'upi') document.getElementById('upiPayment').style.display = 'block'; else if(method === 'netbanking') document.getElementById('netbankingPayment').style.display = 'block'; }
-        function verifyUpi() { showToast('UPI ID Verified!', 'success'); }
-        function selectUpiApp(app) { showToast(`Opening ${app}...`, 'success'); }
-        function placeOrder() { document.getElementById('successModal').classList.add('active'); document.getElementById('cartCount').textContent = '0'; }
-        document.getElementById('successModal').addEventListener('click', function(e) { if(e.target === this) this.classList.remove('active'); });
-        gsap.registerPlugin(ScrollTrigger); gsap.from('.page-header', { opacity: 0, y: 30, duration: 1 });
-
-        (function() { const h = document.querySelector('.hamburger'), b = document.body, m = document.createElement('div'); m.className = 'mobile-menu'; m.innerHTML = `<div class="mobile-menu-links"><a href="#">Editions</a><a href="lookbook.html">Lookbook</a><a href="journal.html">Journal</a><a href="about.html">About</a></div><div class="mobile-menu-footer"><p>Follow @elviano.official</p><div class="mobile-social"><a href="https://instagram.com/elviano.official"><i class="fab fa-instagram"></i></a></div></div>`; b.appendChild(m); function t() { h.classList.toggle('active'); m.classList.toggle('active'); b.classList.toggle('menu-open'); } h.addEventListener('click', t); m.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { h.classList.remove('active'); m.classList.remove('active'); b.classList.remove('menu-open'); })); })();
+        // Load cart from localStorage
+        let cart = JSON.parse(localStorage.getItem('elviano_cart')) || [];
+        
+        function renderOrderSummary() {
+            const container = document.getElementById('orderItems');
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="color:var(--elviano-text-light);">Your cart is empty</p>';
+                return;
+            }
+            
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipping = subtotal >= 2499 ? 0 : 99;
+            const total = subtotal + shipping;
+            
+            container.innerHTML = cart.map(item => `
+                <div class="summary-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="summary-item-details">
+                        <h4>${item.name}</h4>
+                        <p>Size: ${item.size} × ${item.quantity}</p>
+                    </div>
+                    <div class="summary-item-price">₹${(item.price * item.quantity).toLocaleString()}</div>
+                </div>
+            `).join('');
+            
+            document.getElementById('checkoutSubtotal').textContent = '₹' + subtotal.toLocaleString();
+            document.getElementById('checkoutShipping').textContent = shipping === 0 ? 'FREE' : '₹' + shipping;
+            document.getElementById('checkoutTotal').textContent = '₹' + total.toLocaleString();
+        }
+        
+        function selectPayment(el, method) {
+            document.querySelectorAll('.payment-option').forEach(o => o.classList.remove('selected'));
+            el.classList.add('selected');
+            document.getElementById('upiPayment').style.display = method === 'upi' ? 'block' : 'none';
+        }
+        
+        function placeOrder() {
+            document.getElementById('successModal').classList.add('active');
+            localStorage.removeItem('elviano_cart');
+            localStorage.removeItem('cartHasItems');
+        }
+        
+        document.getElementById('successModal').addEventListener('click', function(e) {
+            if (e.target === this) this.classList.remove('active');
+        });
+        
+        document.addEventListener('DOMContentLoaded', renderOrderSummary);
     </script>
 </body>
 </html>
