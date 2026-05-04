@@ -3,291 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — ELVIANO | Founder Story</title>
+    <meta name="description" content="Meet Abhishek Yadav, founder of ELVIANO. Discover the philosophy behind limited edition printed apparel.">
     
-    <!-- Primary Meta Tags -->
-    <title>About — ELVIANO | Founder Story & Brand Philosophy</title>
-    <meta name="title" content="About — ELVIANO | Founder Story & Brand Philosophy">
-    <meta name="description" content="Elviano was born from a simple belief—clothing should carry meaning. Meet founder Abhishek Yadav and discover the philosophy behind limited edition printed apparel.">
-    <meta name="keywords" content="about Elviano, founder story, Abhishek Yadav, brand philosophy, limited edition, Indian fashion, sustainable fashion">
-    <meta name="author" content="ELVIANO">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://elviano.in/about.html">
-    <meta property="og:title" content="About — ELVIANO | Founder Story">
-    <meta property="og:description" content="Founder story and philosophy behind the limited edition printed apparel brand.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="About — ELVIANO">
-    <meta property="twitter:description" content="Founder story and brand philosophy.">
-    <meta property="twitter:image" content="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200">
-    
-    <!-- Canonical -->
-    <link rel="canonical" href="https://elviano.in/about.html">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='70' font-family='Georgia' font-size='60' text-anchor='middle' fill='%230F0F0F'%3EE%3C/text%3E%3C/svg%3E">
-    
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     
     <style>
-        /* ============================================ */
-        /* ELVIANO - COMPLETE ABOUT PAGE STYLES + FEATURES */
-        /* ============================================ */
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --elviano-black: #0F0F0F; --elviano-ivory: #F9F6F0; --elviano-clay: #C4735A; --elviano-border: #E8E2D9; --elviano-text-light: #6B6B6B; }
+        body { background: var(--elviano-ivory); font-family: 'Inter', sans-serif; color: var(--elviano-black); line-height: 1.6; }
+        h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; font-weight: 300; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+        .eyebrow { text-transform: uppercase; letter-spacing: 0.25em; font-size: 0.7rem; color: var(--elviano-text-light); }
 
-        :root {
-            --elviano-black: #0F0F0F;
-            --elviano-ivory: #F9F6F0;
-            --elviano-clay: #C4735A;
-            --elviano-olive: #5A6B4A;
-            --elviano-stone: #D4CFC7;
-            --elviano-text-light: #6B6B6B;
-            --elviano-border: #E8E2D9;
-            --elviano-success: #5A6B4A;
-            --elviano-error: #D9534F;
-        }
-
-        body { background: var(--elviano-ivory); font-family: 'Inter', sans-serif; font-weight: 300; color: var(--elviano-black); line-height: 1.6; }
-        h1, h2, h3, h4, .serif { font-family: 'Cormorant Garamond', serif; font-weight: 300; letter-spacing: -0.02em; }
-        .container { max-width: 1600px; margin: 0 auto; padding: 0 2rem; }
-        .container-sm { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
-        .eyebrow { text-transform: uppercase; letter-spacing: 0.25em; font-size: 0.7rem; font-weight: 400; color: var(--elviano-text-light); }
-
-        /* Page Loader */
-        .page-loader { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--elviano-ivory); z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
-        .page-loader.hide { opacity: 0; visibility: hidden; }
-        .loader-logo { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; letter-spacing: 0.3em; margin-bottom: 2rem; animation: pulse 1.5s ease-in-out infinite; }
-        .loader-line { width: 100px; height: 1px; background: var(--elviano-black); position: relative; overflow: hidden; }
-        .loader-line::after { content: ''; position: absolute; width: 50%; height: 100%; background: var(--elviano-clay); animation: loading 1s ease-in-out infinite; }
-        @keyframes loading { 0% { left: -50%; } 100% { left: 100%; } }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-
-        /* Navigation */
         nav { position: fixed; top: 0; left: 0; right: 0; padding: 2rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: rgba(249, 246, 240, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--elviano-border); }
-        .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; letter-spacing: 0.3em; text-transform: uppercase; color: var(--elviano-black); text-decoration: none; }
+        .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; letter-spacing: 0.3em; color: var(--elviano-black); text-decoration: none; }
         .nav-links { display: flex; gap: 3rem; }
-        .nav-links a { color: var(--elviano-black); text-decoration: none; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.2em; font-weight: 400; transition: opacity 0.3s ease; }
-        .nav-links a:hover { opacity: 0.6; }
+        .nav-links a { color: var(--elviano-black); text-decoration: none; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.2em; }
         .nav-links a.active { opacity: 0.6; border-bottom: 1px solid var(--elviano-black); padding-bottom: 0.25rem; }
-        .cart-link { color: var(--elviano-black); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; }
-        .cart-count { background: var(--elviano-black); color: white; font-size: 0.6rem; padding: 0.15rem 0.4rem; border-radius: 50%; margin-left: 0.3rem; }
+        .cart-link { color: var(--elviano-black); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.2em; }
+        .cart-count { background: var(--elviano-black); color: white; padding: 0.15rem 0.4rem; border-radius: 50%; font-size: 0.6rem; margin-left: 0.3rem; }
 
-        /* Hamburger */
-        .hamburger { display: none; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; cursor: pointer; z-index: 1000; }
-        .hamburger span { display: block; width: 100%; height: 1.5px; background: var(--elviano-black); transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-        .mobile-menu { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--elviano-ivory); z-index: 999; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.4s ease; }
-        .mobile-menu.active { opacity: 1; visibility: visible; }
-        .mobile-menu-links { display: flex; flex-direction: column; align-items: center; gap: 2.5rem; }
-        .mobile-menu-links a { color: var(--elviano-black); text-decoration: none; font-size: 2rem; font-family: 'Cormorant Garamond', serif; font-weight: 300; text-transform: uppercase; transform: translateY(20px); opacity: 0; transition: all 0.4s ease; }
-        .mobile-menu.active .mobile-menu-links a { transform: translateY(0); opacity: 1; }
-        .mobile-menu-links a:nth-child(1) { transition-delay: 0.1s; }
-        .mobile-menu-links a:nth-child(2) { transition-delay: 0.2s; }
-        .mobile-menu-links a:nth-child(3) { transition-delay: 0.3s; }
-        .mobile-menu-links a:nth-child(4) { transition-delay: 0.4s; }
-        .mobile-menu-footer { position: absolute; bottom: 3rem; text-align: center; opacity: 0; transform: translateY(20px); transition: all 0.4s ease 0.5s; }
-        .mobile-menu.active .mobile-menu-footer { opacity: 1; transform: translateY(0); }
-        body.menu-open { overflow: hidden; }
-
-        /* Page Header */
-        .page-header { margin-top: 140px; margin-bottom: 4rem; text-align: center; }
-        .page-header h1 { font-size: clamp(3rem, 8vw, 5rem); font-weight: 300; line-height: 1.1; margin: 1rem 0; }
-        .page-header p { max-width: 600px; margin: 0 auto; color: var(--elviano-text-light); font-size: 1.125rem; }
-
-        /* Hero Image */
-        .about-hero { width: 100%; height: 70vh; min-height: 500px; margin: 2rem 0 6rem; }
-        .about-hero img { width: 100%; height: 100%; object-fit: cover; }
-
-        /* Manifesto */
-        .manifesto { padding: 6rem 0; text-align: center; }
-        .manifesto h2 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.2; margin-bottom: 2rem; }
-        .manifesto-text { font-size: 1.5rem; line-height: 1.6; color: var(--elviano-black); font-family: 'Cormorant Garamond', serif; font-weight: 300; max-width: 800px; margin: 0 auto; }
-        .manifesto-author { margin-top: 2rem; font-family: 'Inter', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--elviano-text-light); }
-
-        /* Founder Section */
-        .founder-section { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin: 6rem 0; }
-        .founder-image img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
-        .founder-content .eyebrow { margin-bottom: 1rem; }
-        .founder-content h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
-        .founder-content p { color: var(--elviano-text-light); margin-bottom: 1.5rem; line-height: 1.8; }
+        .page-header { margin-top: 140px; text-align: center; margin-bottom: 4rem; }
+        .page-header h1 { font-size: clamp(3rem, 8vw, 5rem); }
+        .founder-section { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin: 4rem 0; }
+        .founder-image img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 2px; }
         .founder-signature { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-style: italic; margin-top: 2rem; }
+        .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 4rem 0; text-align: center; }
+        .value-card i { font-size: 2rem; color: var(--elviano-clay); margin-bottom: 1rem; }
+        .shop-cta { text-align: center; margin: 4rem 0; }
+        .shop-btn { display: inline-block; padding: 1rem 2.5rem; background: var(--elviano-black); color: white; text-decoration: none; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.85rem; }
 
-        /* Values Grid */
-        .values-section { margin: 8rem 0; }
-        .values-header { text-align: center; margin-bottom: 4rem; }
-        .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
-        .value-card { text-align: center; padding: 2rem; }
-        .value-icon { font-size: 2.5rem; color: var(--elviano-clay); margin-bottom: 1.5rem; }
-        .value-card h3 { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 400; }
-        .value-card p { color: var(--elviano-text-light); font-size: 0.95rem; line-height: 1.7; }
+        .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; text-decoration: none; z-index: 997; }
+        footer { background: var(--elviano-black); color: var(--elviano-ivory); padding: 3rem 2rem; text-align: center; margin-top: 4rem; }
 
-        /* Milestones */
-        .milestones-section { background: var(--elviano-black); color: white; padding: 6rem 0; margin: 6rem 0; }
-        .milestones-header { text-align: center; margin-bottom: 4rem; }
-        .milestones-header .eyebrow { color: rgba(255,255,255,0.6); }
-        .milestones-header h2 { color: white; margin-top: 0.5rem; }
-        .timeline { max-width: 800px; margin: 0 auto; }
-        .timeline-item { display: grid; grid-template-columns: 100px 1fr; gap: 3rem; padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .timeline-item:last-child { border-bottom: none; }
-        .timeline-year { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--elviano-clay); }
-        .timeline-content h4 { font-size: 1.25rem; margin-bottom: 0.5rem; font-weight: 400; }
-        .timeline-content p { color: rgba(255,255,255,0.7); font-size: 0.95rem; }
-
-        /* Craft Section */
-        .craft-section { margin: 8rem 0; }
-        .craft-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-        .craft-item { position: relative; overflow: hidden; }
-        .craft-item img { width: 100%; aspect-ratio: 1/1; object-fit: cover; transition: transform 0.8s ease; }
-        .craft-item:hover img { transform: scale(1.05); }
-        .craft-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(180deg, transparent, rgba(0,0,0,0.7)); color: white; }
-        .craft-overlay h4 { font-size: 1.5rem; margin-bottom: 0.5rem; }
-        .craft-overlay p { opacity: 0.9; font-size: 0.9rem; }
-
-        /* Press Section */
-        .press-section { padding: 4rem 0; border-top: 1px solid var(--elviano-border); border-bottom: 1px solid var(--elviano-border); margin: 4rem 0; }
-        .press-header { text-align: center; margin-bottom: 3rem; }
-        .press-logos { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 2rem; }
-        .press-logo { opacity: 0.4; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 0.2em; transition: opacity 0.3s ease; }
-        .press-logo:hover { opacity: 0.8; }
-
-        /* CTA Section */
-        .cta-section { text-align: center; padding: 6rem 0; }
-        .cta-section h2 { font-size: 3rem; margin-bottom: 1rem; }
-        .cta-section p { color: var(--elviano-text-light); margin-bottom: 2rem; font-size: 1.125rem; }
-        .cta-button { display: inline-block; background: var(--elviano-black); color: white; text-decoration: none; padding: 1rem 3rem; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.75rem; transition: background 0.3s ease; }
-        .cta-button:hover { background: #2A2A2A; }
-
-        /* Toast */
-        .toast-container { position: fixed; bottom: 2rem; right: 2rem; z-index: 9999; display: flex; flex-direction: column; gap: 0.75rem; }
-        .toast-message { background: var(--elviano-black); color: white; padding: 1rem 2rem; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem; animation: toastSlideIn 0.3s ease; border-left: 3px solid var(--elviano-success); }
-        @keyframes toastSlideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-
-        /* WhatsApp */
-        .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; text-decoration: none; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); z-index: 997; transition: transform 0.3s ease; }
-        .whatsapp-float:hover { transform: scale(1.1); }
-        .whatsapp-tooltip { position: absolute; right: 70px; background: var(--elviano-black); color: white; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.7rem; text-transform: uppercase; white-space: nowrap; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
-        .whatsapp-float:hover .whatsapp-tooltip { opacity: 1; visibility: visible; right: 75px; }
-
-        /* Footer */
-        footer { background: var(--elviano-black); color: var(--elviano-ivory); padding: 5rem 2rem 2rem; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; max-width: 1600px; margin: 0 auto; }
-        .footer-grid h5 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 400; }
-        .footer-grid ul { list-style: none; }
-        .footer-grid li { margin-bottom: 0.75rem; opacity: 0.7; font-size: 0.85rem; cursor: pointer; }
-        .footer-tagline { opacity: 0.7; font-size: 0.9rem; }
-        .newsletter-input { display: flex; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 0.5rem; margin-top: 1rem; }
-        .newsletter-input input { background: transparent; border: none; color: white; padding: 0.5rem 0; flex: 1; outline: none; }
-        .newsletter-input button { background: transparent; border: none; color: white; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.7rem; cursor: pointer; }
-        .footer-bottom { max-width: 1600px; margin: 4rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; opacity: 0.5; font-size: 0.75rem; text-transform: uppercase; }
-
-        /* Responsive */
-        @media (max-width: 1024px) { .founder-section { grid-template-columns: 1fr; gap: 3rem; } .values-grid { grid-template-columns: repeat(2, 1fr); } .craft-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 768px) {
-            .hamburger { display: flex; } .nav-links { display: none; } nav { padding: 1.5rem; } .logo { font-size: 1.5rem; letter-spacing: 0.2em; } .page-header { margin-top: 120px; }
-            .manifesto-text { font-size: 1.25rem; } .values-grid { grid-template-columns: 1fr; } .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; } .footer-grid { grid-template-columns: 1fr; }
-            .press-logos { flex-direction: column; } .whatsapp-float { width: 50px; height: 50px; font-size: 1.5rem; } .whatsapp-tooltip { display: none; }
-        }
+        @media (max-width: 768px) { .founder-section { grid-template-columns: 1fr; } .values-grid { grid-template-columns: 1fr; } .nav-links { display: none; } nav { padding: 1.5rem; } }
     </style>
 </head>
 <body>
 
-    <!-- Page Loader -->
-    <div class="page-loader" id="pageLoader"><div class="loader-logo">ELVIANO</div><div class="loader-line"></div></div>
-
-    <!-- Navigation -->
     <nav>
         <a href="index.html" class="logo">ELVIANO</a>
-        <div class="nav-links"><a href="#">Editions</a><a href="lookbook.html">Lookbook</a><a href="journal.html">Journal</a><a href="about.html" class="active">About</a></div>
-        <a href="cart.html" class="cart-link">Cart <span class="cart-count">0</span></a>
-        <div class="hamburger"><span></span><span></span><span></span></div>
+        <div class="nav-links"><a href="index.html#products">Shop</a><a href="lookbook.html">Lookbook</a><a href="journal.html">Journal</a><a href="about.html" class="active">About</a></div>
+        <a href="cart.html" class="cart-link">Cart <span class="cart-count" id="cartCount">0</span></a>
     </nav>
 
-    <!-- Page Header -->
-    <section class="container-sm"><div class="page-header"><div class="eyebrow">Our Story</div><h1>Impressions<br>with Intention</h1><p>Elviano was born from a simple belief—clothing should carry meaning. Every piece we create is a limited impression, never to be repeated.</p></div></section>
+    <section class="container"><div class="page-header"><div class="eyebrow">Our Story</div><h1>Impressions<br>with Intention</h1></div></section>
 
-    <!-- Hero Image -->
-    <section class="container"><div class="about-hero"><img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=2000&auto=format&fit=crop" alt="Elviano Studio"></div></section>
+    <section class="container">
+        <div class="founder-section">
+            <div class="founder-image"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600" alt="Abhishek Yadav"></div>
+            <div>
+                <div class="eyebrow">From the Founder</div>
+                <h2>I'm Abhishek.<br>This is Elviano.</h2>
+                <p>Growing up in Jagdalpur, Bastar, I always had an eye for detail. After years in fashion, I wanted to create something slower — where each piece had a reason to exist.</p>
+                <p>Elviano began with a single screen printing table and a conviction that less could be more. Every edition is designed personally. Every print is pulled by hand. When a piece is gone, it's gone.</p>
+                <div class="founder-signature">Abhishek Yadav</div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Manifesto -->
-    <section class="container-sm"><div class="manifesto"><h2>The Elviano<br>Manifesto</h2><div class="manifesto-text">"We believe in the beauty of limitation. That scarcity creates value. That a single, considered impression is worth more than a thousand copies. We print by hand. We release in editions. We never restock."</div><div class="manifesto-author">— Abhishek Yadav, Founder</div></div></section>
+    <section class="container">
+        <div style="text-align:center;margin:4rem 0;"><div class="eyebrow">Our Values</div><h2>What We Stand For</h2></div>
+        <div class="values-grid">
+            <div class="value-card"><i class="fas fa-palette"></i><h3>Intentional Design</h3><p>Every print begins with a concept.</p></div>
+            <div class="value-card"><i class="fas fa-hand-paper"></i><h3>Handmade</h3><p>Screen printed by hand. Variations are signatures.</p></div>
+            <div class="value-card"><i class="fas fa-ticket-alt"></i><h3>Limited Editions</h3><p>Once sold out, never restocked.</p></div>
+        </div>
+    </section>
 
-    <!-- Founder Section -->
-    <section class="container"><div class="founder-section"><div class="founder-image"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop" alt="Abhishek Yadav"></div><div class="founder-content"><div class="eyebrow">From the Founder</div><h2>I'm Abhishek.<br>This is Elviano.</h2><p>Growing up in Jagdalpur, Bastar, I always had an eye for detail. After years in fashion, I wanted to create something slower. Something where each piece had a reason to exist.</p><p>Elviano began with a single screen printing table and a conviction that less could be more. Every edition is designed personally. Every print is pulled by hand. When a piece is gone, it's gone.</p><div class="founder-signature">Abhishek Yadav</div></div></div></section>
+    <div class="shop-cta"><a href="index.html#products" class="shop-btn">Shop Edition 01 →</a></div>
 
-    <!-- Values Grid -->
-    <section class="container"><div class="values-section"><div class="values-header"><div class="eyebrow">What We Stand For</div><h2>Our Values</h2></div><div class="values-grid">
-        <div class="value-card"><div class="value-icon"><i class="fas fa-palette"></i></div><h3>Intentional Design</h3><p>Every print begins with a concept. No random graphics. Just ideas worth wearing.</p></div>
-        <div class="value-card"><div class="value-icon"><i class="fas fa-hand-paper"></i></div><h3>Handmade Process</h3><p>Screen printed by hand. Variations aren't flaws—they're signatures.</p></div>
-        <div class="value-card"><div class="value-icon"><i class="fas fa-ticket-alt"></i></div><h3>Limited Editions</h3><p>Once sold out, screens are retired. What you wear becomes part of a closed set.</p></div>
-        <div class="value-card"><div class="value-icon"><i class="fas fa-seedling"></i></div><h3>Responsible Production</h3><p>Small batches. Deadstock fabrics when possible. No waste.</p></div>
-        <div class="value-card"><div class="value-icon"><i class="fas fa-globe-asia"></i></div><h3>Indian Craft</h3><p>Cut and sewn in India. Printed in-house. 100% made in India.</p></div>
-        <div class="value-card"><div class="value-icon"><i class="fas fa-infinity"></i></div><h3>Built to Last</h3><p>220 GSM minimum. Garments that age with grace.</p></div>
-    </div></div></section>
+    <footer><p style="font-family:'Cormorant Garamond', serif; font-size:1.5rem;">ELVIANO</p><p style="opacity:0.7;">Limited edition printed apparel. Designed with intention. Never restocked.</p><p style="opacity:0.5;font-size:0.75rem;">© 2026 Elviano. All rights reserved.<br>Jagdalpur, Bastar, Chhattisgarh - 494001</p></footer>
 
-    <!-- Craft Section -->
-    <section class="container"><div class="craft-section"><div class="values-header"><div class="eyebrow">The Process</div><h2>How It's Made</h2></div><div class="craft-grid">
-        <div class="craft-item"><img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=800&auto=format&fit=crop" alt="Screen Prep"><div class="craft-overlay"><h4>01. Screen Preparation</h4><p>Each design exposed onto fine mesh by hand.</p></div></div>
-        <div class="craft-item"><img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=800&auto=format&fit=crop" alt="Color Mixing"><div class="craft-overlay"><h4>02. Color Mixing</h4><p>Custom pigments mixed in-house.</p></div></div>
-        <div class="craft-item"><img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=800&auto=format&fit=crop" alt="Printing"><div class="craft-overlay"><h4>03. Hand Pulling</h4><p>Each print pulled by a single artisan.</p></div></div>
-        <div class="craft-item"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800&auto=format&fit=crop" alt="Curing"><div class="craft-overlay"><h4>04. Curing & Finish</h4><p>Heat-set for durability. Ready for its new home.</p></div></div>
-    </div></div></section>
-
-    <!-- Milestones -->
-    <section class="milestones-section"><div class="container-sm"><div class="milestones-header"><div class="eyebrow">The Journey</div><h2>Milestones</h2></div><div class="timeline">
-        <div class="timeline-item"><div class="timeline-year">2024</div><div class="timeline-content"><h4>The Idea</h4><p>Abhishek begins sketching what would become Elviano.</p></div></div>
-        <div class="timeline-item"><div class="timeline-year">2025</div><div class="timeline-content"><h4>Studio Founded</h4><p>First screen printing table arrives in Jagdalpur.</p></div></div>
-        <div class="timeline-item"><div class="timeline-year">2026</div><div class="timeline-content"><h4>Edition 01 Launch</h4><p>Elviano launches with Edition 01: Monsoon.</p></div></div>
-        <div class="timeline-item"><div class="timeline-year">2026</div><div class="timeline-content"><h4>Edition 02 — In Development</h4><p>Work begins on the next chapter.</p></div></div>
-    </div></div></section>
-
-    <!-- Press -->
-    <section class="container"><div class="press-section"><div class="press-header"><div class="eyebrow">Recognition</div><h2>Featured In</h2></div><div class="press-logos"><span class="press-logo">VOGUE INDIA</span><span class="press-logo">GQ</span><span class="press-logo">THE HINDU</span><span class="press-logo">MINT LOUNGE</span></div></div></section>
-
-    <!-- CTA -->
-    <section class="container-sm"><div class="cta-section"><h2>Join the Edition</h2><p>Be the first to know about new drops. No spam—only impressions worth receiving.</p><div class="newsletter-input" style="max-width:400px;margin:0 auto 2rem;border-bottom-color:var(--elviano-black);"><input type="email" placeholder="Your email" style="color:var(--elviano-black);"><button style="color:var(--elviano-black);" onclick="subscribeNewsletter()">Subscribe →</button></div><a href="index.html" class="cta-button">Explore Edition 01</a></div></section>
-
-    <!-- Footer -->
-    <footer><div class="footer-grid"><div><h5>ELVIANO</h5><p class="footer-tagline">Limited edition printed apparel. Designed with intention. Never restocked.</p></div><div><h5>Shop</h5><ul><li>Edition 01</li><li>All Tees</li><li>All Shirts</li><li>Lookbook</li></ul></div><div><h5>Information</h5><ul><li>About</li><li>Size Guide</li><li>Shipping</li><li>Returns</li><li>Contact</li></ul></div><div><h5>Receive Editions</h5><div class="newsletter-input"><input type="email" placeholder="Your email"><button>Subscribe →</button></div></div></div><div class="footer-bottom">© 2026 Elviano. All rights reserved. — Impressions in Ink.<br>Jagdalpur, Bastar, Chhattisgarh - 494001</div></footer>
-
-    <!-- Toast -->
-    <div class="toast-container" id="toastContainer"></div>
-
-    <!-- WhatsApp -->
-    <a href="https://wa.me/916260323405?text=Hi%20ELVIANO%2C%20I'd%20like%20to%20know%20more%20about%20the%20brand!" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i><span class="whatsapp-tooltip">Chat with us!</span></a>
+    <a href="https://wa.me/916260323405" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
-        window.addEventListener('load', () => setTimeout(() => document.getElementById('pageLoader').classList.add('hide'), 600));
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.from('.page-header', { opacity: 0, y: 30, duration: 1 });
-        gsap.from('.about-hero', { scrollTrigger: { trigger: '.about-hero', start: 'top 80%' }, scale: 0.95, opacity: 0, duration: 1.2 });
-        gsap.from('.manifesto', { scrollTrigger: { trigger: '.manifesto', start: 'top 80%' }, opacity: 0, y: 40, duration: 1 });
-        gsap.from('.founder-image', { scrollTrigger: { trigger: '.founder-section', start: 'top 80%' }, opacity: 0, x: -30, duration: 1 });
-        gsap.from('.founder-content', { scrollTrigger: { trigger: '.founder-section', start: 'top 80%' }, opacity: 0, x: 30, duration: 1 });
-        gsap.from('.value-card', { scrollTrigger: { trigger: '.values-grid', start: 'top 80%' }, opacity: 0, y: 30, stagger: 0.1, duration: 0.8 });
-        gsap.from('.craft-item', { scrollTrigger: { trigger: '.craft-grid', start: 'top 80%' }, opacity: 0, scale: 0.95, stagger: 0.15, duration: 0.8 });
-        gsap.from('.timeline-item', { scrollTrigger: { trigger: '.timeline', start: 'top 80%' }, opacity: 0, x: -20, stagger: 0.2, duration: 0.8 });
-
-        function showToast(msg, type='success') { const c = document.getElementById('toastContainer'); const t = document.createElement('div'); t.className = 'toast-message ' + type; t.textContent = msg; c.appendChild(t); setTimeout(() => { t.style.animation = 'toastSlideIn 0.3s ease reverse'; setTimeout(() => t.remove(), 300); }, 3000); }
-        function subscribeNewsletter() { const email = document.querySelector('.cta-section input'); if(email.value) { showToast('Subscribed! Thank you.', 'success'); email.value = ''; } else { showToast('Please enter your email', 'error'); } }
-
-        (function() { const h = document.querySelector('.hamburger'), b = document.body, m = document.createElement('div'); m.className = 'mobile-menu'; m.innerHTML = `<div class="mobile-menu-links"><a href="#">Editions</a><a href="lookbook.html">Lookbook</a><a href="journal.html">Journal</a><a href="about.html">About</a></div><div class="mobile-menu-footer"><p>Follow @elviano.official</p><div class="mobile-social"><a href="https://instagram.com/elviano.official"><i class="fab fa-instagram"></i></a></div></div>`; b.appendChild(m); function t() { h.classList.toggle('active'); m.classList.toggle('active'); b.classList.toggle('menu-open'); } h.addEventListener('click', t); m.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { h.classList.remove('active'); m.classList.remove('active'); b.classList.remove('menu-open'); })); })();
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = JSON.parse(localStorage.getItem('elviano_cart')) || [];
+            document.getElementById('cartCount').textContent = cart.reduce((s, i) => s + i.quantity, 0);
+        });
     </script>
 </body>
 </html>
