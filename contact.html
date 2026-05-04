@@ -3,273 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Primary Meta Tags -->
     <title>Contact — ELVIANO | Get in Touch</title>
-    <meta name="title" content="Contact — ELVIANO | Get in Touch">
-    <meta name="description" content="Have questions about an edition, your order, or just want to say hello? Contact Elviano. Based in Jagdalpur, Bastar, Chhattisgarh.">
-    <meta name="keywords" content="contact, Elviano, customer service, Jagdalpur, Bastar, fashion studio, support, Abhishek Yadav">
-    <meta name="author" content="ELVIANO">
-    <meta name="robots" content="index, follow">
+    <meta name="description" content="Have questions? Contact ELVIANO. Based in Jagdalpur, Bastar, Chhattisgarh.">
     
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://elviano.in/contact.html">
-    <meta property="og:title" content="Contact — ELVIANO">
-    <meta property="og:description" content="Get in touch with Elviano. Based in Jagdalpur, Bastar.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Contact — ELVIANO">
-    <meta property="twitter:description" content="Get in touch with Elviano.">
-    <meta property="twitter:image" content="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200">
-    
-    <!-- Canonical -->
-    <link rel="canonical" href="https://elviano.in/contact.html">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='70' font-family='Georgia' font-size='60' text-anchor='middle' fill='%230F0F0F'%3EE%3C/text%3E%3C/svg%3E">
-    
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    
     <style>
-        /* ============================================ */
-        /* ELVIANO - COMPLETE CONTACT STYLES + FEATURES */
-        /* ============================================ */
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --elviano-black: #0F0F0F; --elviano-ivory: #F9F6F0; --elviano-clay: #C4735A; --elviano-border: #E8E2D9; --elviano-text-light: #6B6B6B; --elviano-success: #5A6B4A; }
+        body { background: var(--elviano-ivory); font-family: 'Inter', sans-serif; color: var(--elviano-black); line-height: 1.6; }
+        h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; font-weight: 300; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        .eyebrow { text-transform: uppercase; letter-spacing: 0.25em; font-size: 0.7rem; color: var(--elviano-text-light); }
 
-        :root {
-            --elviano-black: #0F0F0F;
-            --elviano-ivory: #F9F6F0;
-            --elviano-clay: #C4735A;
-            --elviano-olive: #5A6B4A;
-            --elviano-stone: #D4CFC7;
-            --elviano-text-light: #6B6B6B;
-            --elviano-border: #E8E2D9;
-            --elviano-success: #5A6B4A;
-            --elviano-error: #D9534F;
-        }
-
-        body { background: var(--elviano-ivory); font-family: 'Inter', sans-serif; font-weight: 300; color: var(--elviano-black); line-height: 1.6; }
-        h1, h2, h3, h4, .serif { font-family: 'Cormorant Garamond', serif; font-weight: 300; letter-spacing: -0.02em; }
-        .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
-        .container-sm { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
-        .eyebrow { text-transform: uppercase; letter-spacing: 0.25em; font-size: 0.7rem; font-weight: 400; color: var(--elviano-text-light); }
-
-        /* Page Loader */
-        .page-loader { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--elviano-ivory); z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
-        .page-loader.hide { opacity: 0; visibility: hidden; }
-        .loader-logo { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; letter-spacing: 0.3em; margin-bottom: 2rem; animation: pulse 1.5s ease-in-out infinite; }
-        .loader-line { width: 100px; height: 1px; background: var(--elviano-black); position: relative; overflow: hidden; }
-        .loader-line::after { content: ''; position: absolute; width: 50%; height: 100%; background: var(--elviano-clay); animation: loading 1s ease-in-out infinite; }
-        @keyframes loading { 0% { left: -50%; } 100% { left: 100%; } }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-
-        /* Navigation */
         nav { position: fixed; top: 0; left: 0; right: 0; padding: 2rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: rgba(249, 246, 240, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--elviano-border); }
-        .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; letter-spacing: 0.3em; text-transform: uppercase; color: var(--elviano-black); text-decoration: none; }
+        .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; letter-spacing: 0.3em; color: var(--elviano-black); text-decoration: none; }
         .nav-links { display: flex; gap: 3rem; }
-        .nav-links a { color: var(--elviano-black); text-decoration: none; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.2em; font-weight: 400; transition: opacity 0.3s ease; }
-        .nav-links a:hover { opacity: 0.6; }
-        .cart-link { color: var(--elviano-black); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; }
-        .cart-count { background: var(--elviano-black); color: white; font-size: 0.6rem; padding: 0.15rem 0.4rem; border-radius: 50%; margin-left: 0.3rem; }
+        .nav-links a { color: var(--elviano-black); text-decoration: none; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.2em; }
+        .cart-link { color: var(--elviano-black); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.2em; }
+        .cart-count { background: var(--elviano-black); color: white; padding: 0.15rem 0.4rem; border-radius: 50%; font-size: 0.6rem; margin-left: 0.3rem; }
 
-        /* Hamburger */
-        .hamburger { display: none; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; cursor: pointer; z-index: 1000; }
-        .hamburger span { display: block; width: 100%; height: 1.5px; background: var(--elviano-black); transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-        .mobile-menu { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--elviano-ivory); z-index: 999; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.4s ease; }
-        .mobile-menu.active { opacity: 1; visibility: visible; }
-        .mobile-menu-links { display: flex; flex-direction: column; align-items: center; gap: 2.5rem; }
-        .mobile-menu-links a { color: var(--elviano-black); text-decoration: none; font-size: 2rem; font-family: 'Cormorant Garamond', serif; font-weight: 300; text-transform: uppercase; transform: translateY(20px); opacity: 0; transition: all 0.4s ease; }
-        .mobile-menu.active .mobile-menu-links a { transform: translateY(0); opacity: 1; }
-        .mobile-menu-links a:nth-child(1) { transition-delay: 0.1s; }
-        .mobile-menu-links a:nth-child(2) { transition-delay: 0.2s; }
-        .mobile-menu-links a:nth-child(3) { transition-delay: 0.3s; }
-        .mobile-menu-links a:nth-child(4) { transition-delay: 0.4s; }
-        .mobile-menu-footer { position: absolute; bottom: 3rem; text-align: center; opacity: 0; transform: translateY(20px); transition: all 0.4s ease 0.5s; }
-        .mobile-menu.active .mobile-menu-footer { opacity: 1; transform: translateY(0); }
-        body.menu-open { overflow: hidden; }
+        .page-header { margin-top: 140px; text-align: center; margin-bottom: 3rem; }
+        .page-header h1 { font-size: clamp(3rem, 8vw, 5rem); }
 
-        /* Page Header */
-        .page-header { margin-top: 140px; margin-bottom: 3rem; text-align: center; }
-        .page-header h1 { font-size: clamp(3rem, 8vw, 5rem); margin: 1rem 0; }
-        .page-header p { max-width: 600px; margin: 0 auto; color: var(--elviano-text-light); }
-
-        /* Contact Layout */
-        .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 5rem; }
-        .contact-form-section { background: white; padding: 2.5rem; border: 1px solid var(--elviano-border); }
-        .contact-form-section h2 { font-size: 2rem; margin-bottom: 0.5rem; }
-        .contact-form-section > p { color: var(--elviano-text-light); margin-bottom: 2rem; }
-        .form-group { margin-bottom: 1.5rem; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 4rem; }
+        .form-group { margin-bottom: 1.25rem; }
         .form-group label { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; color: var(--elviano-text-light); }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.9rem 1rem; border: 1px solid var(--elviano-border); background: white; font-size: 0.9rem; }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--elviano-black); }
-        .form-group textarea { resize: vertical; min-height: 120px; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        .submit-btn { width: 100%; background: var(--elviano-black); color: white; border: none; padding: 1rem; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem; cursor: pointer; transition: background 0.3s ease; }
-        .submit-btn:hover { background: #2A2A2A; }
+        .form-group input, .form-group textarea { width: 100%; padding: 0.9rem; border: 1px solid var(--elviano-border); background: white; font-size: 0.9rem; font-family: 'Inter', sans-serif; }
+        .form-group textarea { min-height: 120px; resize: vertical; }
+        .submit-btn { padding: 1rem 2rem; background: var(--elviano-black); color: white; border: none; text-transform: uppercase; letter-spacing: 0.15em; cursor: pointer; font-size: 0.85rem; }
 
-        /* Contact Info Cards */
-        .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
-        .info-card { background: white; padding: 2rem; border: 1px solid var(--elviano-border); text-align: center; }
-        .info-icon { font-size: 2rem; color: var(--elviano-clay); margin-bottom: 1rem; }
-        .info-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
-        .info-card p { color: var(--elviano-text-light); font-size: 0.95rem; }
-        .info-link { display: inline-block; margin-top: 1rem; color: var(--elviano-black); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; border-bottom: 1px solid var(--elviano-black); padding-bottom: 0.25rem; }
-        .hours-list { margin-top: 1rem; }
-        .hours-item { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--elviano-border); font-size: 0.9rem; }
-        .hours-item:last-child { border-bottom: none; }
-        .hours-day { color: var(--elviano-text-light); }
-        .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; }
-        .social-links a { color: var(--elviano-black); font-size: 1.25rem; opacity: 0.6; transition: opacity 0.3s ease; }
-        .social-links a:hover { opacity: 1; }
+        .info-card { background: white; border: 1px solid var(--elviano-border); padding: 2rem; text-align: center; margin-bottom: 1rem; }
+        .info-card i { font-size: 2rem; color: var(--elviano-clay); margin-bottom: 1rem; }
+        .info-card h3 { margin-bottom: 0.5rem; }
 
-        /* FAQ Section */
-        .faq-section { margin: 6rem 0; }
-        .faq-header { text-align: center; margin-bottom: 3rem; }
-        .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-        .faq-item { background: white; border: 1px solid var(--elviano-border); padding: 1.5rem; }
-        .faq-question { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
-        .faq-question h4 { font-size: 1.1rem; }
-        .faq-question i { color: var(--elviano-text-light); transition: transform 0.3s ease; }
-        .faq-item.active .faq-question i { transform: rotate(180deg); }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-        .faq-item.active .faq-answer { max-height: 200px; margin-top: 1rem; }
-        .faq-answer p { color: var(--elviano-text-light); font-size: 0.9rem; }
+        .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; text-decoration: none; z-index: 997; }
+        footer { background: var(--elviano-black); color: var(--elviano-ivory); padding: 3rem 2rem; text-align: center; margin-top: 4rem; }
 
-        /* Map Section */
-        .map-section { margin: 5rem 0; }
-        .map-header { text-align: center; margin-bottom: 2rem; }
-        .map-container { width: 100%; height: 400px; background: var(--elviano-stone); border: 1px solid var(--elviano-border); display: flex; align-items: center; justify-content: center; }
-        .map-placeholder { text-align: center; color: var(--elviano-text-light); }
-        .map-placeholder i { font-size: 3rem; margin-bottom: 1rem; opacity: 0.5; }
-
-        /* Newsletter */
-        .newsletter-section { background: var(--elviano-black); color: white; padding: 5rem 0; margin: 5rem 0; text-align: center; }
-        .newsletter-section .eyebrow { color: rgba(255,255,255,0.6); }
-        .newsletter-section h2 { color: white; font-size: 2.5rem; margin: 1rem 0; }
-        .newsletter-section p { color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto 2rem; }
-        .newsletter-form { display: flex; max-width: 500px; margin: 0 auto; gap: 1rem; }
-        .newsletter-form input { flex: 1; padding: 1rem; background: transparent; border: 1px solid rgba(255,255,255,0.3); color: white; }
-        .newsletter-form button { padding: 1rem 2rem; background: white; color: var(--elviano-black); border: none; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem; cursor: pointer; }
-
-        /* Toast */
-        .toast-container { position: fixed; bottom: 2rem; right: 2rem; z-index: 9999; display: flex; flex-direction: column; gap: 0.75rem; }
-        .toast-message { background: var(--elviano-black); color: white; padding: 1rem 2rem; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem; animation: toastSlideIn 0.3s ease; border-left: 3px solid var(--elviano-success); }
-        @keyframes toastSlideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-
-        /* WhatsApp */
-        .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; text-decoration: none; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); z-index: 997; transition: transform 0.3s ease; }
-        .whatsapp-float:hover { transform: scale(1.1); }
-        .whatsapp-tooltip { position: absolute; right: 70px; background: var(--elviano-black); color: white; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.7rem; text-transform: uppercase; white-space: nowrap; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
-        .whatsapp-float:hover .whatsapp-tooltip { opacity: 1; visibility: visible; right: 75px; }
-
-        /* Footer */
-        footer { background: var(--elviano-black); color: var(--elviano-ivory); padding: 5rem 2rem 2rem; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; max-width: 1600px; margin: 0 auto; }
-        .footer-grid h5 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; margin-bottom: 1.5rem; font-weight: 400; }
-        .footer-grid ul { list-style: none; }
-        .footer-grid li { margin-bottom: 0.75rem; opacity: 0.7; font-size: 0.85rem; cursor: pointer; }
-        .footer-tagline { opacity: 0.7; font-size: 0.9rem; }
-        .footer-newsletter { display: flex; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 0.5rem; margin-top: 1rem; }
-        .footer-newsletter input { background: transparent; border: none; color: white; padding: 0.5rem 0; flex: 1; outline: none; }
-        .footer-newsletter button { background: transparent; border: none; color: white; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.7rem; cursor: pointer; }
-        .footer-bottom { max-width: 1600px; margin: 4rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; opacity: 0.5; font-size: 0.75rem; text-transform: uppercase; }
-
-        /* Responsive */
-        @media (max-width: 1024px) { .contact-layout { grid-template-columns: 1fr; } .faq-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 768px) {
-            .hamburger { display: flex; } .nav-links { display: none; } nav { padding: 1.5rem; } .logo { font-size: 1.5rem; letter-spacing: 0.2em; } .page-header { margin-top: 120px; }
-            .contact-form-section { padding: 1.5rem; } .form-row { grid-template-columns: 1fr; } .newsletter-form { flex-direction: column; padding: 0 1rem; } .footer-grid { grid-template-columns: 1fr; }
-            .whatsapp-float { width: 50px; height: 50px; font-size: 1.5rem; } .whatsapp-tooltip { display: none; }
-        }
+        @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } .nav-links { display: none; } nav { padding: 1.5rem; } }
     </style>
 </head>
 <body>
 
-    <!-- Page Loader -->
-    <div class="page-loader" id="pageLoader"><div class="loader-logo">ELVIANO</div><div class="loader-line"></div></div>
-
-    <!-- Navigation -->
     <nav>
         <a href="index.html" class="logo">ELVIANO</a>
-        <div class="nav-links"><a href="#">Editions</a><a href="lookbook.html">Lookbook</a><a href="journal.html">Journal</a><a href="about.html">About</a></div>
-        <a href="cart.html" class="cart-link">Cart <span class="cart-count">0</span></a>
-        <div class="hamburger"><span></span><span></span><span></span></div>
+        <div class="nav-links"><a href="index.html#products">Shop</a><a href="lookbook.html">Lookbook</a><a href="journal.html">Journal</a><a href="about.html">About</a></div>
+        <a href="cart.html" class="cart-link">Cart <span class="cart-count" id="cartCount">0</span></a>
     </nav>
 
-    <!-- Page Header -->
-    <section class="container-sm"><div class="page-header"><div class="eyebrow">Get in Touch</div><h1>Contact Us</h1><p>Have questions about an edition, your order, or just want to say hello? We'd love to hear from you.</p></div></section>
+    <section class="container"><div class="page-header"><div class="eyebrow">Get in Touch</div><h1>Contact Us</h1></div></section>
 
-    <!-- Contact Layout -->
-    <section class="container"><div class="contact-layout">
-        <div class="contact-form-section"><h2>Send a Message</h2><p>We'll respond within 24 hours.</p><form id="contactForm" onsubmit="submitForm(event)">
-            <div class="form-row"><div class="form-group"><label>First Name</label><input type="text" placeholder="Abhishek" required></div><div class="form-group"><label>Last Name</label><input type="text" placeholder="Yadav"></div></div>
-            <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com" required></div>
-            <div class="form-group"><label>Phone (Optional)</label><input type="tel" placeholder="+91 98765 43210"></div>
-            <div class="form-group"><label>Subject</label><select required><option value="">Select</option><option>Order Inquiry</option><option>Product Question</option><option>Returns</option><option>Wholesale</option><option>Press</option><option>Other</option></select></div>
-            <div class="form-group"><label>Message</label><textarea placeholder="How can we help?" required></textarea></div>
-            <button type="submit" class="submit-btn">Send Message</button>
-        </form></div>
-        <div class="contact-info">
-            <div class="info-card"><div class="info-icon"><i class="fas fa-map-pin"></i></div><h3>Studio</h3><p>Jagdalpur, Bastar<br>Chhattisgarh - 494001<br>India</p><a href="#" class="info-link" onclick="openMap(event)">View on Map →</a><div class="hours-list"><div class="hours-item"><span class="hours-day">Mon - Fri</span><span>10:00 - 18:00</span></div><div class="hours-item"><span class="hours-day">Saturday</span><span>11:00 - 16:00</span></div><div class="hours-item"><span class="hours-day">Sunday</span><span>Closed</span></div></div></div>
-            <div class="info-card"><div class="info-icon"><i class="fas fa-envelope"></i></div><h3>Email Us</h3><p>General: <a href="mailto:elviano.in@gmail.com" style="color:var(--elviano-black);">elviano.in@gmail.com</a></p></div>
-            <div class="info-card"><div class="info-icon"><i class="fab fa-whatsapp"></i></div><h3>WhatsApp</h3><p><strong>+91 6260323405</strong><br><span style="font-size:0.8rem;">Mon-Sat, 10:00-18:00</span></p></div>
-            <div class="info-card"><div class="info-icon"><i class="fas fa-hashtag"></i></div><h3>Follow Us</h3><div class="social-links"><a href="https://instagram.com/elviano.official"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-pinterest"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div><p style="margin-top:1rem;">@elviano.official</p></div>
+    <section class="container">
+        <div class="contact-grid">
+            <div>
+                <form onsubmit="alert('Message sent! We will respond within 24 hours.'); return false;">
+                    <div class="form-group"><label>Name</label><input type="text" placeholder="Your name"></div>
+                    <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+                    <div class="form-group"><label>Message</label><textarea placeholder="How can we help?"></textarea></div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+            <div>
+                <div class="info-card"><i class="fas fa-map-pin"></i><h3>Studio</h3><p>Jagdalpur, Bastar<br>Chhattisgarh - 494001</p></div>
+                <div class="info-card"><i class="fas fa-envelope"></i><h3>Email</h3><p>elviano.in@gmail.com</p></div>
+                <div class="info-card"><i class="fab fa-whatsapp"></i><h3>WhatsApp</h3><p>+91 6260323405</p></div>
+                <div class="info-card"><i class="fab fa-instagram"></i><h3>Instagram</h3><p>@elviano.official</p></div>
+            </div>
         </div>
-    </div></section>
+    </section>
 
-    <!-- FAQ Section -->
-    <section class="container"><div class="faq-section"><div class="faq-header"><div class="eyebrow">Quick Answers</div><h2>Frequently Asked Questions</h2></div><div class="faq-grid">
-        <div class="faq-item active"><div class="faq-question" onclick="toggleFaq(this)"><h4>What is your return policy?</h4><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Returns within 7 days. Items must be unworn with tags. Limited editions cannot be exchanged.</p></div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><h4>How long does shipping take?</h4><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Standard: 3-7 days. Express: 1-2 days.</p></div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><h4>Do you ship internationally?</h4><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Yes, worldwide shipping available.</p></div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><h4>Will sold-out editions restock?</h4><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>No. Once sold out, the screens are retired.</p></div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><h4>How to care for my piece?</h4><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Machine wash cold, inside out. Line dry.</p></div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><h4>Do you offer wholesale?</h4><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Select partnerships. Email us.</p></div></div>
-    </div></div></section>
+    <footer><p style="font-family:'Cormorant Garamond', serif; font-size:1.5rem;">ELVIANO</p><p style="opacity:0.7;">Limited edition printed apparel.</p><p style="opacity:0.5;font-size:0.75rem;">© 2026 Elviano. All rights reserved.<br>Jagdalpur, Bastar, Chhattisgarh - 494001</p></footer>
 
-    <!-- Map Section -->
-    <section class="container"><div class="map-section"><div class="map-header"><div class="eyebrow">Visit the Studio</div><h2>Jagdalpur, Bastar</h2></div><div class="map-container"><div class="map-placeholder"><i class="fas fa-map-location-dot"></i><p>Jagdalpur, Bastar<br>Chhattisgarh - 494001</p><a href="#" class="info-link" onclick="openMap(event)">Open in Google Maps →</a></div></div></div></section>
-
-    <!-- Newsletter -->
-    <section class="newsletter-section"><div class="container-sm"><div class="eyebrow">Stay Connected</div><h2>Receive Editions</h2><p>Be the first to know about new drops.</p><div class="newsletter-form"><input type="email" placeholder="Your email address" id="newsletterEmail"><button onclick="subscribeNewsletter()">Subscribe</button></div></div></section>
-
-    <!-- Footer -->
-    <footer><div class="footer-grid"><div><h5>ELVIANO</h5><p class="footer-tagline">Limited edition printed apparel. Designed with intention. Never restocked.</p></div><div><h5>Shop</h5><ul><li>Edition 01</li><li>All Tees</li><li>All Shirts</li><li>Lookbook</li></ul></div><div><h5>Information</h5><ul><li>About</li><li>Size Guide</li><li>Shipping</li><li>Returns</li><li>Contact</li></ul></div><div><h5>Receive Editions</h5><div class="footer-newsletter"><input type="email" placeholder="Your email"><button>Subscribe →</button></div></div></div><div class="footer-bottom">© 2026 Elviano. All rights reserved. — Impressions in Ink.<br>Jagdalpur, Bastar, Chhattisgarh - 494001</div></footer>
-
-    <!-- Toast -->
-    <div class="toast-container" id="toastContainer"></div>
-
-    <!-- WhatsApp -->
-    <a href="https://wa.me/916260323405?text=Hi%20ELVIANO%2C%20I%20have%20a%20question!" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i><span class="whatsapp-tooltip">Chat with us!</span></a>
+    <a href="https://wa.me/916260323405" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
-        window.addEventListener('load', () => setTimeout(() => document.getElementById('pageLoader').classList.add('hide'), 600));
-        function showToast(msg, type='success') { const c = document.getElementById('toastContainer'); const t = document.createElement('div'); t.className = 'toast-message ' + type; t.textContent = msg; c.appendChild(t); setTimeout(() => { t.style.animation = 'toastSlideIn 0.3s ease reverse'; setTimeout(() => t.remove(), 300); }, 3000); }
-        function submitForm(e) { e.preventDefault(); showToast('Message Sent Successfully!', 'success'); document.getElementById('contactForm').reset(); }
-        function toggleFaq(el) { const item = el.closest('.faq-item'); document.querySelectorAll('.faq-item').forEach(i => { if(i !== item) i.classList.remove('active'); }); item.classList.toggle('active'); }
-        function openMap(e) { e.preventDefault(); showToast('Opening Google Maps...', 'success'); }
-        function subscribeNewsletter() { const e = document.getElementById('newsletterEmail'); if(e.value) { showToast('Subscribed!', 'success'); e.value = ''; } else showToast('Enter your email', 'error'); }
-
-        gsap.registerPlugin(ScrollTrigger); gsap.from('.page-header', { opacity: 0, y: 30, duration: 1 }); gsap.from('.contact-form-section', { scrollTrigger: { trigger: '.contact-layout', start: 'top 80%' }, opacity: 0, x: -30, duration: 0.8 }); gsap.from('.info-card', { scrollTrigger: { trigger: '.contact-info', start: 'top 80%' }, opacity: 0, y: 30, stagger: 0.15, duration: 0.6 }); gsap.from('.faq-item', { scrollTrigger: { trigger: '.faq-grid', start: 'top 85%' }, opacity: 0, y: 20, stagger: 0.1, duration: 0.5 });
-
-        (function() { const h = document.querySelector('.hamburger'), b = document.body, m = document.createElement('div'); m.className = 'mobile-menu'; m.innerHTML = `<div class="mobile-menu-links"><a href="#">Editions</a><a href="lookbook.html">Lookbook</a><a href="journal.html">Journal</a><a href="about.html">About</a></div><div class="mobile-menu-footer"><p>Follow @elviano.official</p><div class="mobile-social"><a href="https://instagram.com/elviano.official"><i class="fab fa-instagram"></i></a></div></div>`; b.appendChild(m); function t() { h.classList.toggle('active'); m.classList.toggle('active'); b.classList.toggle('menu-open'); } h.addEventListener('click', t); m.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { h.classList.remove('active'); m.classList.remove('active'); b.classList.remove('menu-open'); })); })();
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = JSON.parse(localStorage.getItem('elviano_cart')) || [];
+            document.getElementById('cartCount').textContent = cart.reduce((s, i) => s + i.quantity, 0);
+        });
     </script>
 </body>
 </html>
